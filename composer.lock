@@ -1,0 +1,54 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "9bde23b4cee6fabc82828369297e0a34",
+    "packages": [
+        {
+            "name": "phoenix404/useragents",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Phoenix404/useragents.git",
+                "reference": "b2b88e5b253b65b8e19e5531a5f9f5b9cfa22116"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Phoenix404/useragents/zipball/b2b88e5b253b65b8e19e5531a5f9f5b9cfa22116",
+                "reference": "b2b88e5b253b65b8e19e5531a5f9f5b9cfa22116",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Useragent\\": "Src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "phoenix404",
+                    "email": "manpreet2681995@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "useragents Lib with huge collection of useragents(os, devices, spieders, console browsers..)",
+            "time": "2017-09-17T13:26:06+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "phoenix404/useragents": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

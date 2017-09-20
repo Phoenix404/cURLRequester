@@ -1,0 +1,14 @@
+{
+    "name": "phoenix404/cURLRequester",
+    "description": "Curl Request ready to go...",
+    "type": "library",
+    "require": {
+        "phoenix404/useragents": "dev-master"
+    },
+    "Licence":"MIT",
+     "autoload": {
+        "psr-4": {
+            "cURLRequester\\": "Src/"
+        }
+    }
+}

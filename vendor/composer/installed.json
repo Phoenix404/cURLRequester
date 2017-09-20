@@ -1,0 +1,38 @@
+[
+    {
+        "name": "phoenix404/useragents",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Phoenix404/useragents.git",
+            "reference": "b2b88e5b253b65b8e19e5531a5f9f5b9cfa22116"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Phoenix404/useragents/zipball/b2b88e5b253b65b8e19e5531a5f9f5b9cfa22116",
+            "reference": "b2b88e5b253b65b8e19e5531a5f9f5b9cfa22116",
+            "shasum": ""
+        },
+        "time": "2017-09-17T13:26:06+00:00",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Useragent\\": "Src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "phoenix404",
+                "email": "manpreet2681995@gmail.com",
+                "role": "Developer"
+            }
+        ],
+        "description": "useragents Lib with huge collection of useragents(os, devices, spieders, console browsers..)"
+    }
+]
