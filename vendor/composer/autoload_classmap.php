@@ -6,4 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'cURLRequester\\cURLEngine' => $baseDir . '/Src/cURLEngine.php',
+    'cURLRequester\\cURLRequester' => $baseDir . '/Src/cURLRequester.php',
 );

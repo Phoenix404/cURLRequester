@@ -33,9 +33,10 @@ class cURLEngine {
     public $appName            = "cURLRequester";
     public $appVersion         = "1.0.0";
 
-    public $CookiesFile        = "./Cookies/Cookies.txt";
-    public $certPath           = './SSL/cacert.pem';
-    public $cacheDir           = './Cache/';
+    public $CookiesJar          = "./Cookies/Cookies.txt";
+    public $CookiesFile         = "./Cookies/Cookies.txt";
+    public $certPath            = './SSL/cacert.pem';
+    public $cacheDir            = './Cache/';
 
 	protected $invokable 	   = array();
 
@@ -141,6 +142,15 @@ class cURLEngine {
 	{
 		return isset($this->options["curl_opt"][$opt]);
 	}
+
+    public function removeCurlOpt($opt)
+    {
+        if($this->curlOptIsset($opt))
+        {
+            unset($this->options["curl_opt"]);
+        }
+        return $this;
+    }
 
     /**
 	 * @see http://php.net/manual/en/function.curl-setopt.php
@@ -789,13 +799,36 @@ class cURLEngine {
         return $this->getCurlInfo("CURLINFO_SSL_VERIFYRESULT");
     }
 
+    public function setCookiesJar($jar="")
+    {
+        if(strlen($jar)<=0)
+            $jar = $this->CookiesJar;
+
+        $this->setOpt("CURLOPT_COOKIEJAR", $jar);
+        return $this;
+    }
+
+
+    public function setCookiesFile($file="")
+    {
+        if(strlen($file)<=0)
+            $file   =  $this->CookiesFile;
+            
+        $this->setOpt("CURLOPT_COOKIEFILE", $file);
+        return $this;
+    }
+
     /**
      * @param bool $val
      */
     public function enableCookies($val = true)
     {
-        $this->setOpt("CURLOPT_COOKIEJAR", $this->CookiesFile);
-        $this->setOpt("CURLOPT_COOKIEFILE", $this->CookiesFile);
+        if($var){
+        }else{
+            $thiis->removeCurlOpt("CURLOPT_COOKIEJAR");
+            $thiis->removeCurlOpt("CURLOPT_COOKIEFILE");
+        }
         return $this;
     }
+
 }
