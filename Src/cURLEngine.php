@@ -54,6 +54,7 @@ class cURLEngine {
     // download file
     // upload file
     // ftp
+    // need to delete @see comments ..
 
     /**
 	 * cURLRequest constructor.
@@ -854,12 +855,30 @@ class cURLEngine {
         return $this;
     }
 
-    public function setCookies($key, $value)
+
+    /**
+     * Set Cookies
+     * @see https://stackoverflow.com/questions/6453347/php-curl-and-setcookie-problem
+     * @param $key
+     * @param string $value
+     * @return $this
+     */
+    public function setCookies($key, $value="")
     {
+        $cookies = "";
         if(is_array($key))
         {
-            https://stackoverflow.com/questions/6453347/php-curl-and-setcookie-problem
+            $cookies    = http_build_query($key);
+        }elseif(is_string($key))
+        {
+            $cookies    = http_build_query(array($key=>$value));
+        }else
+        {
+            return $this;
         }
+
+        $this->setOpt("CURLOPT_COOKIE", $cookies);
+        return $this;
     }
 
     /**
