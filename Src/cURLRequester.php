@@ -47,7 +47,7 @@ class cURLRequester extends cURLEngine
 
     public function get()
     {
-        // if set to false mitm attack can be activge
+        // if set to false mitm attack can be activte
         //http://ademar.name/blog/2006/04/curl-ssl-certificate-problem-v.html
         //verifyHos                 t()
         //verifypeer()
@@ -59,6 +59,7 @@ class cURLRequester extends cURLEngine
 
     }
 
-
+    public function login()
+    {}
 
 }

@@ -22,7 +22,7 @@ class cURLEngine {
     protected $options         = array();
 
     protected $cURL            = null;
-    protected $result          = "";
+    public $result          = "";
     protected $error           = "";
     protected $recallUseCache  = false;
     protected $userAgent       = "";
@@ -143,6 +143,11 @@ class cURLEngine {
 		return isset($this->options["curl_opt"][$opt]);
 	}
 
+    /**
+     * Remove the curl option if is set
+     * @param $opt
+     * @return $this
+     */
     public function removeCurlOpt($opt)
     {
         if($this->curlOptIsset($opt))
@@ -275,6 +280,8 @@ class cURLEngine {
         // It executes the request
         if(!$this->hasFalseValue($this->invokable))
         {
+            echo "\nPlease remove me from line ".__LINE__."\n";
+
             //avoid print the result and force it to return the result in a variable
             curl_setopt($this->cURL, CURLOPT_RETURNTRANSFER, 1);
 
@@ -771,44 +778,73 @@ class cURLEngine {
         return $this->getCurlInfo("CURLINFO_COOKIELIST");
     }
 
+    /**
+     * @return mixed
+     */
     public function getRequestSize()
     {
         return $this->getCurlInfo("CURLINFO_REQUEST_SIZE");
     }
 
+    /**
+     * @param bool $val
+     * @return $this
+     */
     public function verifyPeer($val=true)
     {
         $this->setOpt("CURLOPT_SSL_VERIFYPEER", $val);
         return $this;
     }
 
+    /**
+     * @param bool $val
+     * @return $this
+     */
     public function verifyHost($val=false)
     {
         $this->setOpt("CURLOPT_SSL_VERIFYHOST", $val);
         return $this;
     }
 
+    /**
+     * @return $this
+     */
     public function fastTCP()
     {
         $this->setOpt("CURLOPT_TCP_FASTOPEN", true);
         return $this;
     }
 
+    /**
+     * @return mixed
+     */
     public function getSSLResult()
     {
         return $this->getCurlInfo("CURLINFO_SSL_VERIFYRESULT");
     }
 
+    /**
+     * @param string $jar
+     * @return $this
+     */
     public function setCookiesJar($jar="")
     {
         if(strlen($jar)<=0)
             $jar = $this->CookiesJar;
 
+        if(!file_exists($jar))
+        {
+            file_put_contents($jar, "");
+        }
+
         $this->setOpt("CURLOPT_COOKIEJAR", $jar);
         return $this;
     }
 
-
+    /**
+     * @param string $file
+     * @return $this
+     */
     public function setCookiesFile($file="")
     {
         if(strlen($file)<=0)
@@ -818,17 +854,51 @@ class cURLEngine {
         return $this;
     }
 
+    public function setCookies($key, $value)
+    {
+        if(is_array($key))
+        {
+            https://stackoverflow.com/questions/6453347/php-curl-and-setcookie-problem
+        }
+    }
+
     /**
      * @param bool $val
      */
     public function enableCookies($val = true)
     {
-        if($var){
+        echo "\n i hv been called.";
+        if($val){
+            echo "\n true";
+            $this->setCookiesJar();
+            $this->setCookiesFile();
         }else{
-            $thiis->removeCurlOpt("CURLOPT_COOKIEJAR");
-            $thiis->removeCurlOpt("CURLOPT_COOKIEFILE");
+            echo "\n Else.";
+            $this->removeCurlOpt("CURLOPT_COOKIEJAR");
+            $this->removeCurlOpt("CURLOPT_COOKIEFILE");
         }
         return $this;
     }
+
+    /**
+     * @return $this
+     */
+    public function disableCache()
+    {
+        $this->enableCache(false);
+        return $this;
+    }
+
+    /**
+     * Returns curl Instance
+     * @return resource
+     */
+    public function getCurlInstance()
+    {
+        return $this->cURL;
+    }
+
+
+
 
 }
