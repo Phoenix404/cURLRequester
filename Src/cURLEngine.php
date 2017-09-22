@@ -105,6 +105,7 @@ class cURLEngine {
         curl_reset($this->cURL);
 
         $this->freshConnection($fresh_no_cache);
+        return $this;
     }
 
     /**
@@ -826,7 +827,7 @@ class cURLEngine {
     }
 
     /**
-     *
+     * Curl Header function to get response header info
      * @param $curl
      * @param $header
      * @return int
@@ -963,6 +964,7 @@ class cURLEngine {
 
     /**
      * @param bool $val
+     * @return $this
      */
     public function enableCookies($val = true)
     {
@@ -995,6 +997,12 @@ class cURLEngine {
         return $this->cURL;
     }
 
+    /**
+     * check whether str contains
+     * @param $haystack
+     * @param $needles
+     * @return bool
+     */
     public function str_contains($haystack, $needles)
     {
         foreach ((array) $needles as $needle){

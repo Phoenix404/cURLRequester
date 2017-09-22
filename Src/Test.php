@@ -10,36 +10,42 @@ $option     = [];
 $option1    = array("CURLOPT_RETURNTRANSFER"=>1);
 $option2    = array(CURLOPT_RETURNTRANSFER =>1);
 
+//$c      = new cURLEngine("https://www.google.it/?gfe_rd=cr&dcr=0&ei=QqS-WdTWJsj68Ae27YaABg", true);
 //$c 	= new cURLRequester("https://www.google.it/?gfe_rd=cr&dcr=0&ei=QqS-WdTWJsj68Ae27YaABg", true);
 //$c 	= new cURLRequester("https://www.google.it/?gfe_rd=cr&dcr=0&ei=QqS-WdTWJsj68Ae27YaABg", true);
-//$c 	= new cURLRequester("http://php.net/manual/en/features.commandline.options.php");
-$c      = new cURLEngine("https://www.google.it/?gfe_rd=cr&dcr=0&ei=QqS-WdTWJsj68Ae27YaABg", true);
-print_r($c);
-/*
-//$c->setUserAgent();
-$c->enableCache(true);
-//$c->setOpt("CURLOPT_COOKIE", true);
+$c 	= new cURLRequester();
+
+
+
+$c->setUserAgent();
+//$c->enableCache(true);
+$c->setOpt("CURLOPT_COOKIE", true);
 //$c->enableCookies(true);
 
+//unset($c->result);
 //print_r($c);
 
-$data = $c->basicRequest("http://www.whatarecookies.com/", true);
-///*
-unset($c->result);
-print_r($c);
-//* /
 echo "\nCalling whatarecookies\n";
-//$data = $c->basicRequest("http://www.whatarecookies.com/cookietest.asp");
-//$data = $c->invoke();
-echo "<textarea rows='10' cols='100'>".$data."</textarea>";
+$data1 = $c->basicRequest("http://www.whatarecookies.com/cookietest.asp");
+echo "<textarea rows='10' cols='50'>".$data1."</textarea>";
 echo "\nServer is ";
-//print_r($c->getServerType());
+print_r($c->getServerType());
+echo "\nCookies are ";
+print_r($c->getCookies());
 
-//echo "\nCalling Google\n";
-//$data = $c->basicRequest("https://www.google.it/?gfe_rd=cr&dcr=0&ei=QqS-WdTWJsj68Ae27YaABg", true);
-//echo "<br/><textarea row='15' cols='100'>".$data."</textarea>";
-//echo "\nServer is ";
-//print_r($c->getServerType());
+$c->init_cURL()->reset();
+
+echo "\nCalling Google\n";
+$data2 = $c
+        ->setAutoReferer(true)
+        ->setReferer(true)
+        ->followLocation(true)
+        ->basicRequest("https://www.google.it/?gfe_rd=cr&dcr=0&ei=SEfFWcTsKrLBXoHSnagK&gws_rd=ssl");
+echo "<textarea rows='10' cols='50'>".$data2."</textarea>";
+echo "\nServer is ";
+print_r($c->getServerType());
+echo "\nCookies are ";
+print_r($c->getCookies());
 
 
 //echo $c->getResult();
