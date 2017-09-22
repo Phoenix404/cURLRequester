@@ -28,7 +28,7 @@ class cURLEngine {
     protected $userAgent       = "";
     protected $url             = "";
     protected $headers         = array();
-
+    protected $functionHeaders = array();
 
     public $appName            = "cURLRequester";
     public $appVersion         = "1.0.0";
@@ -55,6 +55,7 @@ class cURLEngine {
     // upload file
     // ftp
     // need to delete @see comments ..
+    // content-type which type data send
 
     /**
 	 * cURLRequest constructor.
@@ -285,10 +286,10 @@ class cURLEngine {
 
             //avoid print the result and force it to return the result in a variable
             curl_setopt($this->cURL, CURLOPT_RETURNTRANSFER, 1);
-
+            curl_setopt($this->cURL, CURLOPT_HEADERFUNCTION, array($this, "cURLHeadersFunction"));
             $this->prepareCurlOption();
             $this->result = curl_exec($this->cURL);
-
+            print_r($this->functionHeaders);
         }
 
 		// if cache is enabled
@@ -825,6 +826,85 @@ class cURLEngine {
     }
 
     /**
+     *
+     * @param $curl
+     * @param $header
+     * @return int
+     */
+    protected function cURLHeadersFunction($curl, $header)
+    {
+        $len = strlen($header);
+        if($this->str_contains(strtolower($header), "http"))
+        {
+            // status  HTTP/1.1 200 OK;
+            $this->functionHeaders["status"]    = $header;
+        }
+
+        $header = explode(':', $header, 2);
+        if (count($header) < 2)
+            return $len;
+
+        $name = strtolower(trim($header[0]));
+        if (!array_key_exists($name, $this->functionHeaders))
+            $this->functionHeaders[$name] = [trim($header[1])];
+        else
+            $this->functionHeaders[$name][] = trim($header[1]);
+
+        return $len;
+
+    }
+
+    /**
+     * Return http status if exists otherwise an empty string
+     * @return mixed|string
+     */
+    public function getHeaderStatus()
+    {
+        return isset($this->functionHeaders["status"])?$this->functionHeaders["status"]:"";
+    }
+
+    /**
+     * @return mixed|array|string
+     */
+    public function getCacheControl()
+    {
+        return isset($this->functionHeaders["cache-control"])?$this->functionHeaders["cache-control"]:"";
+    }
+
+    /**
+     * @return mixed|array|string
+     */
+    public function getContentType()
+    {
+        return isset($this->functionHeaders["content-type"])?$this->functionHeaders["content-type"]:"";
+    }
+
+    /**
+     * @return mixed|array|string
+     */
+    public function getServerType()
+    {
+        return isset($this->functionHeaders["server"])?$this->functionHeaders["server"]:"";
+    }
+
+    /**
+     * @return mixed|array|string
+     */
+    public function getCookies()
+    {
+        return isset($this->functionHeaders["set-cookie"])?$this->functionHeaders["set-cookie"]:"";
+    }
+
+    /**
+     * Returns the connection status of request e.g close, maybe keep-alive..
+     * @return mixed|array|string
+     */
+    public function getConnectionStatus()
+    {
+        return isset($this->functionHeaders["connection"])?$this->functionHeaders["connection"]:"";
+    }
+
+    /**
      * @param string $jar
      * @return $this
      */
@@ -850,11 +930,10 @@ class cURLEngine {
     {
         if(strlen($file)<=0)
             $file   =  $this->CookiesFile;
-            
+
         $this->setOpt("CURLOPT_COOKIEFILE", $file);
         return $this;
     }
-
 
     /**
      * Set Cookies
@@ -888,11 +967,9 @@ class cURLEngine {
     {
         echo "\n i hv been called.";
         if($val){
-            echo "\n true";
             $this->setCookiesJar();
             $this->setCookiesFile();
         }else{
-            echo "\n Else.";
             $this->removeCurlOpt("CURLOPT_COOKIEJAR");
             $this->removeCurlOpt("CURLOPT_COOKIEFILE");
         }
@@ -917,7 +994,15 @@ class cURLEngine {
         return $this->cURL;
     }
 
-
+    public function str_contains($haystack, $needles)
+    {
+        foreach ((array) $needles as $needle){
+            if ($needle !== '' && mb_strpos($haystack, $needle) !== false) {
+                return true;
+            }
+        }
+        return false;
+    }
 
 
 }

@@ -20,18 +20,21 @@ $c->enableCookies(true);
 
 //print_r($c);
 
-//$data = $c->basicRequest("http://www.whatarecookies.com/");
+$data = $c->basicRequest("http://www.whatarecookies.com/");
 /*
 $data = $c->basicRequest("http://www.whatarecookies.com/cookietest.asp");
 unset($c->result);
 print_r($c);
 */
-//echo "<textarea row='15' cols='100%'>".$data."</textarea>";
+echo "<textarea row='15' cols='100%'>".$data."</textarea>";
 
 //$data = $c->basicRequest("https://www.google.it/?gfe_rd=cr&dcr=0&ei=QqS-WdTWJsj68Ae27YaABg", true);
 //echo "<br/><textarea row='15' cols='100%'>".$data."</textarea>";
 
 //echo $c->getResult();
+
+
+
 /*$lines = explode("\n", $data);
 $headers = array();
 $body = "";
@@ -70,6 +73,8 @@ function curlResponseHeaderCallback($ch, $headerLine) {
     return strlen($headerLine); // Needed by curl
 }*/
 
+
+/*
 $ch = curl_init();
 $headers = [];
 curl_setopt($ch, CURLOPT_URL, "http://www.whatarecookies.com/");
@@ -80,7 +85,7 @@ curl_setopt($ch, CURLOPT_HEADERFUNCTION,
     function($curl, $header) use (&$headers)
     {
         $len = strlen($header);
-        echo "\n ONEE";
+        echo "\n ONE";
         print_r($header);
         $header = explode(':', $header, 2);
         if (count($header) < 2) // ignore invalid headers
@@ -97,4 +102,4 @@ curl_setopt($ch, CURLOPT_HEADERFUNCTION,
 );
 
 $data = curl_exec($ch);
-print_r($headers);
+print_r($headers);*/
