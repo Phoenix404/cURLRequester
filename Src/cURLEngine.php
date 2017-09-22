@@ -122,6 +122,8 @@ class cURLEngine {
         $this->invokable        = array();
         $this->headers          = array();
         $this->url              = array();
+        $this->functionHeaders  = array();
+
 
         if(is_resource($this->cURL)) curl_reset($this->cURL);
 
@@ -273,7 +275,7 @@ class cURLEngine {
      */
     public function invoke()
 	{
-
+        $this->functionHeaders = array();
 		//To check if user has called useCache method before setting the url
 		if($this->recallUseCache)
 		    $this->enableCache(true);
@@ -282,14 +284,13 @@ class cURLEngine {
         // It executes the request
         if(!$this->hasFalseValue($this->invokable))
         {
-            echo "\nPlease remove me from line ".__LINE__."\n";
+            echo "\nPlease remove me from line ".__LINE__." I am from invoke method.\n";
 
             //avoid print the result and force it to return the result in a variable
             curl_setopt($this->cURL, CURLOPT_RETURNTRANSFER, 1);
             curl_setopt($this->cURL, CURLOPT_HEADERFUNCTION, array($this, "cURLHeadersFunction"));
             $this->prepareCurlOption();
             $this->result = curl_exec($this->cURL);
-            print_r($this->functionHeaders);
         }
 
 		// if cache is enabled
@@ -726,8 +727,7 @@ class cURLEngine {
             // Force to send request to Server
             $this->invokable["cache"] 	= true;
         }
-
-		$this->recallUseCache 	= false;
+        $this->recallUseCache 	= false;
 		return $this;
 	}
 
@@ -956,7 +956,8 @@ class cURLEngine {
             return $this;
         }
 
-        $this->setOpt("CURLOPT_COOKIE", $cookies);
+        if(empty($cookies))$this->setOpt("CURLOPT_COOKIE", true);
+        else $this->setOpt("CURLOPT_COOKIE", $cookies);
         return $this;
     }
 
@@ -965,7 +966,7 @@ class cURLEngine {
      */
     public function enableCookies($val = true)
     {
-        echo "\n i hv been called.";
+        echo "\nI have been called from cookies(enableCookies method).";
         if($val){
             $this->setCookiesJar();
             $this->setCookiesFile();
