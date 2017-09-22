@@ -13,13 +13,12 @@ $option2    = array(CURLOPT_RETURNTRANSFER =>1);
 //$c      = new cURLEngine("https://www.google.it/?gfe_rd=cr&dcr=0&ei=QqS-WdTWJsj68Ae27YaABg", true);
 //$c 	= new cURLRequester("https://www.google.it/?gfe_rd=cr&dcr=0&ei=QqS-WdTWJsj68Ae27YaABg", true);
 //$c 	= new cURLRequester("https://www.google.it/?gfe_rd=cr&dcr=0&ei=QqS-WdTWJsj68Ae27YaABg", true);
-$c 	= new cURLRequester();
-
+$c 	= new cURLRequester("https://www.google.it/?gfe_rd=cr&dcr=0&ei=QqS-WdTWJsj68Ae27YaABg", true);
 
 
 $c->setUserAgent();
-//$c->enableCache(true);
-$c->setOpt("CURLOPT_COOKIE", true);
+$c->enableCache(true);
+//$c->setCookies();
 //$c->enableCookies(true);
 
 //unset($c->result);

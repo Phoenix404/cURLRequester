@@ -22,7 +22,7 @@ class cURLEngine {
     protected $options         = array();
 
     protected $cURL            = null;
-    public $result          = "";
+    public $result              = "";
     protected $error           = "";
     protected $recallUseCache  = false;
     protected $userAgent       = "";
@@ -95,6 +95,7 @@ class cURLEngine {
      * Init cURL
      * @param bool $fresh_no_cache
      * @internal param bool $fresh
+     * @return $this
      */
     public function init_cURL($fresh_no_cache=false)
     {
@@ -143,7 +144,7 @@ class cURLEngine {
      * @param $opt
      * @return bool
      */
-    public function curlOptIsset($opt)
+    public function isSetCurlOpt($opt)
 	{
 		return isset($this->options["curl_opt"][$opt]);
 	}
@@ -155,7 +156,7 @@ class cURLEngine {
      */
     public function removeCurlOpt($opt)
     {
-        if($this->curlOptIsset($opt))
+        if($this->isSetCurlOpt($opt))
         {
             unset($this->options["curl_opt"]);
         }
@@ -182,7 +183,7 @@ class cURLEngine {
      */
     protected function getOpt($opt="")
     {
-        return $this->curlOptIsset($opt)?$this->options["curl_opt"][$opt]:null;
+        return $this->isSetCurlOpt($opt)?$this->options["curl_opt"][$opt]:null;
     }
 
     /**
@@ -698,7 +699,7 @@ class cURLEngine {
 		// check if url is set or not
 		// if not, we set the flag useCache to true
 		// and we will try to call again this method in invoke method
-		if(!$this->curlOptIsset("CURLOPT_URL")) {
+		if(!$this->isSetCurlOpt("CURLOPT_URL")) {
             $this->recallUseCache = true;
             return $this;
         }

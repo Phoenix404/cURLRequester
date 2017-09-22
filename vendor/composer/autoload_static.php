@@ -28,17 +28,11 @@ class ComposerStaticInita9aebfece42c3dc696566b06cf00394b
         ),
     );
 
-    public static $classMap = array (
-        'cURLRequester\\cURLEngine' => __DIR__ . '/../..' . '/Src/cURLEngine.php',
-        'cURLRequester\\cURLRequester' => __DIR__ . '/../..' . '/Src/cURLRequester.php',
-    );
-
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInita9aebfece42c3dc696566b06cf00394b::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInita9aebfece42c3dc696566b06cf00394b::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInita9aebfece42c3dc696566b06cf00394b::$classMap;
 
         }, null, ClassLoader::class);
     }

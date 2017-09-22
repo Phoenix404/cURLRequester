@@ -29,9 +29,11 @@ class cURLRequester extends cURLEngine
      */
     public function basicRequest($url = "", $useCache =false)
     {
-
-        if(strlen($url)>0) $this->setUrl($url);
-        elseif($this->curlOptIsset("CURLOPT_URL")){}
+        if(strlen($url)>0) {
+            echo "\nUrl is $url\n";
+            $this->setUrl($url);
+        }
+        elseif($this->isSetCurlOpt("CURLOPT_URL")){}
         else throw new \Exception("ERROR: URL is required");
 
         $this->init_cURL(true);
