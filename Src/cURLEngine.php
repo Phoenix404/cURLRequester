@@ -15,23 +15,24 @@
 
 
 namespace cURLRequester;
-use Useragent\UserAgent as useragent;
+use Useragent\UserAgent;
 
 class cURLEngine {
 
-    protected $options         = array();
+    protected $options          = array();
 
-    protected $cURL            = null;
+    protected $cURL             = null;
     public $result              = "";
-    protected $error           = "";
-    protected $recallUseCache  = false;
-    protected $userAgent       = "";
-    protected $url             = "";
-    protected $headers         = array();
-    protected $functionHeaders = array();
+    protected $error            = "";
+    protected $recallUseCache   = false;
+    protected $userAgent        = "";
+    protected $url              = "";
+    protected $headers          = array();
+    protected $functionHeaders  = array();
+    protected $errors           = array();
 
-    public $appName            = "cURLRequester";
-    public $appVersion         = "1.0.0";
+    public $appName             = "cURLRequester";
+    public $appVersion          = "1.0.0";
 
     public $CookiesJar          = "./Cookies/Cookies.txt";
     public $CookiesFile         = "./Cookies/Cookies.txt";
@@ -289,7 +290,7 @@ class cURLEngine {
             echo "\nPlease remove me from line ".__LINE__." I am from invoke method.\n";
 
             //avoid print the result and force it to return the result in a variable
-            curl_setopt($this->cURL, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($this->cURL, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($this->cURL, CURLOPT_HEADERFUNCTION, array($this, "cURLHeadersFunction"));
             $this->prepareCurlOption();
             $this->result = curl_exec($this->cURL);
@@ -436,6 +437,135 @@ class cURLEngine {
     }
 
     /**
+     * @return mixed|array|string
+     */
+    public function getCookies()
+    {
+        return isset($this->functionHeaders["set-cookie"])?$this->functionHeaders["set-cookie"]:"";
+    }
+
+    /**
+     * Returns the connection status of request e.g close, maybe keep-alive..
+     * @return mixed|array|string
+     */
+    public function getConnectionStatus()
+    {
+        return isset($this->functionHeaders["connection"])?$this->functionHeaders["connection"]:"";
+    }
+
+    /**
+     * @param string $jar
+     * @return $this
+     */
+    public function setCookiesJar($jar="")
+    {
+        if(strlen($jar)<=0) {
+            $jar = $this->CookiesJar;
+        }
+
+        if(@is_dir($jar))
+        {
+            $this->setOpt("CURLOPT_COOKIEJAR", realpath($jar));
+            return $this;
+        }
+
+        if($this->uriFileExists($jar))
+        {
+            $this->setOpt("CURLOPT_COOKIEJAR", $jar);
+            return $this;
+        }
+
+        if(!file_exists($jar))
+        {
+            file_put_contents($jar, "");
+        }
+
+        $this->setOpt("CURLOPT_COOKIEJAR", realpath($jar));
+        return $this;
+    }
+
+    /**
+     * @param string $file
+     * @return $this
+     */
+    public function setCookiesFile($file="")
+    {
+        if(strlen($file)<=0) {
+            $file = $this->CookiesFile;
+        }
+
+        if(@is_dir($file))
+        {
+            $this->setOpt("CURLOPT_COOKIEFILE", realpath($file));
+            return $this;
+        }
+
+        if($this->uriFileExists($file))
+        {
+            $this->setOpt("CURLOPT_COOKIEFILE", realpath($file));
+            return $this;
+        }
+
+        if(!file_exists($file))
+        {
+            echo "cookies not exists ";
+            file_put_contents($file, "");
+        }
+        $this->setOpt("CURLOPT_COOKIEFILE", realpath($file));
+        return $this;
+    }
+
+    /**
+     * Set Cookies
+     * @see https://stackoverflow.com/questions/6453347/php-curl-and-setcookie-problem
+     * @param $key
+     * @param string $value
+     * @return $this
+     */
+    public function setCookies($key="", $value="")
+    {
+        $cookies = "";
+        if(is_array($key))
+        {
+            $cookies    = http_build_query($key);
+        }elseif(is_string($key))
+        {
+            $cookies    = http_build_query(array($key=>$value));
+        }
+
+        if(empty($cookies))$this->setOpt("CURLOPT_COOKIE", true);
+        else $this->setOpt("CURLOPT_COOKIE", $cookies);
+        return $this;
+    }
+
+    /**
+     * @param bool $val
+     * @return $this
+     */
+    public function enableCookies($val = true)
+    {
+        echo "\nI have been called from cookies(enableCookies method).";
+        if($val){
+            $this->setCookiesJar();
+            $this->setCookiesFile();
+        }else{
+            $this->removeCurlOpt("CURLOPT_COOKIEJAR");
+            $this->removeCurlOpt("CURLOPT_COOKIEFILE");
+        }
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function disableCache()
+    {
+        $this->enableCache(false);
+        return $this;
+    }
+
+
+    /**
      * @see https://en.wikipedia.org/wiki/HTTP_referer
      * @param bool $val
      * @return $this
@@ -521,31 +651,61 @@ class cURLEngine {
     }
 
     /**
+     * Make lib own useragent
+     * @return $this
+     */
+    protected function makeCustomUserAgent()
+    {
+        $this->userAgent = "Mozilla/5.0 (cURL; PhoenixOS; 512x) ".$this->appName."Kit/777.77 (KHTML, like Phoenix) ".
+            $this->appName."/".$this->appVersion." Phoenix404/777.77";
+        return $this;
+    }
+
+    /**
      * @param string $str
      * @return $this
      */
-    public function setUserAgent($str="")
+    public function setUserAgent($str="random")
 	{
-		if (strlen($str) > 0 || $str === false){
+        if($str===false)
+        {
+            $this->removeCurlOpt("CURLOPT_USERAGENT");
+            return $this;
+        }
+
+        $useragentsReserved = ["windows", "linux",  "mac", "unix", "mozilla", "firefox", "chrome", "ie", "safari",
+                                "opera", "maxthon", "android", "kindle", "apple", "blackberry", "acer", "amazonKindle",
+                                "GoogleNexus", "HP", "HTC", "LG", "Motorola", "Nokia", "Samsung", "Sony", "Tablets", "mac",
+                                "Playstation", "Wii", "PSP", "SuperBot", "Wget", "ELinks", "NetBSD", "Lynx", "IEMobile",
+                                "Baiduspider", "iPhone", "Puffin", "Yahoo","Galeon","Symbian","Googlebot-Mobile"];
+
+        $randomUserAgent = in_array(strtolower($str), array_map("strtolower", $useragentsReserved));
+	    if($randomUserAgent || strtolower($str)=="random" || $str==true || strlen($str)<=0)
+        {
+            if(class_exists("\\Useragent\UserAgent")){
+                $useragent = new UserAgent();
+                if($randomUserAgent)
+                {
+                    $this->userAgent = $useragent->getRandomUserAgent(strtolower($str));
+                }elseif(strtolower($str)=="random")
+                {
+                    $this->userAgent = $useragent->getRandomUserAgent();
+                }else{
+                    $this->userAgent = $useragent->getRealUserAgent();
+                    if(strlen($this->userAgent)<=0)
+                    {
+                        $this->makeCustomUserAgent();
+                    }
+                }
+            }else{
+                echo "\nclass doesn't exists\n";
+                //create custom useragent
+                $this->makeCustomUserAgent();
+            }
+            $this->setOpt("CURLOPT_USERAGENT", $this->userAgent);
+        }elseif(strlen($str) > 0){
 		    $this->userAgent     = $str;
 			$this->setOpt("CURLOPT_USERAGENT", $str);
-		}else{
-			if(class_exists("useragent")){
-				$useragent = new useragent();
-				$this->userAgent = $useragent->getRealUserAgent();
-				$this->setOpt("CURLOPT_USERAGENT", $this->userAgent);
-			}else{
-			    if(isset($_SERVER["HTTP_USER_AGENT"]))
-			    {
-                    $this->setOpt("CURLOPT_USERAGENT", $_SERVER["HTTP_USER_AGENT"]);
-                }else
-                {
-                    $customUseragent = "Mozilla/5.0 (cURL; PhoenixOS; 512x) ".$this->appName."Kit/777.77 (KHTML, like Phoenix) ".
-                        $this->appName."/".$this->appVersion." Phoenix404/777.77";
-
-                    $this->setOpt("CURLOPT_USERAGENT", $customUseragent);
-                }
-			}
 		}
 		return $this;
 	}
@@ -887,106 +1047,6 @@ class cURLEngine {
     public function getServerType()
     {
         return isset($this->functionHeaders["server"])?$this->functionHeaders["server"]:"";
-    }
-
-    /**
-     * @return mixed|array|string
-     */
-    public function getCookies()
-    {
-        return isset($this->functionHeaders["set-cookie"])?$this->functionHeaders["set-cookie"]:"";
-    }
-
-    /**
-     * Returns the connection status of request e.g close, maybe keep-alive..
-     * @return mixed|array|string
-     */
-    public function getConnectionStatus()
-    {
-        return isset($this->functionHeaders["connection"])?$this->functionHeaders["connection"]:"";
-    }
-
-    /**
-     * @param string $jar
-     * @return $this
-     */
-    public function setCookiesJar($jar="")
-    {
-        if(strlen($jar)<=0)
-            $jar = $this->CookiesJar;
-
-        if(!file_exists($jar))
-        {
-            file_put_contents($jar, "");
-        }
-
-        $this->setOpt("CURLOPT_COOKIEJAR", $jar);
-        return $this;
-    }
-
-    /**
-     * @param string $file
-     * @return $this
-     */
-    public function setCookiesFile($file="")
-    {
-        if(strlen($file)<=0)
-            $file   =  $this->CookiesFile;
-
-        $this->setOpt("CURLOPT_COOKIEFILE", $file);
-        return $this;
-    }
-
-    /**
-     * Set Cookies
-     * @see https://stackoverflow.com/questions/6453347/php-curl-and-setcookie-problem
-     * @param $key
-     * @param string $value
-     * @return $this
-     */
-    public function setCookies($key, $value="")
-    {
-        $cookies = "";
-        if(is_array($key))
-        {
-            $cookies    = http_build_query($key);
-        }elseif(is_string($key))
-        {
-            $cookies    = http_build_query(array($key=>$value));
-        }else
-        {
-            return $this;
-        }
-
-        if(empty($cookies))$this->setOpt("CURLOPT_COOKIE", true);
-        else $this->setOpt("CURLOPT_COOKIE", $cookies);
-        return $this;
-    }
-
-    /**
-     * @param bool $val
-     * @return $this
-     */
-    public function enableCookies($val = true)
-    {
-        echo "\nI have been called from cookies(enableCookies method).";
-        if($val){
-            $this->setCookiesJar();
-            $this->setCookiesFile();
-        }else{
-            $this->removeCurlOpt("CURLOPT_COOKIEJAR");
-            $this->removeCurlOpt("CURLOPT_COOKIEFILE");
-        }
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function disableCache()
-    {
-        $this->enableCache(false);
-        return $this;
     }
 
     /**
