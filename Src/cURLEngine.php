@@ -193,14 +193,19 @@ class cURLEngine {
      */
     public function getCurlInfo($opt="")
     {
+
         if(!is_resource($this->cURL))
             $this->init_cURL(true);
 
         $opt = $this->isCurlNativeOpt($opt);
+
         if($opt)
          return curl_getinfo($this->cURL, $opt);
 
-        return curl_getinfo($this->cURL);
+        if(strlen(opt)<=0)
+            return curl_getinfo($this->cURL);
+
+        return false;
     }
 
     /**
@@ -272,6 +277,11 @@ class cURLEngine {
 		return $this;
 	}
 
+	public function noBody($val=true)
+    {
+        $this->setOpt("CURLOPT_NOBODY", $val);
+        return $this;
+    }
     /**
      * @return bool
      */
@@ -865,6 +875,11 @@ class cURLEngine {
         return isset($this->functionHeaders["status"])?$this->functionHeaders["status"]:"";
     }
 
+    public function getHTTPCode()
+    {
+        return $this->getCurlInfo("CURLINFO_HTTP_CODE");
+    }
+
     /**
      * @return mixed|array|string
      */
@@ -894,7 +909,13 @@ class cURLEngine {
      */
     public function getCookies()
     {
-        return isset($this->functionHeaders["set-cookie"])?$this->functionHeaders["set-cookie"]:"";
+        //CURLOPT_COOKIELIST
+        if(isset($this->functionHeaders["set-cookie"]))
+            return $this->functionHeaders["set-cookie"];
+        else{
+            return $this->getCookieList();
+        }
+
     }
 
     /**

@@ -16,25 +16,34 @@ $option2    = array(CURLOPT_RETURNTRANSFER =>1);
 $c 	= new cURLRequester("https://www.google.it/?gfe_rd=cr&dcr=0&ei=QqS-WdTWJsj68Ae27YaABg", true);
 
 
-$c->setUserAgent();
-$c->enableCache(true);
+//$c->setUserAgent();
+//$c->enableCache(true);
 //$c->setCookies();
 //$c->enableCookies(true);
-
+$c->setOpt("getCookieList", "ALL");
 //unset($c->result);
 //print_r($c);
 
-echo "\nCalling whatarecookies\n";
+echo "\nCalling what are cookies\n";
 $data1 = $c->basicRequest("http://www.whatarecookies.com/cookietest.asp");
 echo "<textarea rows='10' cols='50'>".$data1."</textarea>";
 echo "\nServer is ";
 print_r($c->getServerType());
 echo "\nCookies are ";
 print_r($c->getCookies());
+echo "\nHttp Code: ";
+print_r($c->getHTTPCode());
+echo "\n";
+print_r($c->getHeaderStatus());
+
+
+
+
 
 $c->init_cURL()->reset();
-
 echo "\nCalling Google\n";
+//$c->enableCache(true);
+
 $data2 = $c
         ->setAutoReferer(true)
         ->setReferer(true)
