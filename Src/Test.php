@@ -22,7 +22,7 @@ $c 	= new cURLRequester("http://www.lina24.com/go_develope/", true);
 //$c->setUserAgent();
 //$c->enableCache(true);
 //$c->setCookies();
-//$c->enableCookies(true);
+$c->enableCookies(true);
 //unset($c->result);
 //print_r($c);
 
@@ -36,28 +36,29 @@ echo "\nUseragent is : ".$c->getUserAgent()."\n";
 //print_r($c);
 
 $data1 = $c->basicRequest();
-echo "<textarea rows='10' cols='50'>".$data1."</textarea>";
+echo "<textarea rows='8' cols='80'>".$data1."</textarea>";
 echo "\nServer is ";print_r($c->getServerType());
 echo "\nCookies are ";print_r($c->getCookies());
 echo "\nHttp Code: ";print_r($c->getHTTPCode());
-echo "\n";print_r($c->getHeaderStatus());
+echo "\nHeaderStatus";print_r($c->getHeaderStatus());
 
 
 
 $c->init_cURL()->reset();
 echo "\n<hr/>Calling Google\n";
-//$c->enableCache(true);
+$c->enableCache(true);
 
 $data2 = $c
         ->setAutoReferer(true)
         ->setReferer(true)
         ->followLocation(true)
         ->basicRequest("https://www.google.it/?gfe_rd=cr&dcr=0&ei=SEfFWcTsKrLBXoHSnagK&gws_rd=ssl");
-echo "<textarea rows='10' cols='50'>".$data2."</textarea>";
+echo "<textarea rows='8' cols='80'>".$data2."</textarea>";
 echo "\nServer is ";print_r($c->getServerType());
 echo "\nCookies are ";print_r($c->getCookies());
 echo "\nHttp Code: ";print_r($c->getHTTPCode());
-echo "\n";print_r($c->getHeaderStatus());
+echo "\nHeaderStatus : ";print_r($c->functionHeaders);
+echo "\nHeaderStatus : ";print_r($c->getHeaderStatus());
 
 //echo $c->getResult();
 

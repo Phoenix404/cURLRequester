@@ -28,7 +28,7 @@ class cURLEngine {
     protected $userAgent        = "";
     protected $url              = "";
     protected $headers          = array();
-    protected $functionHeaders  = array();
+    public $functionHeaders  = array();
     protected $errors           = array();
 
     public $appName             = "cURLRequester";
@@ -278,11 +278,16 @@ class cURLEngine {
 		return $this;
 	}
 
-	public function noBody($val=true)
+    /**
+     * @param bool $val
+     * @return $this
+     */
+    public function noBody($val=true)
     {
         $this->setOpt("CURLOPT_NOBODY", $val);
         return $this;
     }
+
     /**
      * @return bool
      */
@@ -549,6 +554,8 @@ class cURLEngine {
     }
 
     /**
+     * It will enable the Cookies and ll write in a file
+     * You can change default value just by assigning value to $this->CookiesJar or $this->CookiesFile
      * @param bool $val
      * @return $this
      */
