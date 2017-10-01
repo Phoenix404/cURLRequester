@@ -14,7 +14,7 @@ $option2    = array(CURLOPT_RETURNTRANSFER =>1);
 //$c      = new cURLEngine("https://www.google.it/?gfe_rd=cr&dcr=0&ei=QqS-WdTWJsj68Ae27YaABg", true);
 //$c 	= new cURLRequester("https://www.google.it/?gfe_rd=cr&dcr=0&ei=QqS-WdTWJsj68Ae27YaABg", true);
 //$c 	= new cURLRequester("https://www.google.it/?gfe_rd=cr&dcr=0&ei=QqS-WdTWJsj68Ae27YaABg", true);
-$c 	= new cURLRequester("http://www.lina24.com/go_develope/");
+$c 	= new cURLRequester("http://www.lina24.com/go_develope/", true);
 //$c 	= new cURLRequester("https://www.google.it/?gfe_rd=cr&dcr=0&ei=QqS-WdTWJsj68Ae27YaABg", true);
 //$c 	= new cURLRequester("", true);
 
@@ -25,7 +25,7 @@ $c 	= new cURLRequester("http://www.lina24.com/go_develope/");
 //$c->enableCookies(true);
 //unset($c->result);
 //print_r($c);
-
+//$c->noBody();
 echo "\nCalling what are cookies\n";
 $data1 = $c->basicRequest("http://www.whatarecookies.com/cookietest.asp");
 //$c->setUserAgent();
@@ -53,11 +53,13 @@ echo "\n<hr/>Calling Google\n";
 //CURLINFO_HTTP_CODE
 //$c->setHeaders("Connection", "Keep-Alive");
 $data2 = $c
+        ->noBody()
         ->setAutoReferer(true)
         ->setReferer(true)
         ->followLocation(true)
         //->basicRequest("https://www.google.com/?gfe_rd=cr&dcr=0&ei=SEfFWcTsKrLBXoHSnagK&gws_rd=ssl");
-        ->basicRequest("www.google.com");
+        ->basicRequest("https://www.google.it/?gfe_rd=cr&dcr=0&ei=SEfFWcTsKrLBXoHSnagK&gws_rd=cr");
+        //->basicRequest("www.google.com");
 echo "<textarea rows='8' cols='80'>".$data2."</textarea>";
 echo "\nServer is ";print_r($c->getServerType());
 echo "\nCookies are ";print_r($c->getCookies());

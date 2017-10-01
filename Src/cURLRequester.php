@@ -49,7 +49,7 @@ class cURLRequester extends cURLEngine
 
     public function get()
     {
-        // if set to false mitm attack can be activte
+        // if set to false MITM attack can be activate
         //http://ademar.name/blog/2006/04/curl-ssl-certificate-problem-v.html
         //verifyHos                 t()
         //verifypeer()

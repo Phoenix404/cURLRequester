@@ -59,7 +59,7 @@ class cURLEngine {
     // content-type which type data send
 
     /**
-	 * cURLRequest constructor.
+	 * cURLRequest constructor
 	 * @param string $url
 	 * @param bool $ssl
 	 * @param array $options
@@ -70,20 +70,28 @@ class cURLEngine {
 		if(!function_exists("curl_init"))
 			throw new \Exception("cURL is not installed!");
 
-		if(strlen($url)>0) $this->setUrl($url);
+        // Check if directories Exists or not..
+        $this->setLibDirectories();
+
+        if(strlen($url)>0) $this->setUrl($url);
 
         if($ssl) $this->setCertificateFile($this->certPath);
 
-		if(!empty($options)) $this->setOptions($options);
+        if(!empty($options)) $this->setOptions($options);
 
-		$this->init_cURL();
+        $this->init_cURL();
 
-        // Check if directories Exists or not..
-        $this->setLibDirectories();
-		return $this;
+        return $this;
 	}
-    
-	protected function setLibDirectories($directories=[], $path="", $permission = "0777", $recursive=true)
+
+    /**
+     * Set Library folders
+     * @param array $directories
+     * @param string $path
+     * @param string $permission
+     * @param bool $recursive
+     */
+    protected function setLibDirectories($directories=[], $path="", $permission = "0777", $recursive=true)
     {
         if(empty($directories)) {
             $dirs = ["Cache", "Cookies", "SSL", "Other" => ["Headers"]];
@@ -117,7 +125,7 @@ class cURLEngine {
     }
 
     /**
-     * Init cURL
+     * Initialize cURL
      * @param bool $fresh_no_cache
      * @internal param bool $fresh
      * @return $this
@@ -130,7 +138,7 @@ class cURLEngine {
 
         curl_reset($this->cURL);
 
-        //$this->freshConnection($fresh_no_cache);
+        $this->freshConnection($fresh_no_cache);
         return $this;
     }
 
@@ -166,6 +174,7 @@ class cURLEngine {
 	}
 
     /**
+     * Check whether curl opt is set or not
      * @param $opt
      * @return bool
      */
@@ -189,7 +198,7 @@ class cURLEngine {
     }
 
     /**
-	 * @see http://php.net/manual/en/function.curl-setopt.php
+	 * Set cURL options
 	 * @see http://php.net/manual/en/function.curl-setopt.php
 	 * @param $option
 	 * @param $value
@@ -212,27 +221,6 @@ class cURLEngine {
     }
 
     /**
-     * Get request info
-     * @param string $opt
-     * @return mixed
-     */
-    public function getCurlInfo($opt="")
-    {
-        if(!is_resource($this->cURL))
-            $this->init_cURL();
-
-        $option = $this->isCurlNativeOpt($opt);
-
-        if($option) return curl_getinfo($this->cURL, $option);
-
-        $info   = curl_getinfo($this->cURL);
-        if(isset($info[$opt])) return $info[$opt];
-
-        if(strlen($opt)<=0) return $info;
-        return false;
-    }
-
-    /**
      * Determine if given option is native opt of curl or not
      * @param null $opt
      * @param array $constArr
@@ -246,11 +234,9 @@ class cURLEngine {
         if(is_string($opt))
         {
             $opt = strtoupper($opt);
-            if(strpos($opt, "CURL") === false )
-                return false;
+            if(strpos($opt, "CURL") === false) return false;
 
-            if(defined(strtoupper($opt)))
-                return constant($opt); // return constant value
+            if(defined(strtoupper($opt))) return constant($opt); // return constant value
 
         }elseif(is_int($opt)){
             if(empty($constArr))
@@ -292,24 +278,14 @@ class cURLEngine {
     }
 
     /**
-	 * Init Curl setup option
-	 */
-	protected function prepareCurlOption()
-	{
-	    $options    = $this->resetCurlOptions();
-	    if(is_array($options)){
+     * Init Curl setup option
+     */
+    protected function prepareCurlOption()
+    {
+        $options    = $this->resetCurlOptions();
+        if(is_array($options)){
             curl_setopt_array($this->cURL, $options);
         }
-		return $this;
-	}
-
-    /**
-     * @param bool $val
-     * @return $this
-     */
-    public function noBody($val=true)
-    {
-        $this->setOpt("CURLOPT_NOBODY", $val);
         return $this;
     }
 
@@ -317,10 +293,10 @@ class cURLEngine {
      * @return bool
      */
     public function invoke()
-	{
+    {
         $this->functionHeaders = array();
-		//To check if user has called useCache method before setting the url
-		if($this->recallUseCache) $this->enableCache(true);
+        //To check if user has called useCache method before setting the url
+        if($this->recallUseCache) $this->enableCache(true);
 
         // If invokable array is empty
         // It executes the request
@@ -337,25 +313,55 @@ class cURLEngine {
             $this->result = curl_exec($this->cURL);
         }
 
-		// if cache is enabled
-		if(isset($this->options["cacheFileName"]))
+        // if cache is enabled
+        if(isset($this->options["cacheFileName"]))
         {
             file_put_contents($this->options["cacheFileName"], $this->result);
             unset($this->options["cacheFileName"]);
         }
 
-		// Reinitialize the array
+        // Reinitialize the array
         // So in next request we get new invokable status
         $this->invokable 	= array();
 
         //Check if result is true
-		if($this->result == false)
-			$this->result = $this->getError();
+        if($this->result == false)
+            $this->result = $this->getError();
 
-		return $this->result;
-	}
+        return $this->result;
+    }
 
     /**
+     * Curl Header function to get response header info
+     * @param $curl
+     * @param $header
+     * @return int
+     */
+    protected function cURLHeadersFunction($curl, $header)
+    {
+        $len = strlen($header);
+        if($this->str_contains(strtolower($header), "http"))
+        {
+            // status  HTTP/1.1 200 OK;
+            $this->functionHeaders["status"]    = $header;
+        }
+
+        $header = explode(':', $header, 2);
+        if (count($header) < 2)
+            return $len;
+
+        $name = strtolower(trim($header[0]));
+        if (!array_key_exists($name, $this->functionHeaders))
+            $this->functionHeaders[$name] = [trim($header[1])];
+        else
+            $this->functionHeaders[$name][] = trim($header[1]);
+
+        return $len;
+
+    }
+
+    /**
+     * Check whether has false value
      * @param $arr
      * @return bool
      */
@@ -369,21 +375,51 @@ class cURLEngine {
     }
 
     /**
-	 * https://curl.haxx.se/libcurl/c/libcurl-errors.html
-	 * http://php.net/manual/en/function.curl-strerror.php
-	 */
-	public function getError()
-	{
-		// get the current executed request error number
-		$errno  = curl_errno($this->cURL);
-		if($errno>0) {
-			$errorMessage = curl_strerror($errno);
-			return $this->error = "cURL error (" . $errno . "): " . $errorMessage;
-		}
+     * https://curl.haxx.se/libcurl/c/libcurl-errors.html
+     * http://php.net/manual/en/function.curl-strerror.php
+     */
+    public function getError()
+    {
+        // get the current executed request error number
+        $errno  = curl_errno($this->cURL);
+        if($errno>0) {
+            $errorMessage = curl_strerror($errno);
+            return $this->error = "cURL error (" . $errno . "): " . $errorMessage;
+        }
 
-		// return false if request proceed successfully
-		return $this->result;
-	}
+        // return false if request proceed successfully
+        return $this->result;
+    }
+
+    /**
+     * Get request info
+     * @param string $opt
+     * @return mixed
+     */
+    public function getCurlInfo($opt="")
+    {
+        if(!is_resource($this->cURL)) $this->init_cURL();
+
+        $option = $this->isCurlNativeOpt($opt);
+
+        if($option) return curl_getinfo($this->cURL, $option);
+
+        $info   = curl_getinfo($this->cURL);
+        if(isset($info[$opt])) return $info[$opt];
+
+        if(strlen($opt)<=0) return $info;
+        return false;
+    }
+
+    /**
+     * @param bool $val
+     * @return $this
+     */
+    public function noBody($val=true)
+    {
+        $this->setOpt("CURLOPT_NOBODY", $val);
+        return $this;
+    }
 
     /**
      * @param $url
@@ -394,15 +430,6 @@ class cURLEngine {
         $this->url  = $url;
         $this->setOpt("CURLOPT_URL", $url);
         return $this;
-    }
-
-    /**
-     * Get back the given url
-     * @return string
-     */
-    public function getUrl()
-    {
-        return $this->url;
     }
 
     /**
@@ -480,23 +507,6 @@ class cURLEngine {
     }
 
     /**
-     * @return mixed|array|string
-     */
-    public function getCookies()
-    {
-        return isset($this->functionHeaders["set-cookie"])?$this->functionHeaders["set-cookie"]:"";
-    }
-
-    /**
-     * Returns the connection status of request e.g close, maybe keep-alive..
-     * @return mixed|array|string
-     */
-    public function getConnectionStatus()
-    {
-        return isset($this->functionHeaders["connection"])?$this->functionHeaders["connection"]:"";
-    }
-
-    /**
      * @param string $jar
      * @return $this
      */
@@ -559,9 +569,9 @@ class cURLEngine {
     }
 
     /**
-     * Set Cookies
+     * Set Cookies with custom key and values. Where key can be name or array of cookies
      * @see https://stackoverflow.com/questions/6453347/php-curl-and-setcookie-problem
-     * @param $key
+     * @param array|string $key
      * @param string $value
      * @return $this
      */
@@ -576,8 +586,10 @@ class cURLEngine {
             $cookies    = http_build_query(array($key=>$value));
         }
 
-        if(empty($cookies))$this->setOpt("CURLOPT_COOKIE", true);
-        else $this->setOpt("CURLOPT_COOKIE", $cookies);
+        if(empty($cookies))
+            return $this;
+
+        $this->setOpt("CURLOPT_COOKIE", $cookies);
         return $this;
     }
 
@@ -676,6 +688,10 @@ class cURLEngine {
         return $this->getCurlInfo("CURLINFO_EFFECTIVE_URL");
     }
 
+    /**
+     * Get Redirected url
+     * @return mixed
+     */
     public function getRedirectedUrl()
     {
         //return $this->getCurlInfo("CURLINFO_REDIRECT_URL ");
@@ -849,7 +865,7 @@ class cURLEngine {
     {
         // Check if option array is empty and $this->options["cacheOptions"] exists
         // We return $this->options["cacheOptions"] to avoid to change previous user/default values
-        
+
         if((count($option) == 0 || empty($option)))
         {
             if(isset($this->options["cacheOptions"])) {
@@ -862,8 +878,8 @@ class cURLEngine {
                 // get new fresh key/values
                 $option     = $this->options["cacheOptions"];
         }
-        
-        
+
+
         // Lets say, our src/cache folder can have only 10mb by default
         if(!isset($option["MaxDiskSize"]))
             $option["MaxDiskSize"]  = 10*1024*1024;
@@ -888,6 +904,11 @@ class cURLEngine {
         return $this->options["cacheOptions"];
     }
 
+    /**
+     * Get cache Setting
+     * @param string $val
+     * @return mixed
+     */
     protected function getCacheSetting($val="")
     {
         // Call the setcacheSetting
@@ -902,7 +923,7 @@ class cURLEngine {
         return $this->options["cacheOptions"];
     }
 
-	/**
+    /**
      * If this method is enable,
      *  - It will check for the file of last request executed of given url
      *  - If it doesn't found it will create the file for given url.
@@ -1078,22 +1099,6 @@ class cURLEngine {
     }
 
     /**
-     * @return mixed
-     */
-    public function getCookieList()
-    {
-        return $this->getCurlInfo("CURLINFO_COOKIELIST");
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getRequestSize()
-    {
-        return $this->getCurlInfo("CURLINFO_REQUEST_SIZE");
-    }
-
-    /**
      * @param bool $val
      * @return $this
      */
@@ -1129,6 +1134,21 @@ class cURLEngine {
     {
         return $this->getCurlInfo("CURLINFO_SSL_VERIFYRESULT");
     }
+    /**
+     * @return mixed
+     */
+    public function getCookieList()
+    {
+        return $this->getCurlInfo("CURLINFO_COOKIELIST");
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRequestSize()
+    {
+        return $this->getCurlInfo("CURLINFO_REQUEST_SIZE");
+    }
 
     /**
      * @return mixed
@@ -1136,35 +1156,6 @@ class cURLEngine {
     public function getHTTPCode()
     {
         return $this->getCurlInfo("CURLINFO_HTTP_CODE");
-    }
-
-    /**
-     * Curl Header function to get response header info
-     * @param $curl
-     * @param $header
-     * @return int
-     */
-    protected function cURLHeadersFunction($curl, $header)
-    {
-        $len = strlen($header);
-        if($this->str_contains(strtolower($header), "http"))
-        {
-            // status  HTTP/1.1 200 OK;
-            $this->functionHeaders["status"]    = $header;
-        }
-
-        $header = explode(':', $header, 2);
-        if (count($header) < 2)
-            return $len;
-
-        $name = strtolower(trim($header[0]));
-        if (!array_key_exists($name, $this->functionHeaders))
-            $this->functionHeaders[$name] = [trim($header[1])];
-        else
-            $this->functionHeaders[$name][] = trim($header[1]);
-
-        return $len;
-
     }
 
     /**
@@ -1197,6 +1188,15 @@ class cURLEngine {
     }
 
     /**
+     * Returns the connection status of request e.g close, maybe keep-alive..
+     * @return mixed|array|string
+     */
+    public function getConnectionStatus()
+    {
+        return isset($this->functionHeaders["connection"])?$this->functionHeaders["connection"]:"";
+    }
+
+    /**
      * @return mixed|array|string
      */
     public function getServerType()
@@ -1208,9 +1208,26 @@ class cURLEngine {
      * Returns curl Instance
      * @return resource
      */
-    public function getCurlInstance()
+    public function getInstance()
     {
         return $this->cURL;
+    }
+
+    /**
+     * @return mixed|array|string
+     */
+    public function getCookies()
+    {
+        return isset($this->functionHeaders["set-cookie"])?$this->functionHeaders["set-cookie"]:"";
+    }
+
+    /**
+     * Get back the given url
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->url;
     }
 
     /**
