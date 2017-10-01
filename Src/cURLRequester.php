@@ -40,10 +40,10 @@ class cURLRequester extends cURLEngine
 
         // Set default useCache to false
         // So every time it will send fresh request to server
-        $this->enableCache($useCache);
+        //$this->enableCache($useCache);
 
         $this->invoke();
-        $this->_close();
+        //$this->_close();
         return $this->result;
     }
 

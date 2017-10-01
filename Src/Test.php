@@ -14,7 +14,7 @@ $option2    = array(CURLOPT_RETURNTRANSFER =>1);
 //$c      = new cURLEngine("https://www.google.it/?gfe_rd=cr&dcr=0&ei=QqS-WdTWJsj68Ae27YaABg", true);
 //$c 	= new cURLRequester("https://www.google.it/?gfe_rd=cr&dcr=0&ei=QqS-WdTWJsj68Ae27YaABg", true);
 //$c 	= new cURLRequester("https://www.google.it/?gfe_rd=cr&dcr=0&ei=QqS-WdTWJsj68Ae27YaABg", true);
-$c 	= new cURLRequester("http://www.lina24.com/go_develope/", true);
+$c 	= new cURLRequester("http://www.lina24.com/go_develope/");
 //$c 	= new cURLRequester("https://www.google.it/?gfe_rd=cr&dcr=0&ei=QqS-WdTWJsj68Ae27YaABg", true);
 //$c 	= new cURLRequester("", true);
 
@@ -22,43 +22,50 @@ $c 	= new cURLRequester("http://www.lina24.com/go_develope/", true);
 //$c->setUserAgent();
 //$c->enableCache(true);
 //$c->setCookies();
-$c->enableCookies(true);
+//$c->enableCookies(true);
 //unset($c->result);
 //print_r($c);
 
 echo "\nCalling what are cookies\n";
 $data1 = $c->basicRequest("http://www.whatarecookies.com/cookietest.asp");
-
-$c->setUserAgent();
-echo "\nUseragent is : ".$c->getUserAgent()."\n";
+//$c->setUserAgent();
+//echo "\nUseragent is : ".$c->getUserAgent()."\n";
 
 //unset($c->result);
 //print_r($c);
 
-$data1 = $c->basicRequest();
+//$c->setHeaders("Connection", "Keep-Alive");
+//$data1 = $c->basicRequest();
 echo "<textarea rows='8' cols='80'>".$data1."</textarea>";
 echo "\nServer is ";print_r($c->getServerType());
 echo "\nCookies are ";print_r($c->getCookies());
-echo "\nHttp Code: ";print_r($c->getHTTPCode());
-echo "\nHeaderStatus";print_r($c->getHeaderStatus());
+//echo "\nHeaderStatus : ";print_r($c->functionHeaders);
+echo "\nHeaderStatus: ";print_r($c->getHeaderStatus());
+echo "\nget HTTP Code: ";print_r($c->getHTTPCode());
+echo "\nget Real Url: ";var_dump($c->getRealUrl());
 
 
 
 $c->init_cURL()->reset();
 echo "\n<hr/>Calling Google\n";
-$c->enableCache(true);
+//$c->enableCache(true);
 
+//CURLINFO_HTTP_CODE
+//$c->setHeaders("Connection", "Keep-Alive");
 $data2 = $c
         ->setAutoReferer(true)
         ->setReferer(true)
         ->followLocation(true)
-        ->basicRequest("https://www.google.it/?gfe_rd=cr&dcr=0&ei=SEfFWcTsKrLBXoHSnagK&gws_rd=ssl");
+        //->basicRequest("https://www.google.com/?gfe_rd=cr&dcr=0&ei=SEfFWcTsKrLBXoHSnagK&gws_rd=ssl");
+        ->basicRequest("www.google.com");
 echo "<textarea rows='8' cols='80'>".$data2."</textarea>";
 echo "\nServer is ";print_r($c->getServerType());
 echo "\nCookies are ";print_r($c->getCookies());
-echo "\nHttp Code: ";print_r($c->getHTTPCode());
-echo "\nHeaderStatus : ";print_r($c->functionHeaders);
-echo "\nHeaderStatus : ";print_r($c->getHeaderStatus());
+echo "\nHeader Status : ";print_r($c->getHeaderStatus());
+echo "\nHTTP Code: ";print_r($c->getHTTPCode());
+echo "\nOriginal Url: ";print_r($c->getUrl());
+echo "\nReal Url: ";print_r($c->getRealUrl());
+echo "\nRedirected Url: ";print_r($c->getRedirectedUrl());
 
 //echo $c->getResult();
 

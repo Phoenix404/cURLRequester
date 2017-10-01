@@ -78,9 +78,33 @@ class cURLEngine {
 
 		$this->init_cURL();
 
+        // Check if directories Exists or not..
+        $this->setLibDirectories();
 		return $this;
 	}
+    
+	protected function setLibDirectories($directories=[], $path="", $permission = "0777", $recursive=true)
+    {
+        if(empty($directories)) {
+            $dirs = ["Cache", "Cookies", "SSL", "Other" => ["Headers"]];
+        }else {
+            if(is_array($directories)) $dirs   = $directories;
+            else $dirs   = array($directories);
+        }
+        if(strlen($path)<=0)
+            $path 	= __DIR__.DIRECTORY_SEPARATOR;
 
+        foreach ($dirs as $key=> $dir) {
+            //check if $dir is array
+            // then key will be a folder that will hold subfolders are in $dir
+            if(is_array($dir)){
+                if(!is_dir($path.$key)) mkdir($path.$key, $permission, $recursive);
+                $this->setLibDirectories($dir, $path.$key.DIRECTORY_SEPARATOR, $permission, $recursive);
+            }else
+                if(!is_dir($path.$dir)) mkdir($path.$dir, $permission, $recursive);
+        }
+    }
+    	
     /**
      * @param $options
      */
@@ -106,7 +130,7 @@ class cURLEngine {
 
         curl_reset($this->cURL);
 
-        $this->freshConnection($fresh_no_cache);
+        //$this->freshConnection($fresh_no_cache);
         return $this;
     }
 
@@ -159,7 +183,7 @@ class cURLEngine {
     {
         if($this->isSetCurlOpt($opt))
         {
-            unset($this->options["curl_opt"]);
+            unset($this->options["curl_opt"][$opt]);
         }
         return $this;
     }
@@ -194,18 +218,17 @@ class cURLEngine {
      */
     public function getCurlInfo($opt="")
     {
-
         if(!is_resource($this->cURL))
-            $this->init_cURL(true);
+            $this->init_cURL();
 
-        $opt = $this->isCurlNativeOpt($opt);
+        $option = $this->isCurlNativeOpt($opt);
 
-        if($opt)
-         return curl_getinfo($this->cURL, $opt);
+        if($option) return curl_getinfo($this->cURL, $option);
 
-        if(strlen(opt)<=0)
-            return curl_getinfo($this->cURL);
+        $info   = curl_getinfo($this->cURL);
+        if(isset($info[$opt])) return $info[$opt];
 
+        if(strlen($opt)<=0) return $info;
         return false;
     }
 
@@ -264,7 +287,6 @@ class cURLEngine {
             $opt = $this->isCurlNativeOpt($key, $constants);
             if($opt == false) continue;
             $curlOptions[$opt] = $option;
-
         }
         return $curlOptions;
     }
@@ -274,7 +296,10 @@ class cURLEngine {
 	 */
 	protected function prepareCurlOption()
 	{
-		curl_setopt_array($this->cURL, $this->resetCurlOptions());
+	    $options    = $this->resetCurlOptions();
+	    if(is_array($options)){
+            curl_setopt_array($this->cURL, $options);
+        }
 		return $this;
 	}
 
@@ -295,8 +320,7 @@ class cURLEngine {
 	{
         $this->functionHeaders = array();
 		//To check if user has called useCache method before setting the url
-		if($this->recallUseCache)
-		    $this->enableCache(true);
+		if($this->recallUseCache) $this->enableCache(true);
 
         // If invokable array is empty
         // It executes the request
@@ -308,6 +332,8 @@ class cURLEngine {
             curl_setopt($this->cURL, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($this->cURL, CURLOPT_HEADERFUNCTION, array($this, "cURLHeadersFunction"));
             $this->prepareCurlOption();
+
+            print_r($this->options["curl_opt"]);
             $this->result = curl_exec($this->cURL);
         }
 
@@ -386,6 +412,8 @@ class cURLEngine {
      */
     protected function uriFileExists($path)
     {
+        // need to improve with ftp
+        // in next version
         if (filter_var($path, FILTER_VALIDATE_URL) === FALSE)
             return false;
 
@@ -648,6 +676,12 @@ class cURLEngine {
         return $this->getCurlInfo("CURLINFO_EFFECTIVE_URL");
     }
 
+    public function getRedirectedUrl()
+    {
+        //return $this->getCurlInfo("CURLINFO_REDIRECT_URL ");
+        return $this->getCurlInfo("redirect_url");
+    }
+
     /**
      * Set timeout
      * @param $seconds
@@ -803,6 +837,71 @@ class cURLEngine {
         return true;
     }
 
+    /**
+     * $option["MaxDiskSize"] = 10*1024*1024. //max 10mb of Cache directory
+     * $option["MaxFileOldDuration"] = (60*60*24)*7. // if file exists and not older than 7 days
+     * $option["MinFileSize"]  = 2. // Minimum file size in byte to check if it has some data from previous request if not it will new req
+     * then give back result of this file instead of sending request to server
+     * @param array $option
+     * @return array
+     */
+    public function setCacheSetting($option=[])
+    {
+        // Check if option array is empty and $this->options["cacheOptions"] exists
+        // We return $this->options["cacheOptions"] to avoid to change previous user/default values
+        
+        if((count($option) == 0 || empty($option)))
+        {
+            if(isset($this->options["cacheOptions"])) {
+                if (is_array($this->options["cacheOptions"]))
+                    return $this->options["cacheOptions"];
+            }
+        }else {
+                // add or modify new options add by user
+                $this->options["cacheOptions"]   = $option;
+                // get new fresh key/values
+                $option     = $this->options["cacheOptions"];
+        }
+        
+        
+        // Lets say, our src/cache folder can have only 10mb by default
+        if(!isset($option["MaxDiskSize"]))
+            $option["MaxDiskSize"]  = 10*1024*1024;
+
+        // Lets say, a file can have old duration
+        // if file is older than (60*60*24)*7.. so we will make new request
+        if(!isset($option["MaxFileOldDuration"]))
+            $option["MaxFileOldDuration"]  = (60*60*24)*7;
+
+        // Minimum file size in byte to check if it got some data from result or not
+        if(!isset($option["MinFileSize"]))
+            $option["MinFileSize"]  = 2;
+
+        if(isset($this->options["cacheOptions"])) {
+            if (is_array($this->options["cacheOptions"]))
+                $this->options["cacheOptions"] = array_merge($this->options["cacheOptions"], $option);
+            else
+                $this->options["cacheOptions"]  = $option;
+        }else
+            $this->options["cacheOptions"]  = $option;
+
+        return $this->options["cacheOptions"];
+    }
+
+    protected function getCacheSetting($val="")
+    {
+        // Call the setcacheSetting
+        $this->setCacheSetting(is_array($val)?$val:[]);
+        if(strlen($val)>0)
+        {
+            if(isset($this->options["cacheOptions"][$val]))
+            {
+                return $this->options["cacheOptions"][$val];
+            }
+        }
+        return $this->options["cacheOptions"];
+    }
+
 	/**
      * If this method is enable,
      *  - It will check for the file of last request executed of given url
@@ -811,6 +910,7 @@ class cURLEngine {
      * Second parameter by default has following values :
      *  $option["MaxDiskSize"] = 10*1024*1024. //max 10mb of Cache directory
      *  $option["MaxFileOldDuration"] = (60*60*24)*7. // if file exists and not older than 7 days
+     *  $option["MinFileSize"]  = 2. // Minimum file size in byte to check if it has some data from previous request if not it will new req
      *  then give back result of this file instead of sending request to server
      *
      *  $option["MinFileSize"] = 2. //cache file that can have minimum file size
@@ -829,32 +929,9 @@ class cURLEngine {
         //By default the cache is false
         $this->invokable["cache"] 	= false;
         $this->recallUseCache       = false;
-
-        if(empty($option) || count($option)===0)
-        {
-            // Lets say, our src/cache folder can have only 10mb by default
-            $option["MaxDiskSize"]  = 10*1024*1024;
-
-            // Lets say, a file can have old duration
-            // if file is older than (60*60*24)*7.. so we will make new request
-            $option["MaxFileOldDuration"]  = (60*60*24)*7;
-
-            $option["MinFileSize"]         = 2;
-        }
-
-        if(!isset($option["MaxDiskSize"]))
-            $option["MaxDiskSize"]  = 10*1024*1024;
-
-        if(!isset($option["MaxFileOldDuration"]))
-            $option["MaxFileOldDuration"]  = (60*60*24)*7;
-
-        if(!isset($option["MinFileSize"]))
-            $option["MinFileSize"]  = 2;
+        $option                = $this->getCacheSetting();
 
         //check weather cache dir exists or not
-		if(!is_dir($this->cacheDir))
-			mkdir($this->cacheDir, 0777);
-
 		if($this->getDirectorySize($this->cacheDir) > $option["MaxDiskSize"])
         {
             //auto maintenance
@@ -871,7 +948,7 @@ class cURLEngine {
             return $this;
         }
 
-        $fileName   = $this->cacheDir."/".md5($this->getOpt("CURLOPT_URL")).".cache";
+        $fileName   = $this->getCacheFileName();
 
 		if(file_exists($fileName))
 		{
@@ -910,12 +987,62 @@ class cURLEngine {
     }
 
     /**
+     * get the cache file name for current url requested
+     * @return bool|string
+     */
+    public function getCacheFileName()
+    {
+        if(!$this->isSetCurlOpt("CURLOPT_URL"))
+            return false;
+
+        $url    = $this->getOpt("CURLOPT_URL");
+        $urlParts = parse_url($url);
+
+        // php 5.*
+        $urlParts["host"]    = str_replace("http", "", $urlParts["host"]);
+        $urlParts["host"]    = str_replace("https", "", $urlParts["host"]);
+        $urlParts["host"]    = str_replace("www", "", $urlParts["host"]);
+        $urlParts["host"]    = str_replace(".", "_", $urlParts["host"]);
+        //php 7
+        //$urlParts["host"]    = str_replace(["www", "https", "http", "."], "", $urlParts["host"]);
+        //$urlParts["host"]    = str_replace(["."], "_", $urlParts["host"]);
+
+        $fileName   = $this->cacheDir."/".substr(md5($url),0,10)."_".$urlParts["host"].".cache";
+        return $fileName;
+    }
+
+    /**
+     * Set the cache file name. Would be nice if you set absolute file Path.
+     * (You can also set the file on the server where you want to write the cache data) => will be support in next version.
+     * It returns true on if file set correctly otherwise false.
+     * @param $name
+     * @return bool
+     */
+    public function setCacheDir($name)
+    {
+        if(@is_dir($name))
+        {
+            // Check if file is writeAble
+            if(!is_writable($name)) return false;
+            $this->cacheDir     = realpath($name);
+        }elseif($this->uriFileExists($name))
+        {
+            // Check if file is write able on the server
+            // I hope it can check...
+            if(is_writable($name)) return false;
+            $this->cacheDir = $name;
+        }else return false;
+        return false;
+    }
+
+    /**
      * @param bool $val
      * @return $this
      */
     public function freshConnection($val = true)
 	{
-		$this->setOpt("CURLOPT_FRESH_CONNECT", $val);
+	    if($val) $this->setOpt("CURLOPT_FRESH_CONNECT", $val);
+	    else $this->removeCurlOpt("CURLOPT_FRESH_CONNECT");
 		return $this;
 	}
 
@@ -1004,6 +1131,14 @@ class cURLEngine {
     }
 
     /**
+     * @return mixed
+     */
+    public function getHTTPCode()
+    {
+        return $this->getCurlInfo("CURLINFO_HTTP_CODE");
+    }
+
+    /**
      * Curl Header function to get response header info
      * @param $curl
      * @param $header
@@ -1034,16 +1169,15 @@ class cURLEngine {
 
     /**
      * Return http status if exists otherwise an empty string
+     * Some time it returns cookies depend on site
+     * for example if you request this url https://www.google.it/?gfe_rd=cr&dcr=0&ei=SEfFWcTsKrLBXoHSnagK&gws_rd=ssl
+     * it will return you status as cookies..
+     * @See https://www.google.com/support/accounts/answer/151657?hl=en
      * @return mixed|string
      */
     public function getHeaderStatus()
     {
         return isset($this->functionHeaders["status"])?$this->functionHeaders["status"]:"";
-    }
-
-    public function getHTTPCode()
-    {
-        return $this->getCurlInfo("CURLINFO_HTTP_CODE");
     }
 
     /**
