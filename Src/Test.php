@@ -4,7 +4,6 @@ echo "<pre>";
 
 require_once __DIR__."/../vendor/autoload.php";
 
-use cURLRequester\cURLEngine;
 use cURLRequester\cURLRequester;
 
 $option     = [];
@@ -18,16 +17,15 @@ $c 	= new cURLRequester("http://www.lina24.com/go_develope/", true);
 //$c 	= new cURLRequester("https://www.google.it/?gfe_rd=cr&dcr=0&ei=QqS-WdTWJsj68Ae27YaABg", true);
 //$c 	= new cURLRequester("", true);
 
-
-//$c->setUserAgent();
-//$c->enableCache(true);
-//$c->setCookies();
-//$c->enableCookies(true);
-//unset($c->result);
-//print_r($c);
 //$c->noBody();
 echo "\nCalling what are cookies\n";
-$data1 = $c->basicRequest("http://www.whatarecookies.com/cookietest.asp");
+$data1 = $c
+        //->setUserAgent()
+        //->enableCache(true)
+        //->setCookies()
+        //->enableCookies(true)
+        //->noBody()
+        ->basicRequest("http://www.whatarecookies.com/cookietest.asp");
 //$c->setUserAgent();
 //echo "\nUseragent is : ".$c->getUserAgent()."\n";
 
@@ -46,14 +44,15 @@ echo "\nget Real Url: ";var_dump($c->getRealUrl());
 
 
 
-$c->init_cURL()->reset();
+$c->init_cURL()->resetCurl();
 echo "\n<hr/>Calling Google\n";
 //$c->enableCache(true);
 
 //CURLINFO_HTTP_CODE
 //$c->setHeaders("Connection", "Keep-Alive");
 $data2 = $c
-        ->noBody()
+        //->noBody()
+        //->enableCookies(true);
         ->setAutoReferer(true)
         ->setReferer(true)
         ->followLocation(true)

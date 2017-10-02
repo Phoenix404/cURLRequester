@@ -19,27 +19,35 @@ use Useragent\UserAgent;
 
 class cURLEngine {
 
-    protected $options          = array();
-
     protected $cURL             = null;
-    public $result              = "";
+
+    protected $result           = "";
     protected $error            = "";
-    protected $recallUseCache   = false;
     protected $userAgent        = "";
     protected $url              = "";
+
+    // Arrays
+    protected $options          = array();
     protected $headers          = array();
-    public $functionHeaders  = array();
+    protected $functionHeaders  = array();
+    protected $invokable 	   = array();
     protected $errors           = array();
 
+    // App/Lib Identity
     public $appName             = "cURLRequester";
     public $appVersion          = "1.0.0";
 
-    public $CookiesJar          = "./Cookies/Cookies.txt";
-    public $CookiesFile         = "./Cookies/Cookies.txt";
+    // Default Directories where data can be write
+    public $CookiesJar          = "./Cookies/Cookies.cookies";
+    public $CookiesFile         = "./Cookies/Cookies.cookies";
     public $certPath            = './SSL/cacert.pem';
+
+
     public $cacheDir            = './Cache/';
 
-	protected $invokable 	   = array();
+	// Flags
+    protected $isCookiesCalled  = false;
+    protected $recallUseCache   = false;
 
 	// need to set proxy also
 	// need to set cookies
@@ -146,7 +154,7 @@ class cURLEngine {
      * Reset attributes and curl request
      * @return $this
      */
-    public function reset()
+    public function resetCurl()
     {
 
         $this->result           = "";
@@ -159,7 +167,6 @@ class cURLEngine {
         $this->url              = array();
         $this->functionHeaders  = array();
 
-
         if(is_resource($this->cURL)) curl_reset($this->cURL);
 
         return $this;
@@ -168,7 +175,7 @@ class cURLEngine {
     /**
 	 * Close curl connection
 	 */
-	public function _close()
+	public function closeCurl()
 	{
 		curl_close($this->cURL);
 	}
@@ -507,6 +514,7 @@ class cURLEngine {
     }
 
     /**
+     * Set Cookies file in which you want to write the cookies
      * @param string $jar
      * @return $this
      */
@@ -518,7 +526,7 @@ class cURLEngine {
 
         if(@is_dir($jar))
         {
-            $this->setOpt("CURLOPT_COOKIEJAR", realpath($jar));
+            $this->setOpt("CURLOPT_COOKIEJAR", realpath($jar).".cookies");
             return $this;
         }
 
@@ -538,6 +546,7 @@ class cURLEngine {
     }
 
     /**
+     * Set cookies file in which the cookies are already written.
      * @param string $file
      * @return $this
      */
@@ -547,12 +556,9 @@ class cURLEngine {
             $file = $this->CookiesFile;
         }
 
-        if(@is_dir($file))
-        {
-            $this->setOpt("CURLOPT_COOKIEFILE", realpath($file));
-            return $this;
-        }
-
+        /**
+         * This options does not work correctly yet.
+         */
         if($this->uriFileExists($file))
         {
             $this->setOpt("CURLOPT_COOKIEFILE", realpath($file));
@@ -561,7 +567,6 @@ class cURLEngine {
 
         if(!file_exists($file))
         {
-            echo "cookies not exists ";
             file_put_contents($file, "");
         }
         $this->setOpt("CURLOPT_COOKIEFILE", realpath($file));
