@@ -5,14 +5,14 @@
  * Created by Phoenix404.
  * User: Phoenix404
  * Date: 10/09/2017
- * Start time: 18:30
- * End time: 20:00
- * Version: 0.0.1
+ * Start time: 10/09/2017 18:30
+ * End time: 20/09/2017 20:00
+ * Version: 1.0.0
  *
- * In next version, will add stream_context_create support if curl is not installed.
- *
+ * In next version
+ * Will try to add stream_context_create support if curl is not installed.
+ * FTP for checking file on the other servers..
  */
-
 
 namespace cURLRequester;
 use Useragent\UserAgent;
@@ -30,7 +30,7 @@ class cURLEngine {
     protected $options          = array();
     protected $headers          = array();
     protected $functionHeaders  = array();
-    protected $invokable 	   = array();
+    protected $invokable 	    = array();
     protected $errors           = array();
 
     // App/Lib Identity
@@ -38,16 +38,13 @@ class cURLEngine {
     public $appVersion          = "1.0.0";
 
     // Default Directories where data can be write
-    public $CookiesJar          = "./Cookies/Cookies.cookies";
-    public $CookiesFile         = "./Cookies/Cookies.cookies";
     public $certPath            = './SSL/cacert.pem';
-
-
     public $cacheDir            = './Cache/';
+    public $cookiesDir          = "Cookies/";
 
 	// Flags
-    protected $isCookiesCalled  = false;
-    protected $recallUseCache   = false;
+    protected $isCookiesEnable = false;
+    protected $isCacheEnable   = false;
 
 	// need to set proxy also
 	// need to set cookies
@@ -87,13 +84,13 @@ class cURLEngine {
 
         if(!empty($options)) $this->setOptions($options);
 
-        $this->init_cURL();
+        $this->initCurl();
 
         return $this;
 	}
 
     /**
-     * Set Library folders
+     * Set Library folders/directories
      * @param array $directories
      * @param string $path
      * @param string $permission
@@ -138,7 +135,7 @@ class cURLEngine {
      * @internal param bool $fresh
      * @return $this
      */
-    public function init_cURL($fresh_no_cache=false)
+    public function initCurl($fresh_no_cache=false)
     {
 
         if(!is_resource($this->cURL))
@@ -156,16 +153,18 @@ class cURLEngine {
      */
     public function resetCurl()
     {
+        $this->result                   = "";
+        $this->error                    = "";
+        $this->userAgent                = "";
 
-        $this->result           = "";
-        $this->error            = "";
-        $this->recallUseCache   = false;
-        $this->userAgent        = "";
-        $this->options          = array();
-        $this->invokable        = array();
-        $this->headers          = array();
-        $this->url              = array();
-        $this->functionHeaders  = array();
+        $this->isCookiesEnable    = false;
+        $this->isCacheEnable      = false;
+
+        $this->options                  = array();
+        $this->invokable                = array();
+        $this->headers                  = array();
+        $this->url                      = array();
+        $this->functionHeaders          = array();
 
         if(is_resource($this->cURL)) curl_reset($this->cURL);
 
@@ -302,38 +301,46 @@ class cURLEngine {
     public function invoke()
     {
         $this->functionHeaders = array();
-        //To check if user has called useCache method before setting the url
-        if($this->recallUseCache) $this->enableCache(true);
 
-        // If invokable array is empty
-        // It executes the request
+        if(!$this->isSetUrl()){
+            $this->errors[] = "Url no found";
+            return false;
+        }
+
+        //To check if user has called enableCache method
+        if($this->isCacheEnable())
+            $this->_enableCache(true);
+
+        if($this->isCookiesEnable()) {
+            echo "\nCookies are enabled ";
+            $this->_enableCookies(true);
+        }
         if(!$this->hasFalseValue($this->invokable))
         {
             echo "\nPlease remove me from line ".__LINE__." I am from invoke method.\n";
 
             //avoid print the result and force it to return the result in a variable
             curl_setopt($this->cURL, CURLOPT_RETURNTRANSFER, true);
+            //Get Curl Header response
             curl_setopt($this->cURL, CURLOPT_HEADERFUNCTION, array($this, "cURLHeadersFunction"));
             $this->prepareCurlOption();
-
-            print_r($this->options["curl_opt"]);
             $this->result = curl_exec($this->cURL);
         }
 
         // if cache is enabled
-        if(isset($this->options["cacheFileName"]))
+        if($this->isCacheEnable())
         {
-            file_put_contents($this->options["cacheFileName"], $this->result);
-            unset($this->options["cacheFileName"]);
+            $filename   = $this->getCacheFileName();
+            file_put_contents($filename, $this->result);
+            unset($filename);
         }
 
-        // Reinitialize the array
-        // So in next request we get new invokable status
+        // Reinitialize the array. So in next request we get new invokable status_es
         $this->invokable 	= array();
 
         //Check if result is true
         if($this->result == false)
-            $this->result = $this->getError();
+            $this->result = $this->getCurlErrors();
 
         return $this->result;
     }
@@ -385,7 +392,7 @@ class cURLEngine {
      * https://curl.haxx.se/libcurl/c/libcurl-errors.html
      * http://php.net/manual/en/function.curl-strerror.php
      */
-    public function getError()
+    public function getCurlErrors()
     {
         // get the current executed request error number
         $errno  = curl_errno($this->cURL);
@@ -405,7 +412,7 @@ class cURLEngine {
      */
     public function getCurlInfo($opt="")
     {
-        if(!is_resource($this->cURL)) $this->init_cURL();
+        if(!is_resource($this->cURL)) $this->initCurl();
 
         $option = $this->isCurlNativeOpt($opt);
 
@@ -437,6 +444,15 @@ class cURLEngine {
         $this->url  = $url;
         $this->setOpt("CURLOPT_URL", $url);
         return $this;
+    }
+
+    /**
+     * Determine whether url is set.
+     * @return bool
+     */
+    public function isSetUrl()
+    {
+        return $this->isSetCurlOpt("CURLOPT_URL");
     }
 
     /**
@@ -518,27 +534,10 @@ class cURLEngine {
      * @param string $jar
      * @return $this
      */
-    public function setCookiesJar($jar="")
+    protected function setCookiesJar($jar="")
     {
         if(strlen($jar)<=0) {
-            $jar = $this->CookiesJar;
-        }
-
-        if(@is_dir($jar))
-        {
-            $this->setOpt("CURLOPT_COOKIEJAR", realpath($jar).".cookies");
-            return $this;
-        }
-
-        if($this->uriFileExists($jar))
-        {
-            $this->setOpt("CURLOPT_COOKIEJAR", $jar);
-            return $this;
-        }
-
-        if(!file_exists($jar))
-        {
-            file_put_contents($jar, "");
+            $jar = $this->getCookiesFileName();
         }
 
         $this->setOpt("CURLOPT_COOKIEJAR", realpath($jar));
@@ -553,22 +552,9 @@ class cURLEngine {
     public function setCookiesFile($file="")
     {
         if(strlen($file)<=0) {
-            $file = $this->CookiesFile;
+            $file = $this->getCookiesFileName();
         }
 
-        /**
-         * This options does not work correctly yet.
-         */
-        if($this->uriFileExists($file))
-        {
-            $this->setOpt("CURLOPT_COOKIEFILE", realpath($file));
-            return $this;
-        }
-
-        if(!file_exists($file))
-        {
-            file_put_contents($file, "");
-        }
         $this->setOpt("CURLOPT_COOKIEFILE", realpath($file));
         return $this;
     }
@@ -582,16 +568,13 @@ class cURLEngine {
      */
     public function setCookies($key="", $value="")
     {
-        $cookies = "";
         if(is_array($key))
         {
             $cookies    = http_build_query($key);
         }elseif(is_string($key))
         {
             $cookies    = http_build_query(array($key=>$value));
-        }
-
-        if(empty($cookies))
+        }else
             return $this;
 
         $this->setOpt("CURLOPT_COOKIE", $cookies);
@@ -600,21 +583,91 @@ class cURLEngine {
 
     /**
      * It will enable the Cookies and ll write in a file
-     * You can change default value just by assigning value to $this->CookiesJar or $this->CookiesFile
+     * You can change default value just by assigning value to $this->CookiesFile
      * @param bool $val
      * @return $this
      */
-    public function enableCookies($val = true)
+    protected function _enableCookies($val = true)
     {
-        echo "\nI have been called from cookies(enableCookies method).";
         if($val){
-            $this->setCookiesJar();
-            $this->setCookiesFile();
+            $cookiesFile = $this->getCookiesFileName();
+
+            if(file_exists($cookiesFile)) {
+                $this->setCookiesFile($cookiesFile);
+            }else{
+                file_put_contents($cookiesFile, "");
+                $this->setCookiesJar($cookiesFile);
+            }
         }else{
             $this->removeCurlOpt("CURLOPT_COOKIEJAR");
             $this->removeCurlOpt("CURLOPT_COOKIEFILE");
         }
         return $this;
+    }
+
+    /**
+     * Call this method to enable the cookies
+     * @param bool $val
+     * @return $this
+     */
+    public function enableCookies($val=true)
+    {
+        $this->isCookiesEnable = $val;
+        return $this;
+    }
+
+    /**
+     * Check if cookies are enabled or not
+     * @return bool
+     */
+    public function isCookiesEnable()
+    {
+        return $this->isCookiesEnable;
+    }
+
+    /**
+     * Set the directory for cookies where you want to write or read them.
+     * @param $path
+     * @return bool
+     */
+    public function setCookiesDir($path)
+    {
+        if(@is_dir($path))
+        {
+            // Check if file is writeAble
+            if(@is_writable($path))
+            {
+                $this->cookiesDir     = realpath($path);
+                return true;
+            }else
+                return false;
+        }else
+            return false;
+    }
+
+    /**
+     * Get the name of the cookies file
+     * @return bool|string
+     */
+    public function getCookiesFileName()
+    {
+        if(!$this->isSetUrl())
+            return false;
+
+        $url        = $this->getOpt("CURLOPT_URL");
+        $urlParts   = parse_url($url);
+
+        // php 5.*
+        $urlParts["host"]    = str_replace("http", "", $urlParts["host"]);
+        $urlParts["host"]    = str_replace("https", "", $urlParts["host"]);
+        $urlParts["host"]    = str_replace("www", "", $urlParts["host"]);
+        $urlParts["host"]    = str_replace(".", "_", $urlParts["host"]);
+        //php 7
+        //$urlParts["host"]    = str_replace(["www", "https", "http", "."], "", $urlParts["host"]);
+        //$urlParts["host"]    = str_replace(["."], "_", $urlParts["host"]);
+
+        $fileName   = realpath($this->cookiesDir).DIRECTORY_SEPARATOR.substr(md5($url),0,10)."_".$urlParts["host"].".cookies";
+        return $fileName;
     }
 
     /**
@@ -797,8 +850,8 @@ class cURLEngine {
             if($dir === "." || $dir === "..")
                 continue;
 
-            if(is_dir($dir)) {
-
+            if(is_dir($dir))
+            {
                 $size += $this->getDirectorySize($directory.DIRECTORY_SEPARATOR.$dir);
             }
 
@@ -817,7 +870,7 @@ class cURLEngine {
      * @param string $beforeEqualAfter|<|<=|=|>=|>
      * @return bool
      */
-    public function autoDeleteFiles($directory, $timestamp, $beforeEqualAfter="<")
+    public function autoDeleteFiles($directory, $timestamp, $beforeEqualAfter="<", $specificExtension="all")
     {
         if(!is_dir($directory)) return false;
         $dirs = scandir($directory);
@@ -825,31 +878,38 @@ class cURLEngine {
             if ($dir === "." || $dir === "..")
                 continue;
 
-            if (is_dir($dir))
-                $this->getDirectorySize($directory . DIRECTORY_SEPARATOR . $dir);
+            if (is_dir($dir)) {
+                //$this->getDirectorySize($directory . DIRECTORY_SEPARATOR . $dir);
+                $this->autoDeleteFiles($directory . DIRECTORY_SEPARATOR . $dir, $timestamp, $beforeEqualAfter, $specificExtension);
+            }
 
             if (is_file($directory . DIRECTORY_SEPARATOR . $dir))
             {
-                switch ($beforeEqualAfter) {
+                $file   = $directory . DIRECTORY_SEPARATOR . $dir;
+                $ext    = pathinfo($file);
+
+                if($specificExtension !== "all" && $specificExtension === $ext["extension"])
+                    continue;
+                switch ($beforeEqualAfter){
                     case("="):
-                        if (filemtime($directory . DIRECTORY_SEPARATOR . $dir) === $timestamp)
-                            unlink($directory . DIRECTORY_SEPARATOR . $dir);
+                        if (filemtime($file) === $timestamp)
+                            unlink($file);
                         break;
                     case("<"):
-                        if (filemtime($directory . DIRECTORY_SEPARATOR . $dir) < $timestamp)
-                            unlink($directory . DIRECTORY_SEPARATOR . $dir);
+                        if (filemtime($file) < $timestamp)
+                            unlink($file);
                         break;
                     case("<="):
-                        if (filemtime($directory . DIRECTORY_SEPARATOR . $dir) <= $timestamp)
-                            unlink($directory . DIRECTORY_SEPARATOR . $dir);
+                        if (filemtime($file) <= $timestamp)
+                            unlink($file);
                         break;
                     case(">"):
-                        if (filemtime($directory . DIRECTORY_SEPARATOR . $dir) > $timestamp)
-                            unlink($directory . DIRECTORY_SEPARATOR . $dir);
+                        if (filemtime($file) > $timestamp)
+                            unlink($file);
                         break;
                     case(">="):
-                        if (filemtime($directory . DIRECTORY_SEPARATOR . $dir) >= $timestamp)
-                            unlink($directory . DIRECTORY_SEPARATOR . $dir);
+                        if (filemtime($file) >= $timestamp)
+                            unlink($file);
                         break;
                 }
             }
@@ -917,15 +977,15 @@ class cURLEngine {
     protected function getCacheSetting($val="")
     {
         // Call the setcacheSetting
-        $this->setCacheSetting(is_array($val)?$val:[]);
-        if(strlen($val)>0)
-        {
-            if(isset($this->options["cacheOptions"][$val]))
-            {
-                return $this->options["cacheOptions"][$val];
-            }
-        }
-        return $this->options["cacheOptions"];
+        $this->setCacheSetting(is_array($val) ? $val : []);
+        if (!is_string($val))
+            return $this->options["cacheOptions"];
+
+       if (strlen($val) > 0 && isset($this->options["cacheOptions"][$val]))
+           return $this->options["cacheOptions"][$val];
+       else
+           return $this->options["cacheOptions"];
+
     }
 
     /**
@@ -944,64 +1004,85 @@ class cURLEngine {
      * @param array $option
      * @return $this|bool
      */
-    public function enableCache($cache=false, $option=[])
+    protected function _enableCache($cache=false)
 	{
-        //So we send fresh request to server(!)
+        //If cache is disabled then we will send fresh request to server(!)
         if($cache===false){
             $this->freshConnection(true);
             return $this;
         }
 
-        //By default the cache is false
-        $this->invokable["cache"] 	= false;
-        $this->recallUseCache       = false;
-        $option                = $this->getCacheSetting();
+        $option                     = $this->getCacheSetting();
+        $this->invokable["cache"]   = false;
 
-        //check weather cache dir exists or not
+        //check whether cache dir has enough space depend on MaxDiskSize Options
 		if($this->getDirectorySize($this->cacheDir) > $option["MaxDiskSize"])
         {
-            //auto maintenance
-            // >= delete all file greater than..
-            $this->autoDeleteFiles($this->cacheDir, $option["MaxFileOldDuration"], ">=");
-            $this->invokable["true"]    = true;
-        }
-
-		// check if url is set or not
-		// if not, we set the flag useCache to true
-		// and we will try to call again this method in invoke method
-		if(!$this->isSetCurlOpt("CURLOPT_URL")) {
-            $this->recallUseCache = true;
-            return $this;
+            //Auto Maintenance
+            $this->autoDeleteFiles($this->cacheDir, $option["MaxFileOldDuration"], ">=", "cache");
+            $this->invokable["cache"]    = true;
         }
 
         $fileName   = $this->getCacheFileName();
 
+		//Check if file Cache exists
 		if(file_exists($fileName))
 		{
-		    $fileTime   = filemtime($fileName);
+		    $fileTime       = filemtime($fileName);
 			$timeDiff 		= time() - $fileTime;
 
+			// Check if the cache file size is equal or less than in option indicated
 			if(filesize($fileName) <= (int)$option["MinFileSize"])
             {
                 $this->invokable["cache"] 	= true;
             }
 
+            // Check if the file is older than that indicated in option
 		    if((int)$option["MaxFileOldDuration"] >= $timeDiff)
             {
 				$this->result 				= file_get_contents($fileName);
             }else{
                 $this->invokable["cache"] 	= true;
             }
+
         }else {
-		    // If cache doesn't exists
-		    // then create new file when request is sent to server
-            $this->options["cacheFileName"] = $fileName;
-            // Force to send request to Server
             $this->invokable["cache"] 	= true;
         }
-        $this->recallUseCache 	= false;
+
 		return $this;
 	}
+
+    /**
+     * Call this method to check to enable the cache,
+     *  - It will check for the file of last request executed of given url
+     *  - If it doesn't found it will create the file for given url.
+     *  - If file already exists, so it will not make a cURL request and give back response of last time request executed
+     * Second parameter by default has following values :
+     *  $option["MaxDiskSize"] = 10*1024*1024. //max 10mb of Cache directory
+     *  $option["MaxFileOldDuration"] = (60*60*24)*7. // if file exists and not older than 7 days
+     *  $option["MinFileSize"]  = 2. // Minimum file size in byte to check if it has some data from previous request if not it will new req
+     *  then give back result of this file instead of sending request to server
+     *
+     *  $option["MinFileSize"] = 2. //cache file that can have minimum file size
+     * @param bool $cache |default false
+     * @param array $option
+     * @return $this|bool
+     */
+    public function enableCache($val=true, $options=[])
+    {
+        $this->setCacheSetting($options);
+        $this->isCacheEnable = $val;
+        return $this;
+    }
+
+    /**
+     * Determine whether cache option is enabled or not
+     * @return bool
+     */
+    public function isCacheEnable()
+    {
+        return $this->isCacheEnable;
+    }
 
     /**
      * @return $this
@@ -1018,7 +1099,7 @@ class cURLEngine {
      */
     public function getCacheFileName()
     {
-        if(!$this->isSetCurlOpt("CURLOPT_URL"))
+        if(!$this->isSetUrl())
             return false;
 
         $url    = $this->getOpt("CURLOPT_URL");
@@ -1038,8 +1119,7 @@ class cURLEngine {
     }
 
     /**
-     * Set the cache file name. Would be nice if you set absolute file Path.
-     * (You can also set the file on the server where you want to write the cache data) => will be support in next version.
+     * Set the cache file name. Would be better if you set absolute Directory Path.
      * It returns true on if file set correctly otherwise false.
      * @param $name
      * @return bool
@@ -1049,16 +1129,14 @@ class cURLEngine {
         if(@is_dir($name))
         {
             // Check if file is writeAble
-            if(!is_writable($name)) return false;
-            $this->cacheDir     = realpath($name);
-        }elseif($this->uriFileExists($name))
-        {
-            // Check if file is write able on the server
-            // I hope it can check...
-            if(is_writable($name)) return false;
-            $this->cacheDir = $name;
-        }else return false;
-        return false;
+            if(@is_writable($name))
+            {
+                $this->cacheDir     = realpath($name);
+                return true;
+            }else
+                return false;
+        }else
+            return false;
     }
 
     /**
@@ -1139,6 +1217,7 @@ class cURLEngine {
     {
         return $this->getCurlInfo("CURLINFO_SSL_VERIFYRESULT");
     }
+
     /**
      * @return mixed
      */
@@ -1233,6 +1312,15 @@ class cURLEngine {
     public function getUrl()
     {
         return $this->url;
+    }
+
+    /**
+     * Returns the array of errors if occurred or empty array in case of no error
+     * @return array
+     */
+    public function getErrors()
+    {
+        return $this->errors;
     }
 
     /**

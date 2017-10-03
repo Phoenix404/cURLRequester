@@ -13,7 +13,7 @@ $option2    = array(CURLOPT_RETURNTRANSFER =>1);
 //$c      = new cURLEngine("https://www.google.it/?gfe_rd=cr&dcr=0&ei=QqS-WdTWJsj68Ae27YaABg", true);
 //$c 	= new cURLRequester("https://www.google.it/?gfe_rd=cr&dcr=0&ei=QqS-WdTWJsj68Ae27YaABg", true);
 //$c 	= new cURLRequester("https://www.google.it/?gfe_rd=cr&dcr=0&ei=QqS-WdTWJsj68Ae27YaABg", true);
-$c 	= new cURLRequester("http://www.lina24.com/go_develope/", true);
+$c 	= new cURLRequester("http://www.lina24.com/go/", true);
 //$c 	= new cURLRequester("https://www.google.it/?gfe_rd=cr&dcr=0&ei=QqS-WdTWJsj68Ae27YaABg", true);
 //$c 	= new cURLRequester("", true);
 
@@ -23,28 +23,29 @@ $data1 = $c
         //->setUserAgent()
         //->enableCache(true)
         //->setCookies()
-        //->enableCookies(true)
+        ->enableCookies(true)
         //->noBody()
+        //->setHeaders("Connection", "Keep-Alive")
+        //->setOpt("CURLOPT_COOKIELIST", 1)
         ->basicRequest("http://www.whatarecookies.com/cookietest.asp");
-//$c->setUserAgent();
+        //->basicRequest();
+
 //echo "\nUseragent is : ".$c->getUserAgent()."\n";
-
-//unset($c->result);
-//print_r($c);
-
-//$c->setHeaders("Connection", "Keep-Alive");
 //$data1 = $c->basicRequest();
+
 echo "<textarea rows='8' cols='80'>".$data1."</textarea>";
 echo "\nServer is ";print_r($c->getServerType());
 echo "\nCookies are ";print_r($c->getCookies());
+//echo "\nCURLINFO_COOKIELIST are ";print_r($c->getCurlInfo(CURLINFO_COOKIELIST));
 //echo "\nHeaderStatus : ";print_r($c->functionHeaders);
 echo "\nHeaderStatus: ";print_r($c->getHeaderStatus());
 echo "\nget HTTP Code: ";print_r($c->getHTTPCode());
 echo "\nget Real Url: ";var_dump($c->getRealUrl());
+echo "\nRedirected Url: ";print_r($c->getRedirectedUrl());
 
 
 
-$c->init_cURL()->resetCurl();
+$c->initCurl()->resetCurl();
 echo "\n<hr/>Calling Google\n";
 //$c->enableCache(true);
 

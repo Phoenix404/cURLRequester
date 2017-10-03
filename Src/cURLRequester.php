@@ -33,10 +33,10 @@ class cURLRequester extends cURLEngine
             echo "\nUrl is $url\n";
             $this->setUrl($url);
         }
-        elseif($this->isSetCurlOpt("CURLOPT_URL")){}
+        elseif($this->isSetUrl()){}
         else throw new \Exception("ERROR: URL is required");
 
-        $this->init_cURL(true);
+        $this->initCurl(true);
 
         // Set default useCache to false
         // So every time it will send fresh request to server
