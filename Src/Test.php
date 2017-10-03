@@ -45,7 +45,8 @@ echo "\nRedirected Url: ";print_r($c->getRedirectedUrl());
 
 
 
-$c->initCurl()->resetCurl();
+//$c->initCurl()->resetCurl();
+$c = new cURLRequester();
 echo "\n<hr/>Calling Google\n";
 //$c->enableCache(true);
 
@@ -53,7 +54,7 @@ echo "\n<hr/>Calling Google\n";
 //$c->setHeaders("Connection", "Keep-Alive");
 $data2 = $c
         //->noBody()
-        //->enableCookies(true);
+        ->enableCookies(true)
         ->setAutoReferer(true)
         ->setReferer(true)
         ->followLocation(true)

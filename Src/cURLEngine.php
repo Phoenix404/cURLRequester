@@ -324,6 +324,7 @@ class cURLEngine {
             //Get Curl Header response
             curl_setopt($this->cURL, CURLOPT_HEADERFUNCTION, array($this, "cURLHeadersFunction"));
             $this->prepareCurlOption();
+            print_r($this->options["curl_opt"]);
             $this->result = curl_exec($this->cURL);
         }
 
@@ -589,19 +590,25 @@ class cURLEngine {
      */
     protected function _enableCookies($val = true)
     {
-        if($val){
+        //if($val){
             $cookiesFile = $this->getCookiesFileName();
 
-            if(file_exists($cookiesFile)) {
-                $this->setCookiesFile($cookiesFile);
-            }else{
+            if(!file_exists($cookiesFile))
                 file_put_contents($cookiesFile, "");
+
+        //    if(file_exists($cookiesFile)) {
+                //$this->setCookiesFile($cookiesFile);
+        //    }else{
+                //file_put_contents($cookiesFile, "");
+                echo "\nCookies file is ".$cookiesFile;
+                echo "\nCookies file is ".realpath($cookiesFile);
+
                 $this->setCookiesJar($cookiesFile);
-            }
-        }else{
-            $this->removeCurlOpt("CURLOPT_COOKIEJAR");
-            $this->removeCurlOpt("CURLOPT_COOKIEFILE");
-        }
+        //    }
+        //}else{
+        //    $this->removeCurlOpt("CURLOPT_COOKIEJAR");
+        //    $this->removeCurlOpt("CURLOPT_COOKIEFILE");
+        //}
         return $this;
     }
 
@@ -666,7 +673,7 @@ class cURLEngine {
         //$urlParts["host"]    = str_replace(["www", "https", "http", "."], "", $urlParts["host"]);
         //$urlParts["host"]    = str_replace(["."], "_", $urlParts["host"]);
 
-        $fileName   = realpath($this->cookiesDir).DIRECTORY_SEPARATOR.substr(md5($url),0,10)."_".$urlParts["host"].".cookies";
+        $fileName   = realpath($this->cookiesDir).DIRECTORY_SEPARATOR.substr(md5($url),0,10)."_".$urlParts["host"].".txt";
         return $fileName;
     }
 
