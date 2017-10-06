@@ -31,7 +31,6 @@ for($i = 0; $i < $totalRequest; $i++)
         //->setOpt("CURLOPT_COOKIELIST", 1)
         ->basicRequest($URL[$i]);
 
-
     echo "<textarea rows='5' cols='120'>".$data."</textarea>";
 
     echo "\nServer is ";print_r($c->getServerType());
@@ -42,4 +41,7 @@ for($i = 0; $i < $totalRequest; $i++)
     echo "\nget HTTP Code: ";print_r($c->getHTTPCode());
     echo "\nget Real Url: ";var_dump($c->getRealUrl());
     echo "\nRedirected Url: ";print_r($c->getRedirectedUrl());
+    echo "<hr/><br/><br/>";
 }
+
+//$c->closeCurl();

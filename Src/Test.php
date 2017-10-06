@@ -10,12 +10,7 @@ $option     = [];
 $option1    = array("CURLOPT_RETURNTRANSFER"=>1);
 $option2    = array(CURLOPT_RETURNTRANSFER =>1);
 
-//$c      = new cURLEngine("https://www.google.it/?gfe_rd=cr&dcr=0&ei=QqS-WdTWJsj68Ae27YaABg", true);
-//$c 	= new cURLRequester("https://www.google.it/?gfe_rd=cr&dcr=0&ei=QqS-WdTWJsj68Ae27YaABg", true);
-//$c 	= new cURLRequester("https://www.google.it/?gfe_rd=cr&dcr=0&ei=QqS-WdTWJsj68Ae27YaABg", true);
 $c 	= new cURLRequester("http://www.lina24.com/go/", true);
-//$c 	= new cURLRequester("https://www.google.it/?gfe_rd=cr&dcr=0&ei=QqS-WdTWJsj68Ae27YaABg", true);
-//$c 	= new cURLRequester("", true);
 
 //$c->noBody();
 echo "\nCalling what are cookies\n";

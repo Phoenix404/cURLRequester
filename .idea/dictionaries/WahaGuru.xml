@@ -3,11 +3,13 @@
     <words>
       <w>cookiefile</w>
       <w>cookiejar</w>
+      <w>cookielist</w>
       <w>curlinfo</w>
       <w>fastopen</w>
       <w>followlocation</w>
       <w>maxredirs</w>
       <w>mitm</w>
+      <w>returntransfer</w>
       <w>verifyhost</w>
       <w>verifypeer</w>
       <w>waha</w>
