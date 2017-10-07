@@ -19,49 +19,42 @@ use Useragent\UserAgent;
 
 class cURLEngine {
 
-    protected $cURL             = null;
+    protected $cURL                     = null;
 
-    protected $result           = "";
-    protected $error            = "";
-    protected $userAgent        = "";
-    protected $url              = "";
+    protected $result                   = "";
+    protected $error                    = "";
+    protected $userAgent                = "";
+    protected $url                      = "";
 
     // Arrays
-    protected $options          = array();
-    protected $headers          = array();
-    protected $functionHeaders  = array();
-    protected $invokable 	    = array();
-    protected $errors           = array();
+    protected $options                  = array();
+    protected $headers                  = array();
+    protected $functionHeaders          = array();
+    protected $invokable 	            = array();
+    protected $errors                   = array();
 
     // App/Lib Identity
-    public $appName             = "cURLRequester";
-    public $appVersion          = "1.0.0";
+    public $appName                     = "cURLRequester";
+    public $appVersion                  = "1.0.0";
 
     // Default Directories where data can be write
-    public $certPath            = './SSL/cacert.pem';
-    public $cacheDir            = './Cache/';
-    public $cookiesDir          = "Cookies/";
+    protected $functionHeadersDir       = "./Other/Headers/";
+    public $certPath                    = './SSL/cacert.pem';
+    public $cacheDir                    = './Cache/';
+    public $cookiesDir                  = "Cookies/";
 
 	// Flags
-    protected $isCookiesEnable = false;
-    protected $isCacheEnable   = false;
+    protected $isCookiesEnable          = false;
+    protected $isCacheEnable            = false;
+    protected $isCookiesNewWrite        = false;
 
 	// need to set proxy also
-	// need to set cookies
-	// get
-	// post and fields..
-	// google dns
 	// need to add time loaded requested
-	// curl_setopt($handle, CURLOPT_SSL_VERIFYPEER, false);
-    // curl_setopt($handle, CURLOPT_SSL_VERIFYHOST, false);
-    // https://en.wikipedia.org/wiki/List_of_HTTP_header_fields
-    // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers
     // authentication
     // download file
     // upload file
     // ftp
     // need to delete @see comments ..
-    // content-type which type data send
 
     /**
 	 * cURLRequest constructor
@@ -117,7 +110,12 @@ class cURLEngine {
                 if(!is_dir($path.$dir)) mkdir($path.$dir, $permission, $recursive);
         }
     }
-    	
+
+    protected function initSettings()
+    {
+        //$this->readCookiesFile =
+    }
+
     /**
      * @param $options
      */
@@ -130,7 +128,7 @@ class cURLEngine {
     }
 
     /**
-     * Initialize cURL
+     * Initialize cURL if not initialized and reset curl option
      * @param bool $fresh_no_cache
      * @internal param bool $fresh
      * @return $this
@@ -143,6 +141,14 @@ class cURLEngine {
 
         curl_reset($this->cURL);
 
+        $this->freshConnection($fresh_no_cache);
+        return $this;
+    }
+
+    public function newCurl($fresh_no_cache=false)
+    {
+        $this->cURL = curl_init();
+        curl_reset($this->cURL);
         $this->freshConnection($fresh_no_cache);
         return $this;
     }
@@ -312,7 +318,6 @@ class cURLEngine {
             $this->_enableCache(true);
 
         if($this->isCookiesEnable()) {
-            echo "\nCookies are enabled ";
             $this->_enableCookies(true);
         }
         if(!$this->hasFalseValue($this->invokable))
@@ -324,8 +329,9 @@ class cURLEngine {
             //Get Curl Header response
             curl_setopt($this->cURL, CURLOPT_HEADERFUNCTION, array($this, "cURLHeadersFunction"));
             $this->prepareCurlOption();
-            print_r($this->options["curl_opt"]);
+            //print_r($this->options["curl_opt"]);
             $this->result = curl_exec($this->cURL);
+            $this->writeFunctionHeaders();
         }
 
         // if cache is enabled
@@ -590,25 +596,18 @@ class cURLEngine {
      */
     protected function _enableCookies($val = true)
     {
-        //if($val){
+        if($val){
             $cookiesFile = $this->getCookiesFileName();
-
-            if(!file_exists($cookiesFile))
+            if(file_exists($cookiesFile)) {
+                $this->setCookiesFile($cookiesFile);
+            }else{
                 file_put_contents($cookiesFile, "");
-
-        //    if(file_exists($cookiesFile)) {
-                //$this->setCookiesFile($cookiesFile);
-        //    }else{
-                //file_put_contents($cookiesFile, "");
-                echo "\nCookies file is ".$cookiesFile;
-                echo "\nCookies file is ".realpath($cookiesFile);
-
                 $this->setCookiesJar($cookiesFile);
-        //    }
-        //}else{
-        //    $this->removeCurlOpt("CURLOPT_COOKIEJAR");
-        //    $this->removeCurlOpt("CURLOPT_COOKIEFILE");
-        //}
+            }
+        }else{
+            $this->removeCurlOpt("CURLOPT_COOKIEJAR");
+            $this->removeCurlOpt("CURLOPT_COOKIEFILE");
+        }
         return $this;
     }
 
@@ -617,10 +616,20 @@ class cURLEngine {
      * @param bool $val
      * @return $this
      */
-    public function enableCookies($val=true)
+    public function enableCookies($val=true, $file="", $writeAllCookiesInSingleFile=false, $readAllCookiesFromSingleFile=false)
     {
         $this->isCookiesEnable = $val;
+        $options["cookiesOptions"]     = compact($file, $writeAllCookiesInSingleFile, $readAllCookiesFromSingleFile);
         return $this;
+
+    }
+
+    /**
+     * Disable the cookies
+     */
+    public function disableCookies()
+    {
+        $this->enableCookies(false);
     }
 
     /**
@@ -656,7 +665,7 @@ class cURLEngine {
      * Get the name of the cookies file
      * @return bool|string
      */
-    public function getCookiesFileName()
+    public function getCookiesFileName($ext=".cookies")
     {
         if(!$this->isSetUrl())
             return false;
@@ -664,7 +673,7 @@ class cURLEngine {
         $url        = $this->getOpt("CURLOPT_URL");
         $urlParts   = parse_url($url);
 
-        // php 5.*
+        // php 5.* -> WHERE * € [1-9]
         $urlParts["host"]    = str_replace("http", "", $urlParts["host"]);
         $urlParts["host"]    = str_replace("https", "", $urlParts["host"]);
         $urlParts["host"]    = str_replace("www", "", $urlParts["host"]);
@@ -672,8 +681,9 @@ class cURLEngine {
         //php 7
         //$urlParts["host"]    = str_replace(["www", "https", "http", "."], "", $urlParts["host"]);
         //$urlParts["host"]    = str_replace(["."], "_", $urlParts["host"]);
+        $fileName   = substr(md5($url),0,10)."_".$urlParts["host"].$ext;
+        $fileName   = realpath($this->cookiesDir).DIRECTORY_SEPARATOR.$fileName;
 
-        $fileName   = realpath($this->cookiesDir).DIRECTORY_SEPARATOR.substr(md5($url),0,10)."_".$urlParts["host"].".txt";
         return $fileName;
     }
 
@@ -742,25 +752,6 @@ class cURLEngine {
     {
         $this->setOpt("CURLOPT_FOLLOWLOCATION ", $val);
         return $this;
-    }
-
-    /**
-     * Real url is where from the request is executed
-     * @return mixed
-     */
-    public function getRealUrl()
-    {
-        return $this->getCurlInfo("CURLINFO_EFFECTIVE_URL");
-    }
-
-    /**
-     * Get Redirected url
-     * @return mixed
-     */
-    public function getRedirectedUrl()
-    {
-        //return $this->getCurlInfo("CURLINFO_REDIRECT_URL ");
-        return $this->getCurlInfo("redirect_url");
     }
 
     /**
@@ -1217,12 +1208,104 @@ class cURLEngine {
         return $this;
     }
 
+    public function getFunctionHeadersFilename($ext=".heads")
+    {
+        if(!$this->isSetUrl())
+            return false;
+
+        $url    = $this->getOpt("CURLOPT_URL");
+        $urlParts = parse_url($url);
+
+        // php 5.*
+        $urlParts["host"]    = str_replace("http", "", $urlParts["host"]);
+        $urlParts["host"]    = str_replace("https", "", $urlParts["host"]);
+        $urlParts["host"]    = str_replace("www", "", $urlParts["host"]);
+        $urlParts["host"]    = str_replace(".", "_", $urlParts["host"]);
+        //php 7
+        //$urlParts["host"]    = str_replace(["www", "https", "http", "."], "", $urlParts["host"]);
+        //$urlParts["host"]    = str_replace(["."], "_", $urlParts["host"]);
+
+        $fileName   = realpath($this->functionHeadersDir).DIRECTORY_SEPARATOR.substr(md5($url),0,10)."_".$urlParts["host"].$ext;
+
+        return ($fileName);
+    }
+
+    protected function writeFunctionHeaders()
+    {
+        $file   = $this->getFunctionHeadersFilename();
+        $this->addExtraFunctionHeadersValues("CURLINFO_SSL_VERIFYRESULT", true)
+            ->addExtraFunctionHeadersValues("CURLINFO_HTTP_CODE", true)
+            ->addExtraFunctionHeadersValues("CURLINFO_EFFECTIVE_URL", true)
+            ->addExtraFunctionHeadersValues("CURLINFO_NAMELOOKUP_TIME ", true)
+            ->addExtraFunctionHeadersValues("CURLINFO_REDIRECT_TIME ", true)
+            ->addExtraFunctionHeadersValues("CURLINFO_REDIRECT_URL", true)
+            ->addExtraFunctionHeadersValues("redirect_url", true)
+            ->addExtraFunctionHeadersValues("CURLINFO_PRIMARY_IP", true)
+            ->addExtraFunctionHeadersValues("CURLINFO_PRIMARY_PORT", true)
+            ->addExtraFunctionHeadersValues("CURLINFO_SIZE_DOWNLOAD", true)
+            ->addExtraFunctionHeadersValues("CURLINFO_SPEED_DOWNLOAD", true)
+            ->addExtraFunctionHeadersValues("CURLINFO_CONTENT_LENGTH_DOWNLOAD", true)
+            ->addExtraFunctionHeadersValues("CURLINFO_SSL_ENGINES", true)
+            ->addExtraFunctionHeadersValues("CURLINFO_CERTINFO", true)
+            ->addExtraFunctionHeadersValues("CURLINFO_CONTENT_TYPE", 0)
+            ->addExtraFunctionHeadersValues("CURLINFO_REQUEST_SIZE", 0)
+            ->addExtraFunctionHeadersValues("CURLINFO_COOKIELIST", true);
+        @file_put_contents($file, json_encode($this->functionHeaders));
+        return $this;
+    }
+
+    protected function addExtraFunctionHeadersValues($key, $value=true)
+    {
+        if(is_bool($value)){
+            $this->functionHeaders[$key]    = $this->getCurlInfo($key);
+            return $this;
+        }
+        if(!isset($this->functionHeaders[$key]))
+            $this->functionHeaders[$key]    = $value;
+        return $this;
+    }
+
+    protected function getFunctionHeadersFromCache($option)
+    {
+        $file = $this->getFunctionHeadersFilename();
+        if(!file_exists($file))
+            return false;
+        $data = file_get_contents($file);
+        $data = json_decode($data,1);
+        if(isset($data[$option]))
+            return $data[$option];
+        else
+            return false;
+    }
+
+    protected function getRequestInfoOption($option)
+    {
+        if(isset($this->functionHeaders[$option])){
+            if(is_array($this->functionHeaders[$option]) && !empty($this->functionHeaders[$option])){
+                return $this->functionHeaders[$option];
+            }elseif(is_string($this->functionHeaders[$option])){
+                if(strlen($this->functionHeaders[$option])>0)
+                    return $this->functionHeaders[$option];
+            }else{
+                $data = $this->getCurlInfo($option);
+                return $data;
+            }
+        }elseif(!$this->hasFalseValue($this->invokable) && !empty($this->invokable)){
+            // if request has executed so we can simply get the data and return
+            return $this->getCurlInfo($option);
+        }
+
+        $data       = $this->getFunctionHeadersFromCache($option);
+        if($data !== false) return $data;
+        return "";
+    }
+
     /**
      * @return mixed
      */
     public function getSSLResult()
     {
-        return $this->getCurlInfo("CURLINFO_SSL_VERIFYRESULT");
+        return $this->getRequestInfoOption("CURLINFO_SSL_VERIFYRESULT");
     }
 
     /**
@@ -1230,7 +1313,7 @@ class cURLEngine {
      */
     public function getCookieList()
     {
-        return $this->getCurlInfo("CURLINFO_COOKIELIST");
+        return $this->getRequestInfoOption("CURLINFO_COOKIELIST");
     }
 
     /**
@@ -1238,7 +1321,7 @@ class cURLEngine {
      */
     public function getRequestSize()
     {
-        return $this->getCurlInfo("CURLINFO_REQUEST_SIZE");
+        return $this->getRequestInfoOption("CURLINFO_REQUEST_SIZE");
     }
 
     /**
@@ -1246,7 +1329,7 @@ class cURLEngine {
      */
     public function getHTTPCode()
     {
-        return $this->getCurlInfo("CURLINFO_HTTP_CODE");
+        return $this->getRequestInfoOption("CURLINFO_HTTP_CODE");
     }
 
     /**
@@ -1259,7 +1342,7 @@ class cURLEngine {
      */
     public function getHeaderStatus()
     {
-        return isset($this->functionHeaders["status"])?$this->functionHeaders["status"]:"";
+        return $this->getRequestInfoOption("status");
     }
 
     /**
@@ -1267,7 +1350,7 @@ class cURLEngine {
      */
     public function getCacheControl()
     {
-        return isset($this->functionHeaders["cache-control"])?$this->functionHeaders["cache-control"]:"";
+        return $this->getRequestInfoOption("cache-control");
     }
 
     /**
@@ -1275,7 +1358,7 @@ class cURLEngine {
      */
     public function getContentType()
     {
-        return isset($this->functionHeaders["content-type"])?$this->functionHeaders["content-type"]:"";
+        return $this->getRequestInfoOption("content-type");
     }
 
     /**
@@ -1284,7 +1367,7 @@ class cURLEngine {
      */
     public function getConnectionStatus()
     {
-        return isset($this->functionHeaders["connection"])?$this->functionHeaders["connection"]:"";
+        return $this->getRequestInfoOption("connection");
     }
 
     /**
@@ -1292,7 +1375,7 @@ class cURLEngine {
      */
     public function getServerType()
     {
-        return isset($this->functionHeaders["server"])?$this->functionHeaders["server"]:"";
+        return ($this->getRequestInfoOption("server"));
     }
 
     /**
@@ -1309,7 +1392,37 @@ class cURLEngine {
      */
     public function getCookies()
     {
-        return isset($this->functionHeaders["set-cookie"])?$this->functionHeaders["set-cookie"]:"";
+       if(isset($this->functionHeaders["set-cookie"])){
+            if(is_array($this->functionHeaders["set-cookie"]) && !empty($this->functionHeaders["set-cookie"])){
+                return $this->functionHeaders["set-cookie"];
+            }elseif(is_string($this->functionHeaders["set-cookie"])){
+                if(strlen($this->functionHeaders["set-cookie"])>0)
+                    return $this->functionHeaders["set-cookie"];
+            }
+        }
+        $data = $this->getFunctionHeadersFromCache("set-cookie");
+        if($data !== false) return $data;
+        else return $this->getCookiesFromFile();
+    }
+
+    /**
+     * Return cookies from file if exists else empty string.
+     * @param string $cookiesFile
+     * @return array|bool|mixed|string
+     */
+    protected function getCookiesFromFile($cookiesFile="")
+    {
+        if(strlen($cookiesFile)<=0)
+            $cookiesFile = $this->getCookiesFileName();
+
+        if(file_exists($cookiesFile)){
+            $data = file ($cookiesFile, FILE_SKIP_EMPTY_LINES|FILE_IGNORE_NEW_LINES);
+            if($this->str_contains($data[0], "#"))unset($data[0]);
+            if($this->str_contains($data[1], "#"))unset($data[1]);
+            if($this->str_contains($data[2], "#"))unset($data[2]);
+            return array_values($data);
+        }
+        return "";
     }
 
     /**
@@ -1319,6 +1432,25 @@ class cURLEngine {
     public function getUrl()
     {
         return $this->url;
+    }
+
+    /**
+     * Real url is where from the request is executed
+     * @return mixed
+     */
+    public function getRealUrl()
+    {
+        return $this->getFunctionHeadersFromCache("CURLINFO_EFFECTIVE_URL");
+    }
+
+    /**
+     * Get Redirected url
+     * @return mixed
+     */
+    public function getRedirectedUrl()
+    {
+        //return $this->getCurlInfo("CURLINFO_REDIRECT_URL ");
+        return $this->getFunctionHeadersFromCache("redirect_url");
     }
 
     /**

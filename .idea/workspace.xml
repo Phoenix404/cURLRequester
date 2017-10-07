@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d3a3a640-cc6c-4b89-944a-c01bee4ba422" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/WahaGuru.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/WahaGuru.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Src/Test.php" afterPath="$PROJECT_DIR$/Src/Test.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Src/Test2.php" afterPath="$PROJECT_DIR$/Src/Test2.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Src/cURLEngine.php" afterPath="$PROJECT_DIR$/Src/cURLEngine.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -29,235 +28,257 @@
       <file leaf-file-name="cURLRequester.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Src/cURLRequester.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="59" column="5" lean-forward="false" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
+            <state relative-caret-position="420">
+              <caret line="36" column="34" lean-forward="false" selection-start-line="36" selection-start-column="34" selection-end-line="36" selection-end-column="34" />
               <folding>
                 <element signature="e#166#307#0#PHP" expanded="false" />
                 <element signature="e#313#434#0#PHP" expanded="false" />
-                <element signature="e#979#1209#0#PHP" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cURLEngine.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="cURLEngine.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Src/cURLEngine.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="600" column="8" lean-forward="true" selection-start-line="600" selection-start-column="8" selection-end-line="600" selection-end-column="8" />
+            <state relative-caret-position="279">
+              <caret line="54" column="18" lean-forward="true" selection-start-line="54" selection-start-column="18" selection-end-line="54" selection-end-column="18" />
               <folding>
-                <element signature="e#1244#1269#0#PHP" expanded="false" />
-                <element signature="e#1781#1910#0#PHP" expanded="false" />
-                <element signature="e#1912#2365#0#PHP" expanded="false" />
-                <element signature="e#2371#2544#0#PHP" expanded="false" />
-                <element signature="e#2549#3477#0#PHP" expanded="false" />
-                <element signature="e#2666#2901#0#PHP" expanded="false" />
-                <element signature="e#2774#2901#0#PHP" expanded="false" />
-                <element signature="e#2990#3471#0#PHP" expanded="false" />
-                <element signature="e#3151#3461#0#PHP" expanded="false" />
-                <element signature="e#3488#3522#0#PHP" expanded="false" />
-                <element signature="e#3527#3793#0#PHP" expanded="false" />
-                <element signature="e#3799#3924#0#PHP" expanded="false" />
-                <element signature="e#3929#4172#0#PHP" expanded="false" />
-                <element signature="e#4178#4251#0#PHP" expanded="false" />
-                <element signature="e#4256#4862#0#PHP" expanded="false" />
-                <element signature="e#4868#4902#0#PHP" expanded="false" />
-                <element signature="e#4904#4964#0#PHP" expanded="false" />
-                <element signature="e#4970#5064#0#PHP" expanded="false" />
-                <element signature="e#5069#5159#0#PHP" expanded="false" />
-                <element signature="e#5165#5256#0#PHP" expanded="false" />
-                <element signature="e#5261#5441#0#PHP" expanded="false" />
-                <element signature="e#5311#5413#0#PHP" expanded="false" />
-                <element signature="e#5447#5590#0#PHP" expanded="false" />
-                <element signature="e#5592#5703#0#PHP" expanded="false" />
-                <element signature="e#5709#5793#0#PHP" expanded="false" />
-                <element signature="e#5798#5924#0#PHP" expanded="false" />
-                <element signature="e#5930#6095#0#PHP" expanded="false" />
-                <element signature="e#6100#6747#0#PHP" expanded="false" />
-                <element signature="e#6263#6718#0#PHP" expanded="false" />
-                <element signature="e#6492#6718#0#PHP" expanded="false" />
-                <element signature="e#6753#6914#0#PHP" expanded="false" />
-                <element signature="e#6919#7464#0#PHP" expanded="false" />
-                <element signature="e#7231#7429#0#PHP" expanded="false" />
-                <element signature="e#7470#7511#0#PHP" expanded="false" />
-                <element signature="e#7516#7733#0#PHP" expanded="false" />
-                <element signature="e#7618#7705#0#PHP" expanded="false" />
-                <element signature="e#7739#7770#0#PHP" expanded="false" />
-                <element signature="e#7775#9331#0#PHP" expanded="false" />
-                <element signature="e#7857#7962#0#PHP" expanded="false" />
-                <element signature="e#8104#8228#0#PHP" expanded="false" />
-                <element signature="e#8863#9049#0#PHP" expanded="false" />
-                <element signature="e#9337#9465#0#PHP" expanded="false" />
-                <element signature="e#9470#10123#0#PHP" expanded="false" />
-                <element signature="e#9571#9742#0#PHP" expanded="false" />
-                <element signature="e#10129#10216#0#PHP" expanded="false" />
-                <element signature="e#10221#10399#0#PHP" expanded="false" />
-                <element signature="e#10274#10371#0#PHP" expanded="false" />
-                <element signature="e#10405#10533#0#PHP" expanded="false" />
-                <element signature="e#10538#10935#0#PHP" expanded="false" />
-                <element signature="e#10684#10842#0#PHP" expanded="false" />
-                <element signature="e#10941#11023#0#PHP" expanded="false" />
-                <element signature="e#11028#11408#0#PHP" expanded="false" />
-                <element signature="e#11414#11470#0#PHP" expanded="false" />
-                <element signature="e#11475#11589#0#PHP" expanded="false" />
-                <element signature="e#11595#11646#0#PHP" expanded="false" />
-                <element signature="e#11651#11785#0#PHP" expanded="false" />
-                <element signature="e#11791#11859#0#PHP" expanded="false" />
-                <element signature="e#11864#11953#0#PHP" expanded="false" />
-                <element signature="e#11959#12049#0#PHP" expanded="false" />
-                <element signature="e#12054#12351#0#PHP" expanded="false" />
-                <element signature="e#12357#12464#0#PHP" expanded="false" />
-                <element signature="e#12469#12969#0#PHP" expanded="false" />
-                <element signature="e#12571#12727#0#PHP" expanded="false" />
-                <element signature="e#12737#12903#0#PHP" expanded="false" />
-                <element signature="e#12975#13097#0#PHP" expanded="false" />
-                <element signature="e#13102#13657#0#PHP" expanded="false" />
-                <element signature="e#13161#13230#0#PHP" expanded="false" />
-                <element signature="e#13240#13403#0#PHP" expanded="false" />
-                <element signature="e#13413#13579#0#PHP" expanded="false" />
-                <element signature="e#13663#13784#0#PHP" expanded="false" />
-                <element signature="e#13789#14013#0#PHP" expanded="false" />
-                <element signature="e#14019#14144#0#PHP" expanded="false" />
-                <element signature="e#14149#14376#0#PHP" expanded="false" />
-                <element signature="e#14382#14650#0#PHP" expanded="false" />
-                <element signature="e#14655#15022#0#PHP" expanded="false" />
-                <element signature="e#14716#14942#0#PHP" expanded="false" />
-                <element signature="e#14804#14912#0#PHP" expanded="false" />
-                <element signature="e#15028#15223#0#PHP" expanded="false" />
-                <element signature="e#16000#16102#0#PHP" expanded="false" />
-                <element signature="e#16107#16220#0#PHP" expanded="false" />
-                <element signature="e#16226#16300#0#PHP" expanded="false" />
-                <element signature="e#16305#16389#0#PHP" expanded="false" />
-                <element signature="e#16395#16521#0#PHP" expanded="false" />
-                <element signature="e#16526#16877#0#PHP" expanded="false" />
-                <element signature="e#16577#16871#0#PHP" expanded="false" />
-                <element signature="e#16660#16831#0#PHP" expanded="false" />
-                <element signature="e#16883#16961#0#PHP" expanded="false" />
-                <element signature="e#17830#17941#0#PHP" expanded="false" />
-                <element signature="e#17943#18054#0#PHP" expanded="false" />
-                <element signature="e#18060#18171#0#PHP" expanded="false" />
-                <element signature="e#18173#18276#0#PHP" expanded="false" />
-                <element signature="e#18282#18402#0#PHP" expanded="false" />
-                <element signature="e#18407#18888#0#PHP" expanded="false" />
-                <element signature="e#18482#18638#0#PHP" expanded="false" />
-                <element signature="e#18579#18638#0#PHP" expanded="false" />
-                <element signature="e#18676#18777#0#PHP" expanded="false" />
-                <element signature="e#18894#18985#0#PHP" expanded="false" />
-                <element signature="e#18990#19119#0#PHP" expanded="false" />
-                <element signature="e#19125#19232#0#PHP" expanded="false" />
-                <element signature="e#19237#19368#0#PHP" expanded="false" />
-                <element signature="e#19374#19460#0#PHP" expanded="false" />
-                <element signature="e#19465#19566#0#PHP" expanded="false" />
-                <element signature="e#19572#19630#0#PHP" expanded="false" />
-                <element signature="e#19635#19795#0#PHP" expanded="false" />
-                <element signature="e#19801#19854#0#PHP" expanded="false" />
-                <element signature="e#19859#19959#0#PHP" expanded="false" />
-                <element signature="e#19965#20027#0#PHP" expanded="false" />
-                <element signature="e#20032#20295#0#PHP" expanded="false" />
-                <element signature="e#20301#20359#0#PHP" expanded="false" />
-                <element signature="e#20364#22357#0#PHP" expanded="false" />
-                <element signature="e#20419#20536#0#PHP" expanded="false" />
-                <element signature="e#20568#21131#0#PHP" expanded="false" />
-                <element signature="e#21240#22338#0#PHP" expanded="false" />
-                <element signature="e#21346#22153#0#PHP" expanded="false" />
-                <element signature="e#21451#21983#0#PHP" expanded="false" />
-                <element signature="e#21596#21739#0#PHP" expanded="false" />
-                <element signature="e#21739#21983#0#PHP" expanded="false" />
-                <element signature="e#21836#21965#0#PHP" expanded="false" />
-                <element signature="e#21997#22153#0#PHP" expanded="false" />
-                <element signature="e#22229#22338#0#PHP" expanded="false" />
-                <element signature="e#22363#22396#0#PHP" expanded="false" />
-                <element signature="e#22401#22476#0#PHP" expanded="false" />
-                <element signature="e#22482#22575#0#PHP" expanded="false" />
-                <element signature="e#22580#23204#0#PHP" expanded="false" />
-                <element signature="e#22754#23175#0#PHP" expanded="false" />
-                <element signature="e#22872#23003#0#PHP" expanded="false" />
-                <element signature="e#23017#23165#0#PHP" expanded="false" />
-                <element signature="e#23210#23342#0#PHP" expanded="false" />
-                <element signature="e#23347#25164#0#PHP" expanded="false" />
-                <element signature="e#23549#25137#0#PHP" expanded="false" />
-                <element signature="e#23660#23909#0#PHP" expanded="false" />
-                <element signature="e#23923#25126#0#PHP" expanded="false" />
-                <element signature="e#24241#25112#0#PHP" expanded="false" />
-                <element signature="e#24289#24434#0#PHP" expanded="false" />
-                <element signature="e#24455#24598#0#PHP" expanded="false" />
-                <element signature="e#24619#24764#0#PHP" expanded="false" />
-                <element signature="e#24785#24928#0#PHP" expanded="false" />
-                <element signature="e#24949#25094#0#PHP" expanded="false" />
-                <element signature="e#25170#25621#0#PHP" expanded="false" />
-                <element signature="e#25626#27350#0#PHP" expanded="false" />
-                <element signature="e#25869#26362#0#PHP" expanded="false" />
-                <element signature="e#25935#26113#0#PHP" expanded="false" />
-                <element signature="e#26123#26362#0#PHP" expanded="false" />
-                <element signature="e#26947#27296#0#PHP" expanded="false" />
-                <element signature="e#27356#27439#0#PHP" expanded="false" />
-                <element signature="e#27444#27872#0#PHP" expanded="false" />
-                <element signature="e#27878#28824#0#PHP" expanded="false" />
-                <element signature="e#28829#30312#0#PHP" expanded="false" />
-                <element signature="e#28962#29059#0#PHP" expanded="false" />
-                <element signature="e#29254#29522#0#PHP" expanded="false" />
-                <element signature="e#29607#30292#0#PHP" expanded="false" />
-                <element signature="e#29802#29935#0#PHP" expanded="false" />
-                <element signature="e#30015#30218#0#PHP" expanded="false" />
-                <element signature="e#30148#30218#0#PHP" expanded="false" />
-                <element signature="e#30229#30292#0#PHP" expanded="false" />
-                <element signature="e#30318#31285#0#PHP" expanded="false" />
-                <element signature="e#31290#31454#0#PHP" expanded="false" />
-                <element signature="e#31460#31547#0#PHP" expanded="false" />
-                <element signature="e#31552#31632#0#PHP" expanded="false" />
-                <element signature="e#31638#31670#0#PHP" expanded="false" />
-                <element signature="e#31675#31774#0#PHP" expanded="false" />
-                <element signature="e#31780#31875#0#PHP" expanded="false" />
-                <element signature="e#31880#32704#0#PHP" expanded="false" />
-                <element signature="e#32710#32910#0#PHP" expanded="false" />
-                <element signature="e#32915#33262#0#PHP" expanded="false" />
-                <element signature="e#32964#33256#0#PHP" expanded="false" />
-                <element signature="e#33047#33216#0#PHP" expanded="false" />
-                <element signature="e#33268#33324#0#PHP" expanded="false" />
-                <element signature="e#33329#33512#0#PHP" expanded="false" />
-                <element signature="e#33518#33551#0#PHP" expanded="false" />
-                <element signature="e#33556#33626#0#PHP" expanded="false" />
-                <element signature="e#33632#33712#0#PHP" expanded="false" />
-                <element signature="e#33717#33833#0#PHP" expanded="false" />
-                <element signature="e#33839#33922#0#PHP" expanded="false" />
-                <element signature="e#33927#34061#0#PHP" expanded="false" />
-                <element signature="e#34067#34123#0#PHP" expanded="false" />
-                <element signature="e#34128#34254#0#PHP" expanded="false" />
-                <element signature="e#34260#34316#0#PHP" expanded="false" />
-                <element signature="e#34321#34448#0#PHP" expanded="false" />
-                <element signature="e#34454#34486#0#PHP" expanded="false" />
-                <element signature="e#34491#34603#0#PHP" expanded="false" />
-                <element signature="e#34609#34641#0#PHP" expanded="false" />
-                <element signature="e#34646#34752#0#PHP" expanded="false" />
-                <element signature="e#34758#34790#0#PHP" expanded="false" />
-                <element signature="e#34795#34896#0#PHP" expanded="false" />
-                <element signature="e#34902#34934#0#PHP" expanded="false" />
-                <element signature="e#34939#35043#0#PHP" expanded="false" />
-                <element signature="e#35049#35081#0#PHP" expanded="false" />
-                <element signature="e#35086#35184#0#PHP" expanded="false" />
-                <element signature="e#35190#35577#0#PHP" expanded="false" />
-                <element signature="e#35582#35719#0#PHP" expanded="false" />
-                <element signature="e#35725#35770#0#PHP" expanded="false" />
-                <element signature="e#35775#35926#0#PHP" expanded="false" />
-                <element signature="e#35932#35977#0#PHP" expanded="false" />
-                <element signature="e#35982#36130#0#PHP" expanded="false" />
-                <element signature="e#36136#36259#0#PHP" expanded="false" />
-                <element signature="e#36264#36413#0#PHP" expanded="false" />
-                <element signature="e#36419#36464#0#PHP" expanded="false" />
-                <element signature="e#36469#36604#0#PHP" expanded="false" />
-                <element signature="e#36610#36674#0#PHP" expanded="false" />
-                <element signature="e#36679#36748#0#PHP" expanded="false" />
-                <element signature="e#36754#36799#0#PHP" expanded="false" />
-                <element signature="e#36804#36944#0#PHP" expanded="false" />
-                <element signature="e#36950#37013#0#PHP" expanded="false" />
-                <element signature="e#37018#37081#0#PHP" expanded="false" />
-                <element signature="e#37087#37201#0#PHP" expanded="false" />
-                <element signature="e#37206#37275#0#PHP" expanded="false" />
-                <element signature="e#37281#37393#0#PHP" expanded="false" />
-                <element signature="e#37398#37658#0#PHP" expanded="false" />
-                <element signature="e#37462#37630#0#PHP" expanded="false" />
-                <element signature="e#37513#37620#0#PHP" expanded="false" />
+                <element signature="e#1674#1803#0#PHP" expanded="false" />
+                <element signature="e#1805#2258#0#PHP" expanded="false" />
+                <element signature="e#2264#2437#0#PHP" expanded="false" />
+                <element signature="e#2442#3370#0#PHP" expanded="false" />
+                <element signature="e#2559#2794#0#PHP" expanded="false" />
+                <element signature="e#2667#2794#0#PHP" expanded="false" />
+                <element signature="e#2883#3364#0#PHP" expanded="false" />
+                <element signature="e#3044#3354#0#PHP" expanded="false" />
+                <element signature="e#3462#3496#0#PHP" expanded="false" />
+                <element signature="e#3501#3767#0#PHP" expanded="false" />
+                <element signature="e#3773#3939#0#PHP" expanded="false" />
+                <element signature="e#3944#4187#0#PHP" expanded="false" />
+                <element signature="e#4193#4390#0#PHP" expanded="false" />
+                <element signature="e#4396#4469#0#PHP" expanded="false" />
+                <element signature="e#4474#5080#0#PHP" expanded="false" />
+                <element signature="e#5086#5120#0#PHP" expanded="false" />
+                <element signature="e#5122#5182#0#PHP" expanded="false" />
+                <element signature="e#5188#5282#0#PHP" expanded="false" />
+                <element signature="e#5287#5377#0#PHP" expanded="false" />
+                <element signature="e#5383#5474#0#PHP" expanded="false" />
+                <element signature="e#5479#5659#0#PHP" expanded="false" />
+                <element signature="e#5529#5631#0#PHP" expanded="false" />
+                <element signature="e#5665#5808#0#PHP" expanded="false" />
+                <element signature="e#5810#5921#0#PHP" expanded="false" />
+                <element signature="e#5927#6011#0#PHP" expanded="false" />
+                <element signature="e#6016#6142#0#PHP" expanded="false" />
+                <element signature="e#6148#6313#0#PHP" expanded="false" />
+                <element signature="e#6318#6965#0#PHP" expanded="false" />
+                <element signature="e#6481#6936#0#PHP" expanded="false" />
+                <element signature="e#6710#6936#0#PHP" expanded="false" />
+                <element signature="e#6971#7132#0#PHP" expanded="false" />
+                <element signature="e#7137#7682#0#PHP" expanded="false" />
+                <element signature="e#7449#7647#0#PHP" expanded="false" />
+                <element signature="e#7688#7729#0#PHP" expanded="false" />
+                <element signature="e#7734#7951#0#PHP" expanded="false" />
+                <element signature="e#7836#7923#0#PHP" expanded="false" />
+                <element signature="e#7957#7988#0#PHP" expanded="false" />
+                <element signature="e#7993#9551#0#PHP" expanded="false" />
+                <element signature="e#8075#8180#0#PHP" expanded="false" />
+                <element signature="e#8322#8403#0#PHP" expanded="false" />
+                <element signature="e#9083#9269#0#PHP" expanded="false" />
+                <element signature="e#9557#9685#0#PHP" expanded="false" />
+                <element signature="e#9690#10343#0#PHP" expanded="false" />
+                <element signature="e#9791#9962#0#PHP" expanded="false" />
+                <element signature="e#10349#10436#0#PHP" expanded="false" />
+                <element signature="e#10441#10619#0#PHP" expanded="false" />
+                <element signature="e#10494#10591#0#PHP" expanded="false" />
+                <element signature="e#10625#10753#0#PHP" expanded="false" />
+                <element signature="e#10758#11155#0#PHP" expanded="false" />
+                <element signature="e#10904#11062#0#PHP" expanded="false" />
+                <element signature="e#11161#11243#0#PHP" expanded="false" />
+                <element signature="e#11248#11628#0#PHP" expanded="false" />
+                <element signature="e#11634#11690#0#PHP" expanded="false" />
+                <element signature="e#11695#11809#0#PHP" expanded="false" />
+                <element signature="e#11815#11866#0#PHP" expanded="false" />
+                <element signature="e#11871#12005#0#PHP" expanded="false" />
+                <element signature="e#12011#12079#0#PHP" expanded="false" />
+                <element signature="e#12084#12173#0#PHP" expanded="false" />
+                <element signature="e#12179#12269#0#PHP" expanded="false" />
+                <element signature="e#12274#12571#0#PHP" expanded="false" />
+                <element signature="e#12577#12684#0#PHP" expanded="false" />
+                <element signature="e#12689#13189#0#PHP" expanded="false" />
+                <element signature="e#12791#12947#0#PHP" expanded="false" />
+                <element signature="e#12957#13123#0#PHP" expanded="false" />
+                <element signature="e#13195#13317#0#PHP" expanded="false" />
+                <element signature="e#13322#13877#0#PHP" expanded="false" />
+                <element signature="e#13381#13450#0#PHP" expanded="false" />
+                <element signature="e#13460#13623#0#PHP" expanded="false" />
+                <element signature="e#13633#13799#0#PHP" expanded="false" />
+                <element signature="e#13883#14004#0#PHP" expanded="false" />
+                <element signature="e#14009#14233#0#PHP" expanded="false" />
+                <element signature="e#14065#14144#0#PHP" expanded="false" />
+                <element signature="e#14239#14364#0#PHP" expanded="false" />
+                <element signature="e#14369#14596#0#PHP" expanded="false" />
+                <element signature="e#14424#14505#0#PHP" expanded="false" />
+                <element signature="e#14602#14870#0#PHP" expanded="false" />
+                <element signature="e#14875#15242#0#PHP" expanded="false" />
+                <element signature="e#14936#15162#0#PHP" expanded="false" />
+                <element signature="e#15024#15132#0#PHP" expanded="false" />
+                <element signature="e#15248#15443#0#PHP" expanded="false" />
+                <element signature="e#15448#15973#0#PHP" expanded="false" />
+                <element signature="e#15979#16081#0#PHP" expanded="false" />
+                <element signature="e#16086#16401#0#PHP" expanded="false" />
+                <element signature="e#16407#16445#0#PHP" expanded="false" />
+                <element signature="e#16450#16531#0#PHP" expanded="false" />
+                <element signature="e#16537#16611#0#PHP" expanded="false" />
+                <element signature="e#16616#16700#0#PHP" expanded="false" />
+                <element signature="e#16706#16832#0#PHP" expanded="false" />
+                <element signature="e#16837#17188#0#PHP" expanded="false" />
+                <element signature="e#16888#17182#0#PHP" expanded="false" />
+                <element signature="e#16971#17142#0#PHP" expanded="false" />
+                <element signature="e#17194#17272#0#PHP" expanded="false" />
+                <element signature="e#17277#18200#0#PHP" expanded="false" />
+                <element signature="e#22703#23124#0#PHP" expanded="false" />
+                <element signature="e#22821#22952#0#PHP" expanded="false" />
+                <element signature="e#22966#23114#0#PHP" expanded="false" />
+                <element signature="e#23498#25086#0#PHP" expanded="false" />
+                <element signature="e#23872#25075#0#PHP" expanded="false" />
+                <element signature="e#28911#29008#0#PHP" expanded="false" />
+                <element signature="e#29203#29471#0#PHP" expanded="false" />
+                <element signature="e#29556#30241#0#PHP" expanded="false" />
+                <element signature="e#29751#29884#0#PHP" expanded="false" />
+                <element signature="e#29964#30167#0#PHP" expanded="false" />
+                <element signature="e#30097#30167#0#PHP" expanded="false" />
+                <element signature="e#30178#30241#0#PHP" expanded="false" />
+                <element signature="e#31829#32653#0#PHP" expanded="false" />
+                <element signature="e#32913#33205#0#PHP" expanded="false" />
+                <element signature="e#32996#33165#0#PHP" expanded="false" />
+                <element signature="e#33505#33575#0#PHP" expanded="false" />
+                <element signature="e#34558#35440#0#PHP" expanded="false" />
+                <element signature="e#35446#36923#0#PHP" expanded="false" />
+                <element signature="e#36929#37270#0#PHP" expanded="false" />
+                <element signature="e#37276#37642#0#PHP" expanded="false" />
+                <element signature="e#37648#38574#0#PHP" expanded="false" />
+                <element signature="e#38617#38732#0#PHP" expanded="false" />
+                <element signature="e#38775#38885#0#PHP" expanded="false" />
+                <element signature="e#38928#39041#0#PHP" expanded="false" />
+                <element signature="e#39084#39191#0#PHP" expanded="false" />
+                <element signature="e#39589#39688#0#PHP" expanded="false" />
+                <element signature="e#39694#39739#0#PHP" expanded="false" />
+                <element signature="e#39744#39850#0#PHP" expanded="false" />
+                <element signature="e#39906#40010#0#PHP" expanded="false" />
+                <element signature="e#40144#40251#0#PHP" expanded="false" />
+                <element signature="e#40307#40406#0#PHP" expanded="false" />
+                <element signature="e#40481#40550#0#PHP" expanded="false" />
+                <element signature="e#40606#41258#0#PHP" expanded="false" />
+                <element signature="e#41264#41409#0#PHP" expanded="false" />
+                <element signature="e#41414#41968#0#PHP" expanded="false" />
+                <element signature="e#42042#42105#0#PHP" expanded="false" />
+                <element signature="e#42111#42197#0#PHP" expanded="false" />
+                <element signature="e#42202#42319#0#PHP" expanded="false" />
+                <element signature="e#42325#42383#0#PHP" expanded="false" />
+                <element signature="e#42388#42564#0#PHP" expanded="false" />
+                <element signature="e#42689#42758#0#PHP" expanded="false" />
+                <element signature="e#42881#43141#0#PHP" expanded="false" />
+                <element signature="e#42945#43113#0#PHP" expanded="false" />
+                <element signature="e#42996#43103#0#PHP" expanded="false" />
+                <marker date="1507385315000" expanded="false" signature="18209:18315" ph=" @see https://en.wikipedia.org/wiki/HTTP_referer ..." />
+                <marker date="1507385315000" expanded="false" signature="18362:18430" ph="{...}" />
+                <marker date="1507385315000" expanded="false" signature="18439:18545" ph=" @see https://en.wikipedia.org/wiki/HTTP_referer ..." />
+                <marker date="1507385315000" expanded="false" signature="18588:18652" ph="{...}" />
+                <marker date="1507385315000" expanded="false" signature="18661:18776" ph=" set headers ..." />
+                <marker date="1507385315000" expanded="false" signature="18843:19264" ph="{...}" />
+                <marker date="1507385315000" expanded="false" signature="18877:18954" ph="..." />
+                <marker date="1507385315000" expanded="false" signature="18961:19013" ph="..." />
+                <marker date="1507385315000" expanded="false" signature="19096:19152" ph="..." />
+                <marker date="1507385315000" expanded="false" signature="19273:19359" ph=" Set maximum redirect allow ..." />
+                <marker date="1507385315000" expanded="false" signature="19409:19495" ph="{...}" />
+                <marker date="1507385315000" expanded="false" signature="19504:19606" ph=" It will follow end location of referer urls ..." />
+                <marker date="1507385315000" expanded="false" signature="19654:19744" ph="{...}" />
+                <marker date="1507385315000" expanded="false" signature="19753:19801" ph=" Set timeout ..." />
+                <marker date="1507385315000" expanded="false" signature="19846:19908" ph="{...}" />
+                <marker date="1507385315000" expanded="false" signature="19917:19974" ph=" Make lib own useragent ..." />
+                <marker date="1507385315000" expanded="false" signature="20021:20244" ph="{...}" />
+                <marker date="1507385315000" expanded="false" signature="20253:20306" ph=" @param string $str ..." />
+                <marker date="1507385315000" expanded="false" signature="20356:22306" ph="{...}" />
+                <marker date="1507385315000" expanded="false" signature="20384:20485" ph="{...}" />
+                <marker date="1507385315000" expanded="false" signature="20518:21079" ph="..." />
+                <marker date="1507385315000" expanded="false" signature="21272:22178" ph="{...}" />
+                <marker date="1507385315000" expanded="false" signature="21337:21945" ph="..." />
+                <marker date="1507385315000" expanded="false" signature="21420:21545" ph="{...}" />
+                <marker date="1507385315000" expanded="false" signature="21579:21688" ph="{...}" />
+                <marker date="1507385315000" expanded="false" signature="21693:21931" ph="..." />
+                <marker date="1507385315000" expanded="false" signature="21816:21914" ph="{...}" />
+                <marker date="1507385315000" expanded="false" signature="21951:22101" ph="..." />
+                <marker date="1507385315000" expanded="false" signature="22203:22286" ph="..." />
+                <marker date="1507385315000" expanded="false" signature="22315:22343" ph=" @return string ..." />
+                <marker date="1507385315000" expanded="false" signature="22380:22425" ph="{...}" />
+                <marker date="1507385315000" expanded="false" signature="22434:22522" ph=" Get the size of directory ..." />
+                <marker date="1507385315000" expanded="false" signature="22573:23153" ph="{...}" />
+                <marker date="1507385315000" expanded="false" signature="23162:23289" ph=" @param $directory ..." />
+                <marker date="1507385315000" expanded="false" signature="23400:25113" ph="{...}" />
+                <marker date="1507385315000" expanded="false" signature="23628:23857" ph="..." />
+                <marker date="1507385315000" expanded="false" signature="24217:25060" ph="..." />
+                <marker date="1507385315000" expanded="false" signature="24248:24383" ph="..." />
+                <marker date="1507385315000" expanded="false" signature="24414:24547" ph="..." />
+                <marker date="1507385315000" expanded="false" signature="24579:24713" ph="..." />
+                <marker date="1507385315000" expanded="false" signature="24744:24877" ph="..." />
+                <marker date="1507385315000" expanded="false" signature="24909:25043" ph="..." />
+                <marker date="1507385315000" expanded="false" signature="25122:25568" ph=" $option[&quot;MaxDiskSize&quot;] = 10*1024*1024. //max 10mb of Cache directory ..." />
+                <marker date="1507385315000" expanded="false" signature="25618:27299" ph="{...}" />
+                <marker date="1507385315000" expanded="false" signature="25861:26072" ph="{...}" />
+                <marker date="1507385315000" expanded="false" signature="25927:26061" ph="..." />
+                <marker date="1507385315000" expanded="false" signature="26078:26310" ph="..." />
+                <marker date="1507385315000" expanded="false" signature="26939:27185" ph="..." />
+                <marker date="1507385315000" expanded="false" signature="27308:27386" ph=" Get cache Setting ..." />
+                <marker date="1507385315000" expanded="false" signature="27436:27821" ph="{...}" />
+                <marker date="1507385315000" expanded="false" signature="27830:28771" ph=" If this method is enable, ..." />
+                <marker date="1507385315000" expanded="false" signature="28823:30261" ph="{...}" />
+                <marker date="1507385315000" expanded="false" signature="30270:31232" ph=" Call this method to check to enable the cache, ..." />
+                <marker date="1507385315000" expanded="false" signature="31290:31403" ph="{...}" />
+                <marker date="1507385315000" expanded="false" signature="31412:31494" ph=" Determine whether cache option is enabled or not ..." />
+                <marker date="1507385315000" expanded="false" signature="31532:31581" ph="{...}" />
+                <marker date="1507385315000" expanded="false" signature="31590:31617" ph=" @return $this ..." />
+                <marker date="1507385315000" expanded="false" signature="31654:31723" ph="{...}" />
+                <marker date="1507385315000" expanded="false" signature="31732:31822" ph=" get the cache file name for current url requested ..." />
+                <marker date="1507385315000" expanded="false" signature="32662:32857" ph=" Set the cache file name. Would be better if you set absolute Directory Path. ..." />
+                <marker date="1507385315000" expanded="false" signature="32898:33211" ph="{...}" />
+                <marker date="1507385315000" expanded="false" signature="33220:33271" ph=" @param bool $val ..." />
+                <marker date="1507385315000" expanded="false" signature="33322:33461" ph="{...}" />
+                <marker date="1507385315000" expanded="false" signature="33470:33498" ph=" @return string ..." />
+                <marker date="1507385315000" expanded="false" signature="33584:33659" ph=" Set Port num ..." />
+                <marker date="1507385315000" expanded="false" signature="33696:33782" ph="{...}" />
+                <marker date="1507385315000" expanded="false" signature="33791:33869" ph=" Set Connect Timeout ..." />
+                <marker date="1507385315000" expanded="false" signature="33919:34010" ph="{...}" />
+                <marker date="1507385315000" expanded="false" signature="34019:34070" ph=" @param bool $val ..." />
+                <marker date="1507385315000" expanded="false" signature="34114:34203" ph="{...}" />
+                <marker date="1507385315000" expanded="false" signature="34212:34263" ph=" @param bool $val ..." />
+                <marker date="1507385315000" expanded="false" signature="34308:34397" ph="{...}" />
+                <marker date="1507385315000" expanded="false" signature="34406:34433" ph=" @return $this ..." />
+                <marker date="1507385315000" expanded="false" signature="34465:34552" ph="{...}" />
+                <marker date="1507385315000" expanded="false" signature="38583:38610" ph=" @return mixed ..." />
+                <marker date="1507385315000" expanded="false" signature="38741:38768" ph=" @return mixed ..." />
+                <marker date="1507385315000" expanded="false" signature="38894:38921" ph=" @return mixed ..." />
+                <marker date="1507385315000" expanded="false" signature="39050:39077" ph=" @return mixed ..." />
+                <marker date="1507385315000" expanded="false" signature="39200:39582" ph=" Return http status if exists otherwise an empty string ..." />
+                <marker date="1507385315000" expanded="false" signature="39859:39899" ph=" @return mixed|array|string ..." />
+                <marker date="1507385315000" expanded="false" signature="40019:40137" ph=" Returns the connection status of request e.g close, maybe keep-alive.. ..." />
+                <marker date="1507385315000" expanded="false" signature="40260:40300" ph=" @return mixed|array|string ..." />
+                <marker date="1507385315000" expanded="false" signature="40415:40474" ph=" Returns curl Instance ..." />
+                <marker date="1507385315000" expanded="false" signature="40559:40599" ph=" @return mixed|array|string ..." />
+                <marker date="1507385315000" expanded="false" signature="41977:42035" ph=" Get back the given url ..." />
+                <marker date="1507385315000" expanded="false" signature="42573:42682" ph=" Returns the array of errors if occurred or empty array in case of no error ..." />
+                <marker date="1507385315000" expanded="false" signature="42767:42874" ph=" check whether str contains ..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="composer.json" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/composer.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="216">
+              <caret line="8" column="5" lean-forward="true" selection-start-line="8" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -265,18 +286,8 @@
       <file leaf-file-name="Test2.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Src/Test2.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="28" column="20" lean-forward="false" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Test.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Src/Test.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+            <state relative-caret-position="306">
+              <caret line="26" column="10" lean-forward="true" selection-start-line="26" selection-start-column="10" selection-end-line="26" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -286,8 +297,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>useCache</find>
-      <find>useCache(</find>
       <find>MaxDiskSize</find>
       <find>invokable[&quot;cache&quot;]</find>
       <find>CURLOPT_TIMEOUT</find>
@@ -316,6 +325,8 @@
       <find>autoDeleteFiles</find>
       <find>CookiesJar</find>
       <find>curl_easy_setopt</find>
+      <find>cookies are enabled</find>
+      <find>getFunctionHeadersFromCache</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -336,9 +347,11 @@
         <option value="$PROJECT_DIR$/Src/cURLRequester.php" />
         <option value="$PROJECT_DIR$/Src/Cookies/96e838a996__whatarecookies_com.cookies" />
         <option value="$PROJECT_DIR$/Src/Test.php" />
-        <option value="$PROJECT_DIR$/Src/cURLEngine.php" />
-        <option value="$PROJECT_DIR$/Src/Test2.php" />
         <option value="$PROJECT_DIR$/Src/Cookies/54b36e65d4__lina24_com.txt" />
+        <option value="$PROJECT_DIR$/Src/Other/Headers/22f542ddbc__google_it.heads" />
+        <option value="$PROJECT_DIR$/Src/Other/Headers/96e838a996__whatarecookies_com.heads" />
+        <option value="$PROJECT_DIR$/Src/Test2.php" />
+        <option value="$PROJECT_DIR$/Src/cURLEngine.php" />
       </list>
     </option>
   </component>
@@ -358,10 +371,10 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1616" />
-    <option name="height" value="876" />
+    <option name="x" value="1972" />
+    <option name="y" value="-15" />
+    <option name="width" value="1696" />
+    <option name="height" value="1013" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -383,19 +396,26 @@
         <subPane>
           <expand>
             <path>
-              <item name="cURL" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cURL" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="cURLRequester" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cURLRequester" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
-              <item name="cURL" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cURL" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="cURLRequester" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cURLRequester" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Src" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
-              <item name="cURL" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cURL" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="cURLRequester" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cURLRequester" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Cookies" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Other" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="cURLRequester" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cURLRequester" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Other" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Headers" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -410,6 +430,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/.idea" />
     <property name="add_unversioned_files" value="$PROJECT_DIR$/Src/Cookies/96e838a996__whatarecookies_com.cookies&#10;true&#10;C:/xampp/htdocs/Finnished/cURL/Src/Cookies/96e838a996__whatarecookies_com.txt" />
     <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$2/Languages" value="TEXT" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -431,7 +452,7 @@
   </component>
   <component name="RunManager" selected="PHP Built-in Web Server.Curl">
     <configuration name="Curl" type="PhpBuiltInWebServerConfigurationType" factoryName="PHP Built-in Web Server" document_root="$PROJECT_DIR$" host="localhost/Finnished/cURL/Src/Test.php">
-      <CommandLine workingDirectory="$PROJECT_DIR$" />
+      <CommandLine workingDirectory="$PROJECT_DIR$/../Finnished/cURL" />
       <option name="workingDirectory" value="C:\xampp\htdocs\Finnished\cURL" />
     </configuration>
   </component>
@@ -474,30 +495,41 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="108178000" />
+    <option name="totallyTimeSpent" value="127976000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <frame x="1672" y="-8" width="1696" height="1066" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18830334" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23002754" sideWeight="0.5154242" order="13" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1589242" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17576419" sideWeight="0.51283616" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17630854" sideWeight="0.4974293" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32751092" sideWeight="0.48714653" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292011" sideWeight="0.4974293" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16528925" sideWeight="0.48457584" order="15" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18449782" sideWeight="0.4871638" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.069869" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23002754" sideWeight="0.5154242" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.069869" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292011" sideWeight="0.4974293" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2231405" sideWeight="0.48457584" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18830334" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3264463" sideWeight="0.48714653" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -511,940 +543,11 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="28" />
+      <option name="time" value="36" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Src/Test.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="28" column="28" lean-forward="false" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Src/cURLEngine.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3762">
-          <caret line="536" column="33" lean-forward="false" selection-start-line="536" selection-start-column="33" selection-end-line="536" selection-end-column="33" />
-          <folding>
-            <element signature="e#1244#1269#0#PHP" expanded="false" />
-            <element signature="e#1781#1910#0#PHP" expanded="false" />
-            <element signature="e#1912#2365#0#PHP" expanded="false" />
-            <element signature="e#2371#2544#0#PHP" expanded="false" />
-            <element signature="e#2549#3477#0#PHP" expanded="false" />
-            <element signature="e#2666#2901#0#PHP" expanded="false" />
-            <element signature="e#2774#2901#0#PHP" expanded="false" />
-            <element signature="e#2990#3471#0#PHP" expanded="false" />
-            <element signature="e#3151#3461#0#PHP" expanded="false" />
-            <element signature="e#3488#3522#0#PHP" expanded="false" />
-            <element signature="e#3527#3793#0#PHP" expanded="false" />
-            <element signature="e#3799#3924#0#PHP" expanded="false" />
-            <element signature="e#3929#4172#0#PHP" expanded="false" />
-            <element signature="e#4178#4251#0#PHP" expanded="false" />
-            <element signature="e#4256#4862#0#PHP" expanded="false" />
-            <element signature="e#4868#4902#0#PHP" expanded="false" />
-            <element signature="e#4904#4964#0#PHP" expanded="false" />
-            <element signature="e#4970#5064#0#PHP" expanded="false" />
-            <element signature="e#5069#5159#0#PHP" expanded="false" />
-            <element signature="e#5165#5256#0#PHP" expanded="false" />
-            <element signature="e#5261#5441#0#PHP" expanded="false" />
-            <element signature="e#5311#5413#0#PHP" expanded="false" />
-            <element signature="e#5447#5590#0#PHP" expanded="false" />
-            <element signature="e#5592#5703#0#PHP" expanded="false" />
-            <element signature="e#5709#5793#0#PHP" expanded="false" />
-            <element signature="e#5798#5924#0#PHP" expanded="false" />
-            <element signature="e#5930#6095#0#PHP" expanded="false" />
-            <element signature="e#6100#6747#0#PHP" expanded="false" />
-            <element signature="e#6263#6718#0#PHP" expanded="false" />
-            <element signature="e#6492#6718#0#PHP" expanded="false" />
-            <element signature="e#6753#6914#0#PHP" expanded="false" />
-            <element signature="e#6919#7464#0#PHP" expanded="false" />
-            <element signature="e#7231#7429#0#PHP" expanded="false" />
-            <element signature="e#7470#7511#0#PHP" expanded="false" />
-            <element signature="e#7516#7733#0#PHP" expanded="false" />
-            <element signature="e#7618#7705#0#PHP" expanded="false" />
-            <element signature="e#7739#7770#0#PHP" expanded="false" />
-            <element signature="e#7775#9331#0#PHP" expanded="false" />
-            <element signature="e#7857#7962#0#PHP" expanded="false" />
-            <element signature="e#8104#8228#0#PHP" expanded="false" />
-            <element signature="e#8863#9049#0#PHP" expanded="false" />
-            <element signature="e#9337#9465#0#PHP" expanded="false" />
-            <element signature="e#9470#10123#0#PHP" expanded="false" />
-            <element signature="e#9571#9742#0#PHP" expanded="false" />
-            <element signature="e#10129#10216#0#PHP" expanded="false" />
-            <element signature="e#10221#10399#0#PHP" expanded="false" />
-            <element signature="e#10274#10371#0#PHP" expanded="false" />
-            <element signature="e#10405#10533#0#PHP" expanded="false" />
-            <element signature="e#10538#10935#0#PHP" expanded="false" />
-            <element signature="e#10684#10842#0#PHP" expanded="false" />
-            <element signature="e#10941#11023#0#PHP" expanded="false" />
-            <element signature="e#11028#11408#0#PHP" expanded="false" />
-            <element signature="e#11414#11470#0#PHP" expanded="false" />
-            <element signature="e#11475#11589#0#PHP" expanded="false" />
-            <element signature="e#11595#11646#0#PHP" expanded="false" />
-            <element signature="e#11651#11785#0#PHP" expanded="false" />
-            <element signature="e#11791#11859#0#PHP" expanded="false" />
-            <element signature="e#11864#11953#0#PHP" expanded="false" />
-            <element signature="e#11959#12049#0#PHP" expanded="false" />
-            <element signature="e#12054#12351#0#PHP" expanded="false" />
-            <element signature="e#12357#12464#0#PHP" expanded="false" />
-            <element signature="e#12469#12969#0#PHP" expanded="false" />
-            <element signature="e#12571#12727#0#PHP" expanded="false" />
-            <element signature="e#12737#12903#0#PHP" expanded="false" />
-            <element signature="e#12975#13097#0#PHP" expanded="false" />
-            <element signature="e#13102#13657#0#PHP" expanded="false" />
-            <element signature="e#13161#13230#0#PHP" expanded="false" />
-            <element signature="e#13240#13403#0#PHP" expanded="false" />
-            <element signature="e#13413#13579#0#PHP" expanded="false" />
-            <element signature="e#13663#13784#0#PHP" expanded="false" />
-            <element signature="e#13789#14013#0#PHP" expanded="false" />
-            <element signature="e#14019#14144#0#PHP" expanded="false" />
-            <element signature="e#14149#14376#0#PHP" expanded="false" />
-            <element signature="e#14382#14650#0#PHP" expanded="false" />
-            <element signature="e#14655#15022#0#PHP" expanded="false" />
-            <element signature="e#14716#14942#0#PHP" expanded="false" />
-            <element signature="e#14804#14912#0#PHP" expanded="false" />
-            <element signature="e#15028#15223#0#PHP" expanded="false" />
-            <element signature="e#16000#16102#0#PHP" expanded="false" />
-            <element signature="e#16107#16220#0#PHP" expanded="false" />
-            <element signature="e#16226#16300#0#PHP" expanded="false" />
-            <element signature="e#16305#16389#0#PHP" expanded="false" />
-            <element signature="e#16395#16521#0#PHP" expanded="false" />
-            <element signature="e#16526#16877#0#PHP" expanded="false" />
-            <element signature="e#16577#16871#0#PHP" expanded="false" />
-            <element signature="e#16660#16831#0#PHP" expanded="false" />
-            <element signature="e#16883#16961#0#PHP" expanded="false" />
-            <element signature="e#17830#17941#0#PHP" expanded="false" />
-            <element signature="e#17943#18054#0#PHP" expanded="false" />
-            <element signature="e#18060#18171#0#PHP" expanded="false" />
-            <element signature="e#18173#18276#0#PHP" expanded="false" />
-            <element signature="e#18282#18402#0#PHP" expanded="false" />
-            <element signature="e#18407#18888#0#PHP" expanded="false" />
-            <element signature="e#18482#18638#0#PHP" expanded="false" />
-            <element signature="e#18579#18638#0#PHP" expanded="false" />
-            <element signature="e#18676#18777#0#PHP" expanded="false" />
-            <element signature="e#18894#18985#0#PHP" expanded="false" />
-            <element signature="e#18990#19119#0#PHP" expanded="false" />
-            <element signature="e#19125#19232#0#PHP" expanded="false" />
-            <element signature="e#19237#19368#0#PHP" expanded="false" />
-            <element signature="e#19374#19460#0#PHP" expanded="false" />
-            <element signature="e#19465#19566#0#PHP" expanded="false" />
-            <element signature="e#19572#19630#0#PHP" expanded="false" />
-            <element signature="e#19635#19795#0#PHP" expanded="false" />
-            <element signature="e#19801#19854#0#PHP" expanded="false" />
-            <element signature="e#19859#19959#0#PHP" expanded="false" />
-            <element signature="e#19965#20027#0#PHP" expanded="false" />
-            <element signature="e#20032#20295#0#PHP" expanded="false" />
-            <element signature="e#20301#20359#0#PHP" expanded="false" />
-            <element signature="e#20364#22357#0#PHP" expanded="false" />
-            <element signature="e#20419#20536#0#PHP" expanded="false" />
-            <element signature="e#20568#21131#0#PHP" expanded="false" />
-            <element signature="e#21240#22338#0#PHP" expanded="false" />
-            <element signature="e#21346#22153#0#PHP" expanded="false" />
-            <element signature="e#21451#21983#0#PHP" expanded="false" />
-            <element signature="e#21596#21739#0#PHP" expanded="false" />
-            <element signature="e#21739#21983#0#PHP" expanded="false" />
-            <element signature="e#21836#21965#0#PHP" expanded="false" />
-            <element signature="e#21997#22153#0#PHP" expanded="false" />
-            <element signature="e#22229#22338#0#PHP" expanded="false" />
-            <element signature="e#22363#22396#0#PHP" expanded="false" />
-            <element signature="e#22401#22476#0#PHP" expanded="false" />
-            <element signature="e#22482#22575#0#PHP" expanded="false" />
-            <element signature="e#22580#23204#0#PHP" expanded="false" />
-            <element signature="e#22754#23175#0#PHP" expanded="false" />
-            <element signature="e#22872#23003#0#PHP" expanded="false" />
-            <element signature="e#23017#23165#0#PHP" expanded="false" />
-            <element signature="e#23210#23342#0#PHP" expanded="false" />
-            <element signature="e#23347#25164#0#PHP" expanded="false" />
-            <element signature="e#23549#25137#0#PHP" expanded="false" />
-            <element signature="e#23660#23909#0#PHP" expanded="false" />
-            <element signature="e#23923#25126#0#PHP" expanded="false" />
-            <element signature="e#24241#25112#0#PHP" expanded="false" />
-            <element signature="e#24289#24434#0#PHP" expanded="false" />
-            <element signature="e#24455#24598#0#PHP" expanded="false" />
-            <element signature="e#24619#24764#0#PHP" expanded="false" />
-            <element signature="e#24785#24928#0#PHP" expanded="false" />
-            <element signature="e#24949#25094#0#PHP" expanded="false" />
-            <element signature="e#25170#25621#0#PHP" expanded="false" />
-            <element signature="e#25626#27350#0#PHP" expanded="false" />
-            <element signature="e#25869#26362#0#PHP" expanded="false" />
-            <element signature="e#25935#26113#0#PHP" expanded="false" />
-            <element signature="e#26123#26362#0#PHP" expanded="false" />
-            <element signature="e#26947#27296#0#PHP" expanded="false" />
-            <element signature="e#27356#27439#0#PHP" expanded="false" />
-            <element signature="e#27444#27872#0#PHP" expanded="false" />
-            <element signature="e#27878#28824#0#PHP" expanded="false" />
-            <element signature="e#28829#30312#0#PHP" expanded="false" />
-            <element signature="e#28962#29059#0#PHP" expanded="false" />
-            <element signature="e#29254#29522#0#PHP" expanded="false" />
-            <element signature="e#29607#30292#0#PHP" expanded="false" />
-            <element signature="e#29802#29935#0#PHP" expanded="false" />
-            <element signature="e#30015#30218#0#PHP" expanded="false" />
-            <element signature="e#30148#30218#0#PHP" expanded="false" />
-            <element signature="e#30229#30292#0#PHP" expanded="false" />
-            <element signature="e#30318#31285#0#PHP" expanded="false" />
-            <element signature="e#31290#31454#0#PHP" expanded="false" />
-            <element signature="e#31460#31547#0#PHP" expanded="false" />
-            <element signature="e#31552#31632#0#PHP" expanded="false" />
-            <element signature="e#31638#31670#0#PHP" expanded="false" />
-            <element signature="e#31675#31774#0#PHP" expanded="false" />
-            <element signature="e#31780#31875#0#PHP" expanded="false" />
-            <element signature="e#31880#32704#0#PHP" expanded="false" />
-            <element signature="e#32710#32910#0#PHP" expanded="false" />
-            <element signature="e#32915#33262#0#PHP" expanded="false" />
-            <element signature="e#32964#33256#0#PHP" expanded="false" />
-            <element signature="e#33047#33216#0#PHP" expanded="false" />
-            <element signature="e#33268#33324#0#PHP" expanded="false" />
-            <element signature="e#33329#33512#0#PHP" expanded="false" />
-            <element signature="e#33518#33551#0#PHP" expanded="false" />
-            <element signature="e#33556#33626#0#PHP" expanded="false" />
-            <element signature="e#33632#33712#0#PHP" expanded="false" />
-            <element signature="e#33717#33833#0#PHP" expanded="false" />
-            <element signature="e#33839#33922#0#PHP" expanded="false" />
-            <element signature="e#33927#34061#0#PHP" expanded="false" />
-            <element signature="e#34067#34123#0#PHP" expanded="false" />
-            <element signature="e#34128#34254#0#PHP" expanded="false" />
-            <element signature="e#34260#34316#0#PHP" expanded="false" />
-            <element signature="e#34321#34448#0#PHP" expanded="false" />
-            <element signature="e#34454#34486#0#PHP" expanded="false" />
-            <element signature="e#34491#34603#0#PHP" expanded="false" />
-            <element signature="e#34609#34641#0#PHP" expanded="false" />
-            <element signature="e#34646#34752#0#PHP" expanded="false" />
-            <element signature="e#34758#34790#0#PHP" expanded="false" />
-            <element signature="e#34795#34896#0#PHP" expanded="false" />
-            <element signature="e#34902#34934#0#PHP" expanded="false" />
-            <element signature="e#34939#35043#0#PHP" expanded="false" />
-            <element signature="e#35049#35081#0#PHP" expanded="false" />
-            <element signature="e#35086#35184#0#PHP" expanded="false" />
-            <element signature="e#35190#35577#0#PHP" expanded="false" />
-            <element signature="e#35582#35719#0#PHP" expanded="false" />
-            <element signature="e#35725#35770#0#PHP" expanded="false" />
-            <element signature="e#35775#35926#0#PHP" expanded="false" />
-            <element signature="e#35932#35977#0#PHP" expanded="false" />
-            <element signature="e#35982#36130#0#PHP" expanded="false" />
-            <element signature="e#36136#36259#0#PHP" expanded="false" />
-            <element signature="e#36264#36413#0#PHP" expanded="false" />
-            <element signature="e#36419#36464#0#PHP" expanded="false" />
-            <element signature="e#36469#36604#0#PHP" expanded="false" />
-            <element signature="e#36610#36674#0#PHP" expanded="false" />
-            <element signature="e#36679#36748#0#PHP" expanded="false" />
-            <element signature="e#36754#36799#0#PHP" expanded="false" />
-            <element signature="e#36804#36944#0#PHP" expanded="false" />
-            <element signature="e#36950#37013#0#PHP" expanded="false" />
-            <element signature="e#37018#37081#0#PHP" expanded="false" />
-            <element signature="e#37087#37201#0#PHP" expanded="false" />
-            <element signature="e#37206#37275#0#PHP" expanded="false" />
-            <element signature="e#37281#37393#0#PHP" expanded="false" />
-            <element signature="e#37398#37658#0#PHP" expanded="false" />
-            <element signature="e#37462#37630#0#PHP" expanded="false" />
-            <element signature="e#37513#37620#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Src/Test.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="21" column="97" lean-forward="false" selection-start-line="21" selection-start-column="97" selection-end-line="21" selection-end-column="97" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Src/cURLEngine.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#1244#1269#0#PHP" expanded="false" />
-            <element signature="e#1781#1910#0#PHP" expanded="false" />
-            <element signature="e#1912#2365#0#PHP" expanded="false" />
-            <element signature="e#2371#2544#0#PHP" expanded="false" />
-            <element signature="e#2549#3477#0#PHP" expanded="false" />
-            <element signature="e#2666#2901#0#PHP" expanded="false" />
-            <element signature="e#2774#2901#0#PHP" expanded="false" />
-            <element signature="e#2990#3471#0#PHP" expanded="false" />
-            <element signature="e#3151#3461#0#PHP" expanded="false" />
-            <element signature="e#3488#3522#0#PHP" expanded="false" />
-            <element signature="e#3527#3793#0#PHP" expanded="false" />
-            <element signature="e#3799#3924#0#PHP" expanded="false" />
-            <element signature="e#3929#4172#0#PHP" expanded="false" />
-            <element signature="e#4178#4251#0#PHP" expanded="false" />
-            <element signature="e#4256#4862#0#PHP" expanded="false" />
-            <element signature="e#4868#4902#0#PHP" expanded="false" />
-            <element signature="e#4904#4964#0#PHP" expanded="false" />
-            <element signature="e#4970#5064#0#PHP" expanded="false" />
-            <element signature="e#5069#5159#0#PHP" expanded="false" />
-            <element signature="e#5165#5256#0#PHP" expanded="false" />
-            <element signature="e#5261#5441#0#PHP" expanded="false" />
-            <element signature="e#5311#5413#0#PHP" expanded="false" />
-            <element signature="e#5447#5590#0#PHP" expanded="false" />
-            <element signature="e#5592#5703#0#PHP" expanded="false" />
-            <element signature="e#5709#5793#0#PHP" expanded="false" />
-            <element signature="e#5798#5924#0#PHP" expanded="false" />
-            <element signature="e#5930#6095#0#PHP" expanded="false" />
-            <element signature="e#6100#6747#0#PHP" expanded="false" />
-            <element signature="e#6263#6718#0#PHP" expanded="false" />
-            <element signature="e#6492#6718#0#PHP" expanded="false" />
-            <element signature="e#6753#6914#0#PHP" expanded="false" />
-            <element signature="e#6919#7464#0#PHP" expanded="false" />
-            <element signature="e#7231#7429#0#PHP" expanded="false" />
-            <element signature="e#7470#7511#0#PHP" expanded="false" />
-            <element signature="e#7516#7733#0#PHP" expanded="false" />
-            <element signature="e#7618#7705#0#PHP" expanded="false" />
-            <element signature="e#7739#7770#0#PHP" expanded="false" />
-            <element signature="e#7775#9331#0#PHP" expanded="false" />
-            <element signature="e#7857#7962#0#PHP" expanded="false" />
-            <element signature="e#8104#8228#0#PHP" expanded="false" />
-            <element signature="e#8863#9049#0#PHP" expanded="false" />
-            <element signature="e#9337#9465#0#PHP" expanded="false" />
-            <element signature="e#9470#10123#0#PHP" expanded="false" />
-            <element signature="e#9571#9742#0#PHP" expanded="false" />
-            <element signature="e#10129#10216#0#PHP" expanded="false" />
-            <element signature="e#10221#10399#0#PHP" expanded="false" />
-            <element signature="e#10274#10371#0#PHP" expanded="false" />
-            <element signature="e#10405#10533#0#PHP" expanded="false" />
-            <element signature="e#10538#10935#0#PHP" expanded="false" />
-            <element signature="e#10684#10842#0#PHP" expanded="false" />
-            <element signature="e#10941#11023#0#PHP" expanded="false" />
-            <element signature="e#11028#11408#0#PHP" expanded="false" />
-            <element signature="e#11414#11470#0#PHP" expanded="false" />
-            <element signature="e#11475#11589#0#PHP" expanded="false" />
-            <element signature="e#11595#11646#0#PHP" expanded="false" />
-            <element signature="e#11651#11785#0#PHP" expanded="false" />
-            <element signature="e#11791#11859#0#PHP" expanded="false" />
-            <element signature="e#11864#11953#0#PHP" expanded="false" />
-            <element signature="e#11959#12049#0#PHP" expanded="false" />
-            <element signature="e#12054#12351#0#PHP" expanded="false" />
-            <element signature="e#12357#12464#0#PHP" expanded="false" />
-            <element signature="e#12469#12969#0#PHP" expanded="false" />
-            <element signature="e#12571#12727#0#PHP" expanded="false" />
-            <element signature="e#12737#12903#0#PHP" expanded="false" />
-            <element signature="e#12975#13097#0#PHP" expanded="false" />
-            <element signature="e#13102#13657#0#PHP" expanded="false" />
-            <element signature="e#13161#13230#0#PHP" expanded="false" />
-            <element signature="e#13240#13403#0#PHP" expanded="false" />
-            <element signature="e#13413#13579#0#PHP" expanded="false" />
-            <element signature="e#13663#13784#0#PHP" expanded="false" />
-            <element signature="e#13789#14013#0#PHP" expanded="false" />
-            <element signature="e#14019#14144#0#PHP" expanded="false" />
-            <element signature="e#14149#14376#0#PHP" expanded="false" />
-            <element signature="e#14382#14650#0#PHP" expanded="false" />
-            <element signature="e#14655#15022#0#PHP" expanded="false" />
-            <element signature="e#14716#14942#0#PHP" expanded="false" />
-            <element signature="e#14804#14912#0#PHP" expanded="false" />
-            <element signature="e#15028#15223#0#PHP" expanded="false" />
-            <element signature="e#16000#16102#0#PHP" expanded="false" />
-            <element signature="e#16107#16220#0#PHP" expanded="false" />
-            <element signature="e#16226#16300#0#PHP" expanded="false" />
-            <element signature="e#16305#16389#0#PHP" expanded="false" />
-            <element signature="e#16395#16521#0#PHP" expanded="false" />
-            <element signature="e#16526#16877#0#PHP" expanded="false" />
-            <element signature="e#16577#16871#0#PHP" expanded="false" />
-            <element signature="e#16660#16831#0#PHP" expanded="false" />
-            <element signature="e#16883#16961#0#PHP" expanded="false" />
-            <element signature="e#17830#17941#0#PHP" expanded="false" />
-            <element signature="e#17943#18054#0#PHP" expanded="false" />
-            <element signature="e#18060#18171#0#PHP" expanded="false" />
-            <element signature="e#18173#18276#0#PHP" expanded="false" />
-            <element signature="e#18282#18402#0#PHP" expanded="false" />
-            <element signature="e#18407#18888#0#PHP" expanded="false" />
-            <element signature="e#18482#18638#0#PHP" expanded="false" />
-            <element signature="e#18579#18638#0#PHP" expanded="false" />
-            <element signature="e#18676#18777#0#PHP" expanded="false" />
-            <element signature="e#18894#18985#0#PHP" expanded="false" />
-            <element signature="e#18990#19119#0#PHP" expanded="false" />
-            <element signature="e#19125#19232#0#PHP" expanded="false" />
-            <element signature="e#19237#19368#0#PHP" expanded="false" />
-            <element signature="e#19374#19460#0#PHP" expanded="false" />
-            <element signature="e#19465#19566#0#PHP" expanded="false" />
-            <element signature="e#19572#19630#0#PHP" expanded="false" />
-            <element signature="e#19635#19795#0#PHP" expanded="false" />
-            <element signature="e#19801#19854#0#PHP" expanded="false" />
-            <element signature="e#19859#19959#0#PHP" expanded="false" />
-            <element signature="e#19965#20027#0#PHP" expanded="false" />
-            <element signature="e#20032#20295#0#PHP" expanded="false" />
-            <element signature="e#20301#20359#0#PHP" expanded="false" />
-            <element signature="e#20364#22357#0#PHP" expanded="false" />
-            <element signature="e#20419#20536#0#PHP" expanded="false" />
-            <element signature="e#20568#21131#0#PHP" expanded="false" />
-            <element signature="e#21240#22338#0#PHP" expanded="false" />
-            <element signature="e#21346#22153#0#PHP" expanded="false" />
-            <element signature="e#21451#21983#0#PHP" expanded="false" />
-            <element signature="e#21596#21739#0#PHP" expanded="false" />
-            <element signature="e#21739#21983#0#PHP" expanded="false" />
-            <element signature="e#21836#21965#0#PHP" expanded="false" />
-            <element signature="e#21997#22153#0#PHP" expanded="false" />
-            <element signature="e#22229#22338#0#PHP" expanded="false" />
-            <element signature="e#22363#22396#0#PHP" expanded="false" />
-            <element signature="e#22401#22476#0#PHP" expanded="false" />
-            <element signature="e#22482#22575#0#PHP" expanded="false" />
-            <element signature="e#22580#23204#0#PHP" expanded="false" />
-            <element signature="e#22754#23175#0#PHP" expanded="false" />
-            <element signature="e#22872#23003#0#PHP" expanded="false" />
-            <element signature="e#23017#23165#0#PHP" expanded="false" />
-            <element signature="e#23210#23342#0#PHP" expanded="false" />
-            <element signature="e#23347#25164#0#PHP" expanded="false" />
-            <element signature="e#23549#25137#0#PHP" expanded="false" />
-            <element signature="e#23660#23909#0#PHP" expanded="false" />
-            <element signature="e#23923#25126#0#PHP" expanded="false" />
-            <element signature="e#24241#25112#0#PHP" expanded="false" />
-            <element signature="e#24289#24434#0#PHP" expanded="false" />
-            <element signature="e#24455#24598#0#PHP" expanded="false" />
-            <element signature="e#24619#24764#0#PHP" expanded="false" />
-            <element signature="e#24785#24928#0#PHP" expanded="false" />
-            <element signature="e#24949#25094#0#PHP" expanded="false" />
-            <element signature="e#25170#25621#0#PHP" expanded="false" />
-            <element signature="e#25626#27350#0#PHP" expanded="false" />
-            <element signature="e#25869#26362#0#PHP" expanded="false" />
-            <element signature="e#25935#26113#0#PHP" expanded="false" />
-            <element signature="e#26123#26362#0#PHP" expanded="false" />
-            <element signature="e#26947#27296#0#PHP" expanded="false" />
-            <element signature="e#27356#27439#0#PHP" expanded="false" />
-            <element signature="e#27444#27872#0#PHP" expanded="false" />
-            <element signature="e#27878#28824#0#PHP" expanded="false" />
-            <element signature="e#28829#30312#0#PHP" expanded="false" />
-            <element signature="e#28962#29059#0#PHP" expanded="false" />
-            <element signature="e#29254#29522#0#PHP" expanded="false" />
-            <element signature="e#29607#30292#0#PHP" expanded="false" />
-            <element signature="e#29802#29935#0#PHP" expanded="false" />
-            <element signature="e#30015#30218#0#PHP" expanded="false" />
-            <element signature="e#30148#30218#0#PHP" expanded="false" />
-            <element signature="e#30229#30292#0#PHP" expanded="false" />
-            <element signature="e#30318#31285#0#PHP" expanded="false" />
-            <element signature="e#31290#31454#0#PHP" expanded="false" />
-            <element signature="e#31460#31547#0#PHP" expanded="false" />
-            <element signature="e#31552#31632#0#PHP" expanded="false" />
-            <element signature="e#31638#31670#0#PHP" expanded="false" />
-            <element signature="e#31675#31774#0#PHP" expanded="false" />
-            <element signature="e#31780#31875#0#PHP" expanded="false" />
-            <element signature="e#31880#32704#0#PHP" expanded="false" />
-            <element signature="e#32710#32910#0#PHP" expanded="false" />
-            <element signature="e#32915#33262#0#PHP" expanded="false" />
-            <element signature="e#32964#33256#0#PHP" expanded="false" />
-            <element signature="e#33047#33216#0#PHP" expanded="false" />
-            <element signature="e#33268#33324#0#PHP" expanded="false" />
-            <element signature="e#33329#33512#0#PHP" expanded="false" />
-            <element signature="e#33518#33551#0#PHP" expanded="false" />
-            <element signature="e#33556#33626#0#PHP" expanded="false" />
-            <element signature="e#33632#33712#0#PHP" expanded="false" />
-            <element signature="e#33717#33833#0#PHP" expanded="false" />
-            <element signature="e#33839#33922#0#PHP" expanded="false" />
-            <element signature="e#33927#34061#0#PHP" expanded="false" />
-            <element signature="e#34067#34123#0#PHP" expanded="false" />
-            <element signature="e#34128#34254#0#PHP" expanded="false" />
-            <element signature="e#34260#34316#0#PHP" expanded="false" />
-            <element signature="e#34321#34448#0#PHP" expanded="false" />
-            <element signature="e#34454#34486#0#PHP" expanded="false" />
-            <element signature="e#34491#34603#0#PHP" expanded="false" />
-            <element signature="e#34609#34641#0#PHP" expanded="false" />
-            <element signature="e#34646#34752#0#PHP" expanded="false" />
-            <element signature="e#34758#34790#0#PHP" expanded="false" />
-            <element signature="e#34795#34896#0#PHP" expanded="false" />
-            <element signature="e#34902#34934#0#PHP" expanded="false" />
-            <element signature="e#34939#35043#0#PHP" expanded="false" />
-            <element signature="e#35049#35081#0#PHP" expanded="false" />
-            <element signature="e#35086#35184#0#PHP" expanded="false" />
-            <element signature="e#35190#35577#0#PHP" expanded="false" />
-            <element signature="e#35582#35719#0#PHP" expanded="false" />
-            <element signature="e#35725#35770#0#PHP" expanded="false" />
-            <element signature="e#35775#35926#0#PHP" expanded="false" />
-            <element signature="e#35932#35977#0#PHP" expanded="false" />
-            <element signature="e#35982#36130#0#PHP" expanded="false" />
-            <element signature="e#36136#36259#0#PHP" expanded="false" />
-            <element signature="e#36264#36413#0#PHP" expanded="false" />
-            <element signature="e#36419#36464#0#PHP" expanded="false" />
-            <element signature="e#36469#36604#0#PHP" expanded="false" />
-            <element signature="e#36610#36674#0#PHP" expanded="false" />
-            <element signature="e#36679#36748#0#PHP" expanded="false" />
-            <element signature="e#36754#36799#0#PHP" expanded="false" />
-            <element signature="e#36804#36944#0#PHP" expanded="false" />
-            <element signature="e#36950#37013#0#PHP" expanded="false" />
-            <element signature="e#37018#37081#0#PHP" expanded="false" />
-            <element signature="e#37087#37201#0#PHP" expanded="false" />
-            <element signature="e#37206#37275#0#PHP" expanded="false" />
-            <element signature="e#37281#37393#0#PHP" expanded="false" />
-            <element signature="e#37398#37658#0#PHP" expanded="false" />
-            <element signature="e#37462#37630#0#PHP" expanded="false" />
-            <element signature="e#37513#37620#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Src/cURLEngine.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="684">
-          <caret line="49" column="64" lean-forward="false" selection-start-line="49" selection-start-column="64" selection-end-line="49" selection-end-column="64" />
-          <folding>
-            <element signature="e#1244#1269#0#PHP" expanded="false" />
-            <element signature="e#1781#1910#0#PHP" expanded="false" />
-            <element signature="e#1912#2365#0#PHP" expanded="false" />
-            <element signature="e#2371#2544#0#PHP" expanded="false" />
-            <element signature="e#2549#3477#0#PHP" expanded="false" />
-            <element signature="e#2666#2901#0#PHP" expanded="false" />
-            <element signature="e#2774#2901#0#PHP" expanded="false" />
-            <element signature="e#2990#3471#0#PHP" expanded="false" />
-            <element signature="e#3151#3461#0#PHP" expanded="false" />
-            <element signature="e#3488#3522#0#PHP" expanded="false" />
-            <element signature="e#3527#3793#0#PHP" expanded="false" />
-            <element signature="e#3799#3924#0#PHP" expanded="false" />
-            <element signature="e#3929#4172#0#PHP" expanded="false" />
-            <element signature="e#4178#4251#0#PHP" expanded="false" />
-            <element signature="e#4256#4862#0#PHP" expanded="false" />
-            <element signature="e#4868#4902#0#PHP" expanded="false" />
-            <element signature="e#4904#4964#0#PHP" expanded="false" />
-            <element signature="e#4970#5064#0#PHP" expanded="false" />
-            <element signature="e#5069#5159#0#PHP" expanded="false" />
-            <element signature="e#5165#5256#0#PHP" expanded="false" />
-            <element signature="e#5261#5441#0#PHP" expanded="false" />
-            <element signature="e#5311#5413#0#PHP" expanded="false" />
-            <element signature="e#5447#5590#0#PHP" expanded="false" />
-            <element signature="e#5592#5703#0#PHP" expanded="false" />
-            <element signature="e#5709#5793#0#PHP" expanded="false" />
-            <element signature="e#5798#5924#0#PHP" expanded="false" />
-            <element signature="e#5930#6095#0#PHP" expanded="false" />
-            <element signature="e#6100#6747#0#PHP" expanded="false" />
-            <element signature="e#6263#6718#0#PHP" expanded="false" />
-            <element signature="e#6492#6718#0#PHP" expanded="false" />
-            <element signature="e#6753#6914#0#PHP" expanded="false" />
-            <element signature="e#6919#7464#0#PHP" expanded="false" />
-            <element signature="e#7231#7429#0#PHP" expanded="false" />
-            <element signature="e#7470#7511#0#PHP" expanded="false" />
-            <element signature="e#7516#7733#0#PHP" expanded="false" />
-            <element signature="e#7618#7705#0#PHP" expanded="false" />
-            <element signature="e#7739#7770#0#PHP" expanded="false" />
-            <element signature="e#7775#9331#0#PHP" expanded="false" />
-            <element signature="e#7857#7962#0#PHP" expanded="false" />
-            <element signature="e#8104#8228#0#PHP" expanded="false" />
-            <element signature="e#8863#9049#0#PHP" expanded="false" />
-            <element signature="e#9337#9465#0#PHP" expanded="false" />
-            <element signature="e#9470#10123#0#PHP" expanded="false" />
-            <element signature="e#9571#9742#0#PHP" expanded="false" />
-            <element signature="e#10129#10216#0#PHP" expanded="false" />
-            <element signature="e#10221#10399#0#PHP" expanded="false" />
-            <element signature="e#10274#10371#0#PHP" expanded="false" />
-            <element signature="e#10405#10533#0#PHP" expanded="false" />
-            <element signature="e#10538#10935#0#PHP" expanded="false" />
-            <element signature="e#10684#10842#0#PHP" expanded="false" />
-            <element signature="e#10941#11023#0#PHP" expanded="false" />
-            <element signature="e#11028#11408#0#PHP" expanded="false" />
-            <element signature="e#11414#11470#0#PHP" expanded="false" />
-            <element signature="e#11475#11589#0#PHP" expanded="false" />
-            <element signature="e#11595#11646#0#PHP" expanded="false" />
-            <element signature="e#11651#11785#0#PHP" expanded="false" />
-            <element signature="e#11791#11859#0#PHP" expanded="false" />
-            <element signature="e#11864#11953#0#PHP" expanded="false" />
-            <element signature="e#11959#12049#0#PHP" expanded="false" />
-            <element signature="e#12054#12351#0#PHP" expanded="false" />
-            <element signature="e#12357#12464#0#PHP" expanded="false" />
-            <element signature="e#12469#12969#0#PHP" expanded="false" />
-            <element signature="e#12571#12727#0#PHP" expanded="false" />
-            <element signature="e#12737#12903#0#PHP" expanded="false" />
-            <element signature="e#12975#13097#0#PHP" expanded="false" />
-            <element signature="e#13102#13657#0#PHP" expanded="false" />
-            <element signature="e#13161#13230#0#PHP" expanded="false" />
-            <element signature="e#13240#13403#0#PHP" expanded="false" />
-            <element signature="e#13413#13579#0#PHP" expanded="false" />
-            <element signature="e#13663#13784#0#PHP" expanded="false" />
-            <element signature="e#13789#14013#0#PHP" expanded="false" />
-            <element signature="e#14019#14144#0#PHP" expanded="false" />
-            <element signature="e#14149#14376#0#PHP" expanded="false" />
-            <element signature="e#14382#14650#0#PHP" expanded="false" />
-            <element signature="e#14655#15022#0#PHP" expanded="false" />
-            <element signature="e#14716#14942#0#PHP" expanded="false" />
-            <element signature="e#14804#14912#0#PHP" expanded="false" />
-            <element signature="e#15028#15223#0#PHP" expanded="false" />
-            <element signature="e#16000#16102#0#PHP" expanded="false" />
-            <element signature="e#16107#16220#0#PHP" expanded="false" />
-            <element signature="e#16226#16300#0#PHP" expanded="false" />
-            <element signature="e#16305#16389#0#PHP" expanded="false" />
-            <element signature="e#16395#16521#0#PHP" expanded="false" />
-            <element signature="e#16526#16877#0#PHP" expanded="false" />
-            <element signature="e#16577#16871#0#PHP" expanded="false" />
-            <element signature="e#16660#16831#0#PHP" expanded="false" />
-            <element signature="e#16883#16961#0#PHP" expanded="false" />
-            <element signature="e#17830#17941#0#PHP" expanded="false" />
-            <element signature="e#17943#18054#0#PHP" expanded="false" />
-            <element signature="e#18060#18171#0#PHP" expanded="false" />
-            <element signature="e#18173#18276#0#PHP" expanded="false" />
-            <element signature="e#18282#18402#0#PHP" expanded="false" />
-            <element signature="e#18407#18888#0#PHP" expanded="false" />
-            <element signature="e#18482#18638#0#PHP" expanded="false" />
-            <element signature="e#18579#18638#0#PHP" expanded="false" />
-            <element signature="e#18676#18777#0#PHP" expanded="false" />
-            <element signature="e#18894#18985#0#PHP" expanded="false" />
-            <element signature="e#18990#19119#0#PHP" expanded="false" />
-            <element signature="e#19125#19232#0#PHP" expanded="false" />
-            <element signature="e#19237#19368#0#PHP" expanded="false" />
-            <element signature="e#19374#19460#0#PHP" expanded="false" />
-            <element signature="e#19465#19566#0#PHP" expanded="false" />
-            <element signature="e#19572#19630#0#PHP" expanded="false" />
-            <element signature="e#19635#19795#0#PHP" expanded="false" />
-            <element signature="e#19801#19854#0#PHP" expanded="false" />
-            <element signature="e#19859#19959#0#PHP" expanded="false" />
-            <element signature="e#19965#20027#0#PHP" expanded="false" />
-            <element signature="e#20032#20295#0#PHP" expanded="false" />
-            <element signature="e#20301#20359#0#PHP" expanded="false" />
-            <element signature="e#20364#22357#0#PHP" expanded="false" />
-            <element signature="e#20419#20536#0#PHP" expanded="false" />
-            <element signature="e#20568#21131#0#PHP" expanded="false" />
-            <element signature="e#21240#22338#0#PHP" expanded="false" />
-            <element signature="e#21346#22153#0#PHP" expanded="false" />
-            <element signature="e#21451#21983#0#PHP" expanded="false" />
-            <element signature="e#21596#21739#0#PHP" expanded="false" />
-            <element signature="e#21739#21983#0#PHP" expanded="false" />
-            <element signature="e#21836#21965#0#PHP" expanded="false" />
-            <element signature="e#21997#22153#0#PHP" expanded="false" />
-            <element signature="e#22229#22338#0#PHP" expanded="false" />
-            <element signature="e#22363#22396#0#PHP" expanded="false" />
-            <element signature="e#22401#22476#0#PHP" expanded="false" />
-            <element signature="e#22482#22575#0#PHP" expanded="false" />
-            <element signature="e#22580#23204#0#PHP" expanded="false" />
-            <element signature="e#22754#23175#0#PHP" expanded="false" />
-            <element signature="e#22872#23003#0#PHP" expanded="false" />
-            <element signature="e#23017#23165#0#PHP" expanded="false" />
-            <element signature="e#23210#23342#0#PHP" expanded="false" />
-            <element signature="e#23347#25164#0#PHP" expanded="false" />
-            <element signature="e#23549#25137#0#PHP" expanded="false" />
-            <element signature="e#23660#23909#0#PHP" expanded="false" />
-            <element signature="e#23923#25126#0#PHP" expanded="false" />
-            <element signature="e#24241#25112#0#PHP" expanded="false" />
-            <element signature="e#24289#24434#0#PHP" expanded="false" />
-            <element signature="e#24455#24598#0#PHP" expanded="false" />
-            <element signature="e#24619#24764#0#PHP" expanded="false" />
-            <element signature="e#24785#24928#0#PHP" expanded="false" />
-            <element signature="e#24949#25094#0#PHP" expanded="false" />
-            <element signature="e#25170#25621#0#PHP" expanded="false" />
-            <element signature="e#25626#27350#0#PHP" expanded="false" />
-            <element signature="e#25869#26362#0#PHP" expanded="false" />
-            <element signature="e#25935#26113#0#PHP" expanded="false" />
-            <element signature="e#26123#26362#0#PHP" expanded="false" />
-            <element signature="e#26947#27296#0#PHP" expanded="false" />
-            <element signature="e#27356#27439#0#PHP" expanded="false" />
-            <element signature="e#27444#27872#0#PHP" expanded="false" />
-            <element signature="e#27878#28824#0#PHP" expanded="false" />
-            <element signature="e#28829#30312#0#PHP" expanded="false" />
-            <element signature="e#28962#29059#0#PHP" expanded="false" />
-            <element signature="e#29254#29522#0#PHP" expanded="false" />
-            <element signature="e#29607#30292#0#PHP" expanded="false" />
-            <element signature="e#29802#29935#0#PHP" expanded="false" />
-            <element signature="e#30015#30218#0#PHP" expanded="false" />
-            <element signature="e#30148#30218#0#PHP" expanded="false" />
-            <element signature="e#30229#30292#0#PHP" expanded="false" />
-            <element signature="e#30318#31285#0#PHP" expanded="false" />
-            <element signature="e#31290#31454#0#PHP" expanded="false" />
-            <element signature="e#31460#31547#0#PHP" expanded="false" />
-            <element signature="e#31552#31632#0#PHP" expanded="false" />
-            <element signature="e#31638#31670#0#PHP" expanded="false" />
-            <element signature="e#31675#31774#0#PHP" expanded="false" />
-            <element signature="e#31780#31875#0#PHP" expanded="false" />
-            <element signature="e#31880#32704#0#PHP" expanded="false" />
-            <element signature="e#32710#32910#0#PHP" expanded="false" />
-            <element signature="e#32915#33262#0#PHP" expanded="false" />
-            <element signature="e#32964#33256#0#PHP" expanded="false" />
-            <element signature="e#33047#33216#0#PHP" expanded="false" />
-            <element signature="e#33268#33324#0#PHP" expanded="false" />
-            <element signature="e#33329#33512#0#PHP" expanded="false" />
-            <element signature="e#33518#33551#0#PHP" expanded="false" />
-            <element signature="e#33556#33626#0#PHP" expanded="false" />
-            <element signature="e#33632#33712#0#PHP" expanded="false" />
-            <element signature="e#33717#33833#0#PHP" expanded="false" />
-            <element signature="e#33839#33922#0#PHP" expanded="false" />
-            <element signature="e#33927#34061#0#PHP" expanded="false" />
-            <element signature="e#34067#34123#0#PHP" expanded="false" />
-            <element signature="e#34128#34254#0#PHP" expanded="false" />
-            <element signature="e#34260#34316#0#PHP" expanded="false" />
-            <element signature="e#34321#34448#0#PHP" expanded="false" />
-            <element signature="e#34454#34486#0#PHP" expanded="false" />
-            <element signature="e#34491#34603#0#PHP" expanded="false" />
-            <element signature="e#34609#34641#0#PHP" expanded="false" />
-            <element signature="e#34646#34752#0#PHP" expanded="false" />
-            <element signature="e#34758#34790#0#PHP" expanded="false" />
-            <element signature="e#34795#34896#0#PHP" expanded="false" />
-            <element signature="e#34902#34934#0#PHP" expanded="false" />
-            <element signature="e#34939#35043#0#PHP" expanded="false" />
-            <element signature="e#35049#35081#0#PHP" expanded="false" />
-            <element signature="e#35086#35184#0#PHP" expanded="false" />
-            <element signature="e#35190#35577#0#PHP" expanded="false" />
-            <element signature="e#35582#35719#0#PHP" expanded="false" />
-            <element signature="e#35725#35770#0#PHP" expanded="false" />
-            <element signature="e#35775#35926#0#PHP" expanded="false" />
-            <element signature="e#35932#35977#0#PHP" expanded="false" />
-            <element signature="e#35982#36130#0#PHP" expanded="false" />
-            <element signature="e#36136#36259#0#PHP" expanded="false" />
-            <element signature="e#36264#36413#0#PHP" expanded="false" />
-            <element signature="e#36419#36464#0#PHP" expanded="false" />
-            <element signature="e#36469#36604#0#PHP" expanded="false" />
-            <element signature="e#36610#36674#0#PHP" expanded="false" />
-            <element signature="e#36679#36748#0#PHP" expanded="false" />
-            <element signature="e#36754#36799#0#PHP" expanded="false" />
-            <element signature="e#36804#36944#0#PHP" expanded="false" />
-            <element signature="e#36950#37013#0#PHP" expanded="false" />
-            <element signature="e#37018#37081#0#PHP" expanded="false" />
-            <element signature="e#37087#37201#0#PHP" expanded="false" />
-            <element signature="e#37206#37275#0#PHP" expanded="false" />
-            <element signature="e#37281#37393#0#PHP" expanded="false" />
-            <element signature="e#37398#37658#0#PHP" expanded="false" />
-            <element signature="e#37462#37630#0#PHP" expanded="false" />
-            <element signature="e#37513#37620#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Src/Test.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Src/cURLEngine.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#1244#1269#0#PHP" expanded="false" />
-            <element signature="e#1781#1910#0#PHP" expanded="false" />
-            <element signature="e#1912#2365#0#PHP" expanded="false" />
-            <element signature="e#2371#2544#0#PHP" expanded="false" />
-            <element signature="e#2549#3477#0#PHP" expanded="false" />
-            <element signature="e#2666#2901#0#PHP" expanded="false" />
-            <element signature="e#2774#2901#0#PHP" expanded="false" />
-            <element signature="e#2990#3471#0#PHP" expanded="false" />
-            <element signature="e#3151#3461#0#PHP" expanded="false" />
-            <element signature="e#3488#3522#0#PHP" expanded="false" />
-            <element signature="e#3527#3793#0#PHP" expanded="false" />
-            <element signature="e#3799#3924#0#PHP" expanded="false" />
-            <element signature="e#3929#4172#0#PHP" expanded="false" />
-            <element signature="e#4178#4251#0#PHP" expanded="false" />
-            <element signature="e#4256#4862#0#PHP" expanded="false" />
-            <element signature="e#4868#4902#0#PHP" expanded="false" />
-            <element signature="e#4904#4964#0#PHP" expanded="false" />
-            <element signature="e#4970#5064#0#PHP" expanded="false" />
-            <element signature="e#5069#5159#0#PHP" expanded="false" />
-            <element signature="e#5165#5256#0#PHP" expanded="false" />
-            <element signature="e#5261#5441#0#PHP" expanded="false" />
-            <element signature="e#5311#5413#0#PHP" expanded="false" />
-            <element signature="e#5447#5590#0#PHP" expanded="false" />
-            <element signature="e#5592#5703#0#PHP" expanded="false" />
-            <element signature="e#5709#5793#0#PHP" expanded="false" />
-            <element signature="e#5798#5924#0#PHP" expanded="false" />
-            <element signature="e#5930#6095#0#PHP" expanded="false" />
-            <element signature="e#6100#6747#0#PHP" expanded="false" />
-            <element signature="e#6263#6718#0#PHP" expanded="false" />
-            <element signature="e#6492#6718#0#PHP" expanded="false" />
-            <element signature="e#6753#6914#0#PHP" expanded="false" />
-            <element signature="e#6919#7464#0#PHP" expanded="false" />
-            <element signature="e#7231#7429#0#PHP" expanded="false" />
-            <element signature="e#7470#7511#0#PHP" expanded="false" />
-            <element signature="e#7516#7733#0#PHP" expanded="false" />
-            <element signature="e#7618#7705#0#PHP" expanded="false" />
-            <element signature="e#7739#7770#0#PHP" expanded="false" />
-            <element signature="e#7775#9331#0#PHP" expanded="false" />
-            <element signature="e#7857#7962#0#PHP" expanded="false" />
-            <element signature="e#8104#8228#0#PHP" expanded="false" />
-            <element signature="e#8863#9049#0#PHP" expanded="false" />
-            <element signature="e#9337#9465#0#PHP" expanded="false" />
-            <element signature="e#9470#10123#0#PHP" expanded="false" />
-            <element signature="e#9571#9742#0#PHP" expanded="false" />
-            <element signature="e#10129#10216#0#PHP" expanded="false" />
-            <element signature="e#10221#10399#0#PHP" expanded="false" />
-            <element signature="e#10274#10371#0#PHP" expanded="false" />
-            <element signature="e#10405#10533#0#PHP" expanded="false" />
-            <element signature="e#10538#10935#0#PHP" expanded="false" />
-            <element signature="e#10684#10842#0#PHP" expanded="false" />
-            <element signature="e#10941#11023#0#PHP" expanded="false" />
-            <element signature="e#11028#11408#0#PHP" expanded="false" />
-            <element signature="e#11414#11470#0#PHP" expanded="false" />
-            <element signature="e#11475#11589#0#PHP" expanded="false" />
-            <element signature="e#11595#11646#0#PHP" expanded="false" />
-            <element signature="e#11651#11785#0#PHP" expanded="false" />
-            <element signature="e#11791#11859#0#PHP" expanded="false" />
-            <element signature="e#11864#11953#0#PHP" expanded="false" />
-            <element signature="e#11959#12049#0#PHP" expanded="false" />
-            <element signature="e#12054#12351#0#PHP" expanded="false" />
-            <element signature="e#12357#12464#0#PHP" expanded="false" />
-            <element signature="e#12469#12969#0#PHP" expanded="false" />
-            <element signature="e#12571#12727#0#PHP" expanded="false" />
-            <element signature="e#12737#12903#0#PHP" expanded="false" />
-            <element signature="e#12975#13097#0#PHP" expanded="false" />
-            <element signature="e#13102#13657#0#PHP" expanded="false" />
-            <element signature="e#13161#13230#0#PHP" expanded="false" />
-            <element signature="e#13240#13403#0#PHP" expanded="false" />
-            <element signature="e#13413#13579#0#PHP" expanded="false" />
-            <element signature="e#13663#13784#0#PHP" expanded="false" />
-            <element signature="e#13789#14013#0#PHP" expanded="false" />
-            <element signature="e#14019#14144#0#PHP" expanded="false" />
-            <element signature="e#14149#14376#0#PHP" expanded="false" />
-            <element signature="e#14382#14650#0#PHP" expanded="false" />
-            <element signature="e#14655#15022#0#PHP" expanded="false" />
-            <element signature="e#14716#14942#0#PHP" expanded="false" />
-            <element signature="e#14804#14912#0#PHP" expanded="false" />
-            <element signature="e#15028#15223#0#PHP" expanded="false" />
-            <element signature="e#16000#16102#0#PHP" expanded="false" />
-            <element signature="e#16107#16220#0#PHP" expanded="false" />
-            <element signature="e#16226#16300#0#PHP" expanded="false" />
-            <element signature="e#16305#16389#0#PHP" expanded="false" />
-            <element signature="e#16395#16521#0#PHP" expanded="false" />
-            <element signature="e#16526#16877#0#PHP" expanded="false" />
-            <element signature="e#16577#16871#0#PHP" expanded="false" />
-            <element signature="e#16660#16831#0#PHP" expanded="false" />
-            <element signature="e#16883#16961#0#PHP" expanded="false" />
-            <element signature="e#17830#17941#0#PHP" expanded="false" />
-            <element signature="e#17943#18054#0#PHP" expanded="false" />
-            <element signature="e#18060#18171#0#PHP" expanded="false" />
-            <element signature="e#18173#18276#0#PHP" expanded="false" />
-            <element signature="e#18282#18402#0#PHP" expanded="false" />
-            <element signature="e#18407#18888#0#PHP" expanded="false" />
-            <element signature="e#18482#18638#0#PHP" expanded="false" />
-            <element signature="e#18579#18638#0#PHP" expanded="false" />
-            <element signature="e#18676#18777#0#PHP" expanded="false" />
-            <element signature="e#18894#18985#0#PHP" expanded="false" />
-            <element signature="e#18990#19119#0#PHP" expanded="false" />
-            <element signature="e#19125#19232#0#PHP" expanded="false" />
-            <element signature="e#19237#19368#0#PHP" expanded="false" />
-            <element signature="e#19374#19460#0#PHP" expanded="false" />
-            <element signature="e#19465#19566#0#PHP" expanded="false" />
-            <element signature="e#19572#19630#0#PHP" expanded="false" />
-            <element signature="e#19635#19795#0#PHP" expanded="false" />
-            <element signature="e#19801#19854#0#PHP" expanded="false" />
-            <element signature="e#19859#19959#0#PHP" expanded="false" />
-            <element signature="e#19965#20027#0#PHP" expanded="false" />
-            <element signature="e#20032#20295#0#PHP" expanded="false" />
-            <element signature="e#20301#20359#0#PHP" expanded="false" />
-            <element signature="e#20364#22357#0#PHP" expanded="false" />
-            <element signature="e#20419#20536#0#PHP" expanded="false" />
-            <element signature="e#20568#21131#0#PHP" expanded="false" />
-            <element signature="e#21240#22338#0#PHP" expanded="false" />
-            <element signature="e#21346#22153#0#PHP" expanded="false" />
-            <element signature="e#21451#21983#0#PHP" expanded="false" />
-            <element signature="e#21596#21739#0#PHP" expanded="false" />
-            <element signature="e#21739#21983#0#PHP" expanded="false" />
-            <element signature="e#21836#21965#0#PHP" expanded="false" />
-            <element signature="e#21997#22153#0#PHP" expanded="false" />
-            <element signature="e#22229#22338#0#PHP" expanded="false" />
-            <element signature="e#22363#22396#0#PHP" expanded="false" />
-            <element signature="e#22401#22476#0#PHP" expanded="false" />
-            <element signature="e#22482#22575#0#PHP" expanded="false" />
-            <element signature="e#22580#23204#0#PHP" expanded="false" />
-            <element signature="e#22754#23175#0#PHP" expanded="false" />
-            <element signature="e#22872#23003#0#PHP" expanded="false" />
-            <element signature="e#23017#23165#0#PHP" expanded="false" />
-            <element signature="e#23210#23342#0#PHP" expanded="false" />
-            <element signature="e#23347#25164#0#PHP" expanded="false" />
-            <element signature="e#23549#25137#0#PHP" expanded="false" />
-            <element signature="e#23660#23909#0#PHP" expanded="false" />
-            <element signature="e#23923#25126#0#PHP" expanded="false" />
-            <element signature="e#24241#25112#0#PHP" expanded="false" />
-            <element signature="e#24289#24434#0#PHP" expanded="false" />
-            <element signature="e#24455#24598#0#PHP" expanded="false" />
-            <element signature="e#24619#24764#0#PHP" expanded="false" />
-            <element signature="e#24785#24928#0#PHP" expanded="false" />
-            <element signature="e#24949#25094#0#PHP" expanded="false" />
-            <element signature="e#25170#25621#0#PHP" expanded="false" />
-            <element signature="e#25626#27350#0#PHP" expanded="false" />
-            <element signature="e#25869#26362#0#PHP" expanded="false" />
-            <element signature="e#25935#26113#0#PHP" expanded="false" />
-            <element signature="e#26123#26362#0#PHP" expanded="false" />
-            <element signature="e#26947#27296#0#PHP" expanded="false" />
-            <element signature="e#27356#27439#0#PHP" expanded="false" />
-            <element signature="e#27444#27872#0#PHP" expanded="false" />
-            <element signature="e#27878#28824#0#PHP" expanded="false" />
-            <element signature="e#28829#30312#0#PHP" expanded="false" />
-            <element signature="e#28962#29059#0#PHP" expanded="false" />
-            <element signature="e#29254#29522#0#PHP" expanded="false" />
-            <element signature="e#29607#30292#0#PHP" expanded="false" />
-            <element signature="e#29802#29935#0#PHP" expanded="false" />
-            <element signature="e#30015#30218#0#PHP" expanded="false" />
-            <element signature="e#30148#30218#0#PHP" expanded="false" />
-            <element signature="e#30229#30292#0#PHP" expanded="false" />
-            <element signature="e#30318#31285#0#PHP" expanded="false" />
-            <element signature="e#31290#31454#0#PHP" expanded="false" />
-            <element signature="e#31460#31547#0#PHP" expanded="false" />
-            <element signature="e#31552#31632#0#PHP" expanded="false" />
-            <element signature="e#31638#31670#0#PHP" expanded="false" />
-            <element signature="e#31675#31774#0#PHP" expanded="false" />
-            <element signature="e#31780#31875#0#PHP" expanded="false" />
-            <element signature="e#31880#32704#0#PHP" expanded="false" />
-            <element signature="e#32710#32910#0#PHP" expanded="false" />
-            <element signature="e#32915#33262#0#PHP" expanded="false" />
-            <element signature="e#32964#33256#0#PHP" expanded="false" />
-            <element signature="e#33047#33216#0#PHP" expanded="false" />
-            <element signature="e#33268#33324#0#PHP" expanded="false" />
-            <element signature="e#33329#33512#0#PHP" expanded="false" />
-            <element signature="e#33518#33551#0#PHP" expanded="false" />
-            <element signature="e#33556#33626#0#PHP" expanded="false" />
-            <element signature="e#33632#33712#0#PHP" expanded="false" />
-            <element signature="e#33717#33833#0#PHP" expanded="false" />
-            <element signature="e#33839#33922#0#PHP" expanded="false" />
-            <element signature="e#33927#34061#0#PHP" expanded="false" />
-            <element signature="e#34067#34123#0#PHP" expanded="false" />
-            <element signature="e#34128#34254#0#PHP" expanded="false" />
-            <element signature="e#34260#34316#0#PHP" expanded="false" />
-            <element signature="e#34321#34448#0#PHP" expanded="false" />
-            <element signature="e#34454#34486#0#PHP" expanded="false" />
-            <element signature="e#34491#34603#0#PHP" expanded="false" />
-            <element signature="e#34609#34641#0#PHP" expanded="false" />
-            <element signature="e#34646#34752#0#PHP" expanded="false" />
-            <element signature="e#34758#34790#0#PHP" expanded="false" />
-            <element signature="e#34795#34896#0#PHP" expanded="false" />
-            <element signature="e#34902#34934#0#PHP" expanded="false" />
-            <element signature="e#34939#35043#0#PHP" expanded="false" />
-            <element signature="e#35049#35081#0#PHP" expanded="false" />
-            <element signature="e#35086#35184#0#PHP" expanded="false" />
-            <element signature="e#35190#35577#0#PHP" expanded="false" />
-            <element signature="e#35582#35719#0#PHP" expanded="false" />
-            <element signature="e#35725#35770#0#PHP" expanded="false" />
-            <element signature="e#35775#35926#0#PHP" expanded="false" />
-            <element signature="e#35932#35977#0#PHP" expanded="false" />
-            <element signature="e#35982#36130#0#PHP" expanded="false" />
-            <element signature="e#36136#36259#0#PHP" expanded="false" />
-            <element signature="e#36264#36413#0#PHP" expanded="false" />
-            <element signature="e#36419#36464#0#PHP" expanded="false" />
-            <element signature="e#36469#36604#0#PHP" expanded="false" />
-            <element signature="e#36610#36674#0#PHP" expanded="false" />
-            <element signature="e#36679#36748#0#PHP" expanded="false" />
-            <element signature="e#36754#36799#0#PHP" expanded="false" />
-            <element signature="e#36804#36944#0#PHP" expanded="false" />
-            <element signature="e#36950#37013#0#PHP" expanded="false" />
-            <element signature="e#37018#37081#0#PHP" expanded="false" />
-            <element signature="e#37087#37201#0#PHP" expanded="false" />
-            <element signature="e#37206#37275#0#PHP" expanded="false" />
-            <element signature="e#37281#37393#0#PHP" expanded="false" />
-            <element signature="e#37398#37658#0#PHP" expanded="false" />
-            <element signature="e#37462#37630#0#PHP" expanded="false" />
-            <element signature="e#37513#37620#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Src/Test.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Src/Cache/6d7088fd15fdfd270d9fbaa9d1abdc4a.cache" />
-    <entry file="file://$PROJECT_DIR$/Src/Cache/0e98873a17544a2e63070dfc29337026.cache" />
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="12" lean-forward="true" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Src/temp" />
     <entry file="file://$PROJECT_DIR$/vendor/composer/LICENSE">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
@@ -1544,7 +647,6 @@
           <folding>
             <element signature="e#166#307#0#PHP" expanded="false" />
             <element signature="e#313#434#0#PHP" expanded="false" />
-            <element signature="e#979#1209#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1583,13 +685,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/composer.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="10" column="26" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/composer.lock">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1614,36 +709,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Src/Cookies/Cookies.txt" />
     <entry file="file://$PROJECT_DIR$/Src/Cookies/Cookies.cookies" />
-    <entry file="file://$PROJECT_DIR$/Src/Cookies/96e838a996__whatarecookies_com.cookies" />
-    <entry file="file://$PROJECT_DIR$/Src/cURLRequester.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="59" column="5" lean-forward="false" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
-          <folding>
-            <element signature="e#166#307#0#PHP" expanded="false" />
-            <element signature="e#313#434#0#PHP" expanded="false" />
-            <element signature="e#979#1209#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Src/Test2.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="28" column="20" lean-forward="false" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Src/Cookies/22f542ddbc__google_it.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Src/Cookies/54b36e65d4__lina24_com.txt">
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1659,231 +725,391 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Src/Cookies/22f542ddbc__google_it.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Src/Cookies/54b36e65d4__lina24_com.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Src/Test.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+        <state relative-caret-position="-317">
+          <caret line="15" column="36" lean-forward="false" selection-start-line="15" selection-start-column="36" selection-end-line="15" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Src/Cache/22f542ddbc__google_it.cookies">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Src/Cache/54b36e65d4__lina24_com.cookies">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Src/Cache/96e838a996__whatarecookies_com.cookies">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Src/Cache/08fd01bd1c___lina24_com.cache">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8408">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Src/Cookies/22f542ddbc__google_it.cookies">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Src/Cookies/54b36e65d4__lina24_com.cookies">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="2" column="60" lean-forward="true" selection-start-line="2" selection-start-column="60" selection-end-line="2" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Src/Cookies/96e838a996__whatarecookies_com.cookies">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Src/Other/Headers/96e838a996__whatarecookies_com.heads">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="0" column="448" lean-forward="false" selection-start-line="0" selection-start-column="448" selection-end-line="0" selection-end-column="448" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Src/Cache/96e838a996__whatarecookies_com.cache">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Src/Cache/54b36e65d4__lina24_com.cache">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Src/Cache/22f542ddbc__google_it.cache">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Src/Other/Headers/22f542ddbc__google_it.heads">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="0" column="1548" lean-forward="true" selection-start-line="0" selection-start-column="1548" selection-end-line="0" selection-end-column="1548" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Src/Other/Headers/54b36e65d4__lina24_com.heads">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Src/cURLRequester.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="36" column="34" lean-forward="false" selection-start-line="36" selection-start-column="34" selection-end-line="36" selection-end-column="34" />
+          <folding>
+            <element signature="e#166#307#0#PHP" expanded="false" />
+            <element signature="e#313#434#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Src/Test2.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="26" column="10" lean-forward="true" selection-start-line="26" selection-start-column="10" selection-end-line="26" selection-end-column="10" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Src/cURLEngine.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="600" column="8" lean-forward="true" selection-start-line="600" selection-start-column="8" selection-end-line="600" selection-end-column="8" />
+        <state relative-caret-position="279">
+          <caret line="54" column="18" lean-forward="true" selection-start-line="54" selection-start-column="18" selection-end-line="54" selection-end-column="18" />
           <folding>
-            <element signature="e#1244#1269#0#PHP" expanded="false" />
-            <element signature="e#1781#1910#0#PHP" expanded="false" />
-            <element signature="e#1912#2365#0#PHP" expanded="false" />
-            <element signature="e#2371#2544#0#PHP" expanded="false" />
-            <element signature="e#2549#3477#0#PHP" expanded="false" />
-            <element signature="e#2666#2901#0#PHP" expanded="false" />
-            <element signature="e#2774#2901#0#PHP" expanded="false" />
-            <element signature="e#2990#3471#0#PHP" expanded="false" />
-            <element signature="e#3151#3461#0#PHP" expanded="false" />
-            <element signature="e#3488#3522#0#PHP" expanded="false" />
-            <element signature="e#3527#3793#0#PHP" expanded="false" />
-            <element signature="e#3799#3924#0#PHP" expanded="false" />
-            <element signature="e#3929#4172#0#PHP" expanded="false" />
-            <element signature="e#4178#4251#0#PHP" expanded="false" />
-            <element signature="e#4256#4862#0#PHP" expanded="false" />
-            <element signature="e#4868#4902#0#PHP" expanded="false" />
-            <element signature="e#4904#4964#0#PHP" expanded="false" />
-            <element signature="e#4970#5064#0#PHP" expanded="false" />
-            <element signature="e#5069#5159#0#PHP" expanded="false" />
-            <element signature="e#5165#5256#0#PHP" expanded="false" />
-            <element signature="e#5261#5441#0#PHP" expanded="false" />
-            <element signature="e#5311#5413#0#PHP" expanded="false" />
-            <element signature="e#5447#5590#0#PHP" expanded="false" />
-            <element signature="e#5592#5703#0#PHP" expanded="false" />
-            <element signature="e#5709#5793#0#PHP" expanded="false" />
-            <element signature="e#5798#5924#0#PHP" expanded="false" />
-            <element signature="e#5930#6095#0#PHP" expanded="false" />
-            <element signature="e#6100#6747#0#PHP" expanded="false" />
-            <element signature="e#6263#6718#0#PHP" expanded="false" />
-            <element signature="e#6492#6718#0#PHP" expanded="false" />
-            <element signature="e#6753#6914#0#PHP" expanded="false" />
-            <element signature="e#6919#7464#0#PHP" expanded="false" />
-            <element signature="e#7231#7429#0#PHP" expanded="false" />
-            <element signature="e#7470#7511#0#PHP" expanded="false" />
-            <element signature="e#7516#7733#0#PHP" expanded="false" />
-            <element signature="e#7618#7705#0#PHP" expanded="false" />
-            <element signature="e#7739#7770#0#PHP" expanded="false" />
-            <element signature="e#7775#9331#0#PHP" expanded="false" />
-            <element signature="e#7857#7962#0#PHP" expanded="false" />
-            <element signature="e#8104#8228#0#PHP" expanded="false" />
-            <element signature="e#8863#9049#0#PHP" expanded="false" />
-            <element signature="e#9337#9465#0#PHP" expanded="false" />
-            <element signature="e#9470#10123#0#PHP" expanded="false" />
-            <element signature="e#9571#9742#0#PHP" expanded="false" />
-            <element signature="e#10129#10216#0#PHP" expanded="false" />
-            <element signature="e#10221#10399#0#PHP" expanded="false" />
-            <element signature="e#10274#10371#0#PHP" expanded="false" />
-            <element signature="e#10405#10533#0#PHP" expanded="false" />
-            <element signature="e#10538#10935#0#PHP" expanded="false" />
-            <element signature="e#10684#10842#0#PHP" expanded="false" />
-            <element signature="e#10941#11023#0#PHP" expanded="false" />
-            <element signature="e#11028#11408#0#PHP" expanded="false" />
-            <element signature="e#11414#11470#0#PHP" expanded="false" />
-            <element signature="e#11475#11589#0#PHP" expanded="false" />
-            <element signature="e#11595#11646#0#PHP" expanded="false" />
-            <element signature="e#11651#11785#0#PHP" expanded="false" />
-            <element signature="e#11791#11859#0#PHP" expanded="false" />
-            <element signature="e#11864#11953#0#PHP" expanded="false" />
-            <element signature="e#11959#12049#0#PHP" expanded="false" />
-            <element signature="e#12054#12351#0#PHP" expanded="false" />
-            <element signature="e#12357#12464#0#PHP" expanded="false" />
-            <element signature="e#12469#12969#0#PHP" expanded="false" />
-            <element signature="e#12571#12727#0#PHP" expanded="false" />
-            <element signature="e#12737#12903#0#PHP" expanded="false" />
-            <element signature="e#12975#13097#0#PHP" expanded="false" />
-            <element signature="e#13102#13657#0#PHP" expanded="false" />
-            <element signature="e#13161#13230#0#PHP" expanded="false" />
-            <element signature="e#13240#13403#0#PHP" expanded="false" />
-            <element signature="e#13413#13579#0#PHP" expanded="false" />
-            <element signature="e#13663#13784#0#PHP" expanded="false" />
-            <element signature="e#13789#14013#0#PHP" expanded="false" />
-            <element signature="e#14019#14144#0#PHP" expanded="false" />
-            <element signature="e#14149#14376#0#PHP" expanded="false" />
-            <element signature="e#14382#14650#0#PHP" expanded="false" />
-            <element signature="e#14655#15022#0#PHP" expanded="false" />
-            <element signature="e#14716#14942#0#PHP" expanded="false" />
-            <element signature="e#14804#14912#0#PHP" expanded="false" />
-            <element signature="e#15028#15223#0#PHP" expanded="false" />
-            <element signature="e#16000#16102#0#PHP" expanded="false" />
-            <element signature="e#16107#16220#0#PHP" expanded="false" />
-            <element signature="e#16226#16300#0#PHP" expanded="false" />
-            <element signature="e#16305#16389#0#PHP" expanded="false" />
-            <element signature="e#16395#16521#0#PHP" expanded="false" />
-            <element signature="e#16526#16877#0#PHP" expanded="false" />
-            <element signature="e#16577#16871#0#PHP" expanded="false" />
-            <element signature="e#16660#16831#0#PHP" expanded="false" />
-            <element signature="e#16883#16961#0#PHP" expanded="false" />
-            <element signature="e#17830#17941#0#PHP" expanded="false" />
-            <element signature="e#17943#18054#0#PHP" expanded="false" />
-            <element signature="e#18060#18171#0#PHP" expanded="false" />
-            <element signature="e#18173#18276#0#PHP" expanded="false" />
-            <element signature="e#18282#18402#0#PHP" expanded="false" />
-            <element signature="e#18407#18888#0#PHP" expanded="false" />
-            <element signature="e#18482#18638#0#PHP" expanded="false" />
-            <element signature="e#18579#18638#0#PHP" expanded="false" />
-            <element signature="e#18676#18777#0#PHP" expanded="false" />
-            <element signature="e#18894#18985#0#PHP" expanded="false" />
-            <element signature="e#18990#19119#0#PHP" expanded="false" />
-            <element signature="e#19125#19232#0#PHP" expanded="false" />
-            <element signature="e#19237#19368#0#PHP" expanded="false" />
-            <element signature="e#19374#19460#0#PHP" expanded="false" />
-            <element signature="e#19465#19566#0#PHP" expanded="false" />
-            <element signature="e#19572#19630#0#PHP" expanded="false" />
-            <element signature="e#19635#19795#0#PHP" expanded="false" />
-            <element signature="e#19801#19854#0#PHP" expanded="false" />
-            <element signature="e#19859#19959#0#PHP" expanded="false" />
-            <element signature="e#19965#20027#0#PHP" expanded="false" />
-            <element signature="e#20032#20295#0#PHP" expanded="false" />
-            <element signature="e#20301#20359#0#PHP" expanded="false" />
-            <element signature="e#20364#22357#0#PHP" expanded="false" />
-            <element signature="e#20419#20536#0#PHP" expanded="false" />
-            <element signature="e#20568#21131#0#PHP" expanded="false" />
-            <element signature="e#21240#22338#0#PHP" expanded="false" />
-            <element signature="e#21346#22153#0#PHP" expanded="false" />
-            <element signature="e#21451#21983#0#PHP" expanded="false" />
-            <element signature="e#21596#21739#0#PHP" expanded="false" />
-            <element signature="e#21739#21983#0#PHP" expanded="false" />
-            <element signature="e#21836#21965#0#PHP" expanded="false" />
-            <element signature="e#21997#22153#0#PHP" expanded="false" />
-            <element signature="e#22229#22338#0#PHP" expanded="false" />
-            <element signature="e#22363#22396#0#PHP" expanded="false" />
-            <element signature="e#22401#22476#0#PHP" expanded="false" />
-            <element signature="e#22482#22575#0#PHP" expanded="false" />
-            <element signature="e#22580#23204#0#PHP" expanded="false" />
-            <element signature="e#22754#23175#0#PHP" expanded="false" />
-            <element signature="e#22872#23003#0#PHP" expanded="false" />
-            <element signature="e#23017#23165#0#PHP" expanded="false" />
-            <element signature="e#23210#23342#0#PHP" expanded="false" />
-            <element signature="e#23347#25164#0#PHP" expanded="false" />
-            <element signature="e#23549#25137#0#PHP" expanded="false" />
-            <element signature="e#23660#23909#0#PHP" expanded="false" />
-            <element signature="e#23923#25126#0#PHP" expanded="false" />
-            <element signature="e#24241#25112#0#PHP" expanded="false" />
-            <element signature="e#24289#24434#0#PHP" expanded="false" />
-            <element signature="e#24455#24598#0#PHP" expanded="false" />
-            <element signature="e#24619#24764#0#PHP" expanded="false" />
-            <element signature="e#24785#24928#0#PHP" expanded="false" />
-            <element signature="e#24949#25094#0#PHP" expanded="false" />
-            <element signature="e#25170#25621#0#PHP" expanded="false" />
-            <element signature="e#25626#27350#0#PHP" expanded="false" />
-            <element signature="e#25869#26362#0#PHP" expanded="false" />
-            <element signature="e#25935#26113#0#PHP" expanded="false" />
-            <element signature="e#26123#26362#0#PHP" expanded="false" />
-            <element signature="e#26947#27296#0#PHP" expanded="false" />
-            <element signature="e#27356#27439#0#PHP" expanded="false" />
-            <element signature="e#27444#27872#0#PHP" expanded="false" />
-            <element signature="e#27878#28824#0#PHP" expanded="false" />
-            <element signature="e#28829#30312#0#PHP" expanded="false" />
-            <element signature="e#28962#29059#0#PHP" expanded="false" />
-            <element signature="e#29254#29522#0#PHP" expanded="false" />
-            <element signature="e#29607#30292#0#PHP" expanded="false" />
-            <element signature="e#29802#29935#0#PHP" expanded="false" />
-            <element signature="e#30015#30218#0#PHP" expanded="false" />
-            <element signature="e#30148#30218#0#PHP" expanded="false" />
-            <element signature="e#30229#30292#0#PHP" expanded="false" />
-            <element signature="e#30318#31285#0#PHP" expanded="false" />
-            <element signature="e#31290#31454#0#PHP" expanded="false" />
-            <element signature="e#31460#31547#0#PHP" expanded="false" />
-            <element signature="e#31552#31632#0#PHP" expanded="false" />
-            <element signature="e#31638#31670#0#PHP" expanded="false" />
-            <element signature="e#31675#31774#0#PHP" expanded="false" />
-            <element signature="e#31780#31875#0#PHP" expanded="false" />
-            <element signature="e#31880#32704#0#PHP" expanded="false" />
-            <element signature="e#32710#32910#0#PHP" expanded="false" />
-            <element signature="e#32915#33262#0#PHP" expanded="false" />
-            <element signature="e#32964#33256#0#PHP" expanded="false" />
-            <element signature="e#33047#33216#0#PHP" expanded="false" />
-            <element signature="e#33268#33324#0#PHP" expanded="false" />
-            <element signature="e#33329#33512#0#PHP" expanded="false" />
-            <element signature="e#33518#33551#0#PHP" expanded="false" />
-            <element signature="e#33556#33626#0#PHP" expanded="false" />
-            <element signature="e#33632#33712#0#PHP" expanded="false" />
-            <element signature="e#33717#33833#0#PHP" expanded="false" />
-            <element signature="e#33839#33922#0#PHP" expanded="false" />
-            <element signature="e#33927#34061#0#PHP" expanded="false" />
-            <element signature="e#34067#34123#0#PHP" expanded="false" />
-            <element signature="e#34128#34254#0#PHP" expanded="false" />
-            <element signature="e#34260#34316#0#PHP" expanded="false" />
-            <element signature="e#34321#34448#0#PHP" expanded="false" />
-            <element signature="e#34454#34486#0#PHP" expanded="false" />
-            <element signature="e#34491#34603#0#PHP" expanded="false" />
-            <element signature="e#34609#34641#0#PHP" expanded="false" />
-            <element signature="e#34646#34752#0#PHP" expanded="false" />
-            <element signature="e#34758#34790#0#PHP" expanded="false" />
-            <element signature="e#34795#34896#0#PHP" expanded="false" />
-            <element signature="e#34902#34934#0#PHP" expanded="false" />
-            <element signature="e#34939#35043#0#PHP" expanded="false" />
-            <element signature="e#35049#35081#0#PHP" expanded="false" />
-            <element signature="e#35086#35184#0#PHP" expanded="false" />
-            <element signature="e#35190#35577#0#PHP" expanded="false" />
-            <element signature="e#35582#35719#0#PHP" expanded="false" />
-            <element signature="e#35725#35770#0#PHP" expanded="false" />
-            <element signature="e#35775#35926#0#PHP" expanded="false" />
-            <element signature="e#35932#35977#0#PHP" expanded="false" />
-            <element signature="e#35982#36130#0#PHP" expanded="false" />
-            <element signature="e#36136#36259#0#PHP" expanded="false" />
-            <element signature="e#36264#36413#0#PHP" expanded="false" />
-            <element signature="e#36419#36464#0#PHP" expanded="false" />
-            <element signature="e#36469#36604#0#PHP" expanded="false" />
-            <element signature="e#36610#36674#0#PHP" expanded="false" />
-            <element signature="e#36679#36748#0#PHP" expanded="false" />
-            <element signature="e#36754#36799#0#PHP" expanded="false" />
-            <element signature="e#36804#36944#0#PHP" expanded="false" />
-            <element signature="e#36950#37013#0#PHP" expanded="false" />
-            <element signature="e#37018#37081#0#PHP" expanded="false" />
-            <element signature="e#37087#37201#0#PHP" expanded="false" />
-            <element signature="e#37206#37275#0#PHP" expanded="false" />
-            <element signature="e#37281#37393#0#PHP" expanded="false" />
-            <element signature="e#37398#37658#0#PHP" expanded="false" />
-            <element signature="e#37462#37630#0#PHP" expanded="false" />
-            <element signature="e#37513#37620#0#PHP" expanded="false" />
+            <element signature="e#1674#1803#0#PHP" expanded="false" />
+            <element signature="e#1805#2258#0#PHP" expanded="false" />
+            <element signature="e#2264#2437#0#PHP" expanded="false" />
+            <element signature="e#2442#3370#0#PHP" expanded="false" />
+            <element signature="e#2559#2794#0#PHP" expanded="false" />
+            <element signature="e#2667#2794#0#PHP" expanded="false" />
+            <element signature="e#2883#3364#0#PHP" expanded="false" />
+            <element signature="e#3044#3354#0#PHP" expanded="false" />
+            <element signature="e#3462#3496#0#PHP" expanded="false" />
+            <element signature="e#3501#3767#0#PHP" expanded="false" />
+            <element signature="e#3773#3939#0#PHP" expanded="false" />
+            <element signature="e#3944#4187#0#PHP" expanded="false" />
+            <element signature="e#4193#4390#0#PHP" expanded="false" />
+            <element signature="e#4396#4469#0#PHP" expanded="false" />
+            <element signature="e#4474#5080#0#PHP" expanded="false" />
+            <element signature="e#5086#5120#0#PHP" expanded="false" />
+            <element signature="e#5122#5182#0#PHP" expanded="false" />
+            <element signature="e#5188#5282#0#PHP" expanded="false" />
+            <element signature="e#5287#5377#0#PHP" expanded="false" />
+            <element signature="e#5383#5474#0#PHP" expanded="false" />
+            <element signature="e#5479#5659#0#PHP" expanded="false" />
+            <element signature="e#5529#5631#0#PHP" expanded="false" />
+            <element signature="e#5665#5808#0#PHP" expanded="false" />
+            <element signature="e#5810#5921#0#PHP" expanded="false" />
+            <element signature="e#5927#6011#0#PHP" expanded="false" />
+            <element signature="e#6016#6142#0#PHP" expanded="false" />
+            <element signature="e#6148#6313#0#PHP" expanded="false" />
+            <element signature="e#6318#6965#0#PHP" expanded="false" />
+            <element signature="e#6481#6936#0#PHP" expanded="false" />
+            <element signature="e#6710#6936#0#PHP" expanded="false" />
+            <element signature="e#6971#7132#0#PHP" expanded="false" />
+            <element signature="e#7137#7682#0#PHP" expanded="false" />
+            <element signature="e#7449#7647#0#PHP" expanded="false" />
+            <element signature="e#7688#7729#0#PHP" expanded="false" />
+            <element signature="e#7734#7951#0#PHP" expanded="false" />
+            <element signature="e#7836#7923#0#PHP" expanded="false" />
+            <element signature="e#7957#7988#0#PHP" expanded="false" />
+            <element signature="e#7993#9551#0#PHP" expanded="false" />
+            <element signature="e#8075#8180#0#PHP" expanded="false" />
+            <element signature="e#8322#8403#0#PHP" expanded="false" />
+            <element signature="e#9083#9269#0#PHP" expanded="false" />
+            <element signature="e#9557#9685#0#PHP" expanded="false" />
+            <element signature="e#9690#10343#0#PHP" expanded="false" />
+            <element signature="e#9791#9962#0#PHP" expanded="false" />
+            <element signature="e#10349#10436#0#PHP" expanded="false" />
+            <element signature="e#10441#10619#0#PHP" expanded="false" />
+            <element signature="e#10494#10591#0#PHP" expanded="false" />
+            <element signature="e#10625#10753#0#PHP" expanded="false" />
+            <element signature="e#10758#11155#0#PHP" expanded="false" />
+            <element signature="e#10904#11062#0#PHP" expanded="false" />
+            <element signature="e#11161#11243#0#PHP" expanded="false" />
+            <element signature="e#11248#11628#0#PHP" expanded="false" />
+            <element signature="e#11634#11690#0#PHP" expanded="false" />
+            <element signature="e#11695#11809#0#PHP" expanded="false" />
+            <element signature="e#11815#11866#0#PHP" expanded="false" />
+            <element signature="e#11871#12005#0#PHP" expanded="false" />
+            <element signature="e#12011#12079#0#PHP" expanded="false" />
+            <element signature="e#12084#12173#0#PHP" expanded="false" />
+            <element signature="e#12179#12269#0#PHP" expanded="false" />
+            <element signature="e#12274#12571#0#PHP" expanded="false" />
+            <element signature="e#12577#12684#0#PHP" expanded="false" />
+            <element signature="e#12689#13189#0#PHP" expanded="false" />
+            <element signature="e#12791#12947#0#PHP" expanded="false" />
+            <element signature="e#12957#13123#0#PHP" expanded="false" />
+            <element signature="e#13195#13317#0#PHP" expanded="false" />
+            <element signature="e#13322#13877#0#PHP" expanded="false" />
+            <element signature="e#13381#13450#0#PHP" expanded="false" />
+            <element signature="e#13460#13623#0#PHP" expanded="false" />
+            <element signature="e#13633#13799#0#PHP" expanded="false" />
+            <element signature="e#13883#14004#0#PHP" expanded="false" />
+            <element signature="e#14009#14233#0#PHP" expanded="false" />
+            <element signature="e#14065#14144#0#PHP" expanded="false" />
+            <element signature="e#14239#14364#0#PHP" expanded="false" />
+            <element signature="e#14369#14596#0#PHP" expanded="false" />
+            <element signature="e#14424#14505#0#PHP" expanded="false" />
+            <element signature="e#14602#14870#0#PHP" expanded="false" />
+            <element signature="e#14875#15242#0#PHP" expanded="false" />
+            <element signature="e#14936#15162#0#PHP" expanded="false" />
+            <element signature="e#15024#15132#0#PHP" expanded="false" />
+            <element signature="e#15248#15443#0#PHP" expanded="false" />
+            <element signature="e#15448#15973#0#PHP" expanded="false" />
+            <element signature="e#15979#16081#0#PHP" expanded="false" />
+            <element signature="e#16086#16401#0#PHP" expanded="false" />
+            <element signature="e#16407#16445#0#PHP" expanded="false" />
+            <element signature="e#16450#16531#0#PHP" expanded="false" />
+            <element signature="e#16537#16611#0#PHP" expanded="false" />
+            <element signature="e#16616#16700#0#PHP" expanded="false" />
+            <element signature="e#16706#16832#0#PHP" expanded="false" />
+            <element signature="e#16837#17188#0#PHP" expanded="false" />
+            <element signature="e#16888#17182#0#PHP" expanded="false" />
+            <element signature="e#16971#17142#0#PHP" expanded="false" />
+            <element signature="e#17194#17272#0#PHP" expanded="false" />
+            <element signature="e#17277#18200#0#PHP" expanded="false" />
+            <element signature="e#22703#23124#0#PHP" expanded="false" />
+            <element signature="e#22821#22952#0#PHP" expanded="false" />
+            <element signature="e#22966#23114#0#PHP" expanded="false" />
+            <element signature="e#23498#25086#0#PHP" expanded="false" />
+            <element signature="e#23872#25075#0#PHP" expanded="false" />
+            <element signature="e#28911#29008#0#PHP" expanded="false" />
+            <element signature="e#29203#29471#0#PHP" expanded="false" />
+            <element signature="e#29556#30241#0#PHP" expanded="false" />
+            <element signature="e#29751#29884#0#PHP" expanded="false" />
+            <element signature="e#29964#30167#0#PHP" expanded="false" />
+            <element signature="e#30097#30167#0#PHP" expanded="false" />
+            <element signature="e#30178#30241#0#PHP" expanded="false" />
+            <element signature="e#31829#32653#0#PHP" expanded="false" />
+            <element signature="e#32913#33205#0#PHP" expanded="false" />
+            <element signature="e#32996#33165#0#PHP" expanded="false" />
+            <element signature="e#33505#33575#0#PHP" expanded="false" />
+            <element signature="e#34558#35440#0#PHP" expanded="false" />
+            <element signature="e#35446#36923#0#PHP" expanded="false" />
+            <element signature="e#36929#37270#0#PHP" expanded="false" />
+            <element signature="e#37276#37642#0#PHP" expanded="false" />
+            <element signature="e#37648#38574#0#PHP" expanded="false" />
+            <element signature="e#38617#38732#0#PHP" expanded="false" />
+            <element signature="e#38775#38885#0#PHP" expanded="false" />
+            <element signature="e#38928#39041#0#PHP" expanded="false" />
+            <element signature="e#39084#39191#0#PHP" expanded="false" />
+            <element signature="e#39589#39688#0#PHP" expanded="false" />
+            <element signature="e#39694#39739#0#PHP" expanded="false" />
+            <element signature="e#39744#39850#0#PHP" expanded="false" />
+            <element signature="e#39906#40010#0#PHP" expanded="false" />
+            <element signature="e#40144#40251#0#PHP" expanded="false" />
+            <element signature="e#40307#40406#0#PHP" expanded="false" />
+            <element signature="e#40481#40550#0#PHP" expanded="false" />
+            <element signature="e#40606#41258#0#PHP" expanded="false" />
+            <element signature="e#41264#41409#0#PHP" expanded="false" />
+            <element signature="e#41414#41968#0#PHP" expanded="false" />
+            <element signature="e#42042#42105#0#PHP" expanded="false" />
+            <element signature="e#42111#42197#0#PHP" expanded="false" />
+            <element signature="e#42202#42319#0#PHP" expanded="false" />
+            <element signature="e#42325#42383#0#PHP" expanded="false" />
+            <element signature="e#42388#42564#0#PHP" expanded="false" />
+            <element signature="e#42689#42758#0#PHP" expanded="false" />
+            <element signature="e#42881#43141#0#PHP" expanded="false" />
+            <element signature="e#42945#43113#0#PHP" expanded="false" />
+            <element signature="e#42996#43103#0#PHP" expanded="false" />
+            <marker date="1507385315000" expanded="false" signature="18209:18315" ph=" @see https://en.wikipedia.org/wiki/HTTP_referer ..." />
+            <marker date="1507385315000" expanded="false" signature="18362:18430" ph="{...}" />
+            <marker date="1507385315000" expanded="false" signature="18439:18545" ph=" @see https://en.wikipedia.org/wiki/HTTP_referer ..." />
+            <marker date="1507385315000" expanded="false" signature="18588:18652" ph="{...}" />
+            <marker date="1507385315000" expanded="false" signature="18661:18776" ph=" set headers ..." />
+            <marker date="1507385315000" expanded="false" signature="18843:19264" ph="{...}" />
+            <marker date="1507385315000" expanded="false" signature="18877:18954" ph="..." />
+            <marker date="1507385315000" expanded="false" signature="18961:19013" ph="..." />
+            <marker date="1507385315000" expanded="false" signature="19096:19152" ph="..." />
+            <marker date="1507385315000" expanded="false" signature="19273:19359" ph=" Set maximum redirect allow ..." />
+            <marker date="1507385315000" expanded="false" signature="19409:19495" ph="{...}" />
+            <marker date="1507385315000" expanded="false" signature="19504:19606" ph=" It will follow end location of referer urls ..." />
+            <marker date="1507385315000" expanded="false" signature="19654:19744" ph="{...}" />
+            <marker date="1507385315000" expanded="false" signature="19753:19801" ph=" Set timeout ..." />
+            <marker date="1507385315000" expanded="false" signature="19846:19908" ph="{...}" />
+            <marker date="1507385315000" expanded="false" signature="19917:19974" ph=" Make lib own useragent ..." />
+            <marker date="1507385315000" expanded="false" signature="20021:20244" ph="{...}" />
+            <marker date="1507385315000" expanded="false" signature="20253:20306" ph=" @param string $str ..." />
+            <marker date="1507385315000" expanded="false" signature="20356:22306" ph="{...}" />
+            <marker date="1507385315000" expanded="false" signature="20384:20485" ph="{...}" />
+            <marker date="1507385315000" expanded="false" signature="20518:21079" ph="..." />
+            <marker date="1507385315000" expanded="false" signature="21272:22178" ph="{...}" />
+            <marker date="1507385315000" expanded="false" signature="21337:21945" ph="..." />
+            <marker date="1507385315000" expanded="false" signature="21420:21545" ph="{...}" />
+            <marker date="1507385315000" expanded="false" signature="21579:21688" ph="{...}" />
+            <marker date="1507385315000" expanded="false" signature="21693:21931" ph="..." />
+            <marker date="1507385315000" expanded="false" signature="21816:21914" ph="{...}" />
+            <marker date="1507385315000" expanded="false" signature="21951:22101" ph="..." />
+            <marker date="1507385315000" expanded="false" signature="22203:22286" ph="..." />
+            <marker date="1507385315000" expanded="false" signature="22315:22343" ph=" @return string ..." />
+            <marker date="1507385315000" expanded="false" signature="22380:22425" ph="{...}" />
+            <marker date="1507385315000" expanded="false" signature="22434:22522" ph=" Get the size of directory ..." />
+            <marker date="1507385315000" expanded="false" signature="22573:23153" ph="{...}" />
+            <marker date="1507385315000" expanded="false" signature="23162:23289" ph=" @param $directory ..." />
+            <marker date="1507385315000" expanded="false" signature="23400:25113" ph="{...}" />
+            <marker date="1507385315000" expanded="false" signature="23628:23857" ph="..." />
+            <marker date="1507385315000" expanded="false" signature="24217:25060" ph="..." />
+            <marker date="1507385315000" expanded="false" signature="24248:24383" ph="..." />
+            <marker date="1507385315000" expanded="false" signature="24414:24547" ph="..." />
+            <marker date="1507385315000" expanded="false" signature="24579:24713" ph="..." />
+            <marker date="1507385315000" expanded="false" signature="24744:24877" ph="..." />
+            <marker date="1507385315000" expanded="false" signature="24909:25043" ph="..." />
+            <marker date="1507385315000" expanded="false" signature="25122:25568" ph=" $option[&quot;MaxDiskSize&quot;] = 10*1024*1024. //max 10mb of Cache directory ..." />
+            <marker date="1507385315000" expanded="false" signature="25618:27299" ph="{...}" />
+            <marker date="1507385315000" expanded="false" signature="25861:26072" ph="{...}" />
+            <marker date="1507385315000" expanded="false" signature="25927:26061" ph="..." />
+            <marker date="1507385315000" expanded="false" signature="26078:26310" ph="..." />
+            <marker date="1507385315000" expanded="false" signature="26939:27185" ph="..." />
+            <marker date="1507385315000" expanded="false" signature="27308:27386" ph=" Get cache Setting ..." />
+            <marker date="1507385315000" expanded="false" signature="27436:27821" ph="{...}" />
+            <marker date="1507385315000" expanded="false" signature="27830:28771" ph=" If this method is enable, ..." />
+            <marker date="1507385315000" expanded="false" signature="28823:30261" ph="{...}" />
+            <marker date="1507385315000" expanded="false" signature="30270:31232" ph=" Call this method to check to enable the cache, ..." />
+            <marker date="1507385315000" expanded="false" signature="31290:31403" ph="{...}" />
+            <marker date="1507385315000" expanded="false" signature="31412:31494" ph=" Determine whether cache option is enabled or not ..." />
+            <marker date="1507385315000" expanded="false" signature="31532:31581" ph="{...}" />
+            <marker date="1507385315000" expanded="false" signature="31590:31617" ph=" @return $this ..." />
+            <marker date="1507385315000" expanded="false" signature="31654:31723" ph="{...}" />
+            <marker date="1507385315000" expanded="false" signature="31732:31822" ph=" get the cache file name for current url requested ..." />
+            <marker date="1507385315000" expanded="false" signature="32662:32857" ph=" Set the cache file name. Would be better if you set absolute Directory Path. ..." />
+            <marker date="1507385315000" expanded="false" signature="32898:33211" ph="{...}" />
+            <marker date="1507385315000" expanded="false" signature="33220:33271" ph=" @param bool $val ..." />
+            <marker date="1507385315000" expanded="false" signature="33322:33461" ph="{...}" />
+            <marker date="1507385315000" expanded="false" signature="33470:33498" ph=" @return string ..." />
+            <marker date="1507385315000" expanded="false" signature="33584:33659" ph=" Set Port num ..." />
+            <marker date="1507385315000" expanded="false" signature="33696:33782" ph="{...}" />
+            <marker date="1507385315000" expanded="false" signature="33791:33869" ph=" Set Connect Timeout ..." />
+            <marker date="1507385315000" expanded="false" signature="33919:34010" ph="{...}" />
+            <marker date="1507385315000" expanded="false" signature="34019:34070" ph=" @param bool $val ..." />
+            <marker date="1507385315000" expanded="false" signature="34114:34203" ph="{...}" />
+            <marker date="1507385315000" expanded="false" signature="34212:34263" ph=" @param bool $val ..." />
+            <marker date="1507385315000" expanded="false" signature="34308:34397" ph="{...}" />
+            <marker date="1507385315000" expanded="false" signature="34406:34433" ph=" @return $this ..." />
+            <marker date="1507385315000" expanded="false" signature="34465:34552" ph="{...}" />
+            <marker date="1507385315000" expanded="false" signature="38583:38610" ph=" @return mixed ..." />
+            <marker date="1507385315000" expanded="false" signature="38741:38768" ph=" @return mixed ..." />
+            <marker date="1507385315000" expanded="false" signature="38894:38921" ph=" @return mixed ..." />
+            <marker date="1507385315000" expanded="false" signature="39050:39077" ph=" @return mixed ..." />
+            <marker date="1507385315000" expanded="false" signature="39200:39582" ph=" Return http status if exists otherwise an empty string ..." />
+            <marker date="1507385315000" expanded="false" signature="39859:39899" ph=" @return mixed|array|string ..." />
+            <marker date="1507385315000" expanded="false" signature="40019:40137" ph=" Returns the connection status of request e.g close, maybe keep-alive.. ..." />
+            <marker date="1507385315000" expanded="false" signature="40260:40300" ph=" @return mixed|array|string ..." />
+            <marker date="1507385315000" expanded="false" signature="40415:40474" ph=" Returns curl Instance ..." />
+            <marker date="1507385315000" expanded="false" signature="40559:40599" ph=" @return mixed|array|string ..." />
+            <marker date="1507385315000" expanded="false" signature="41977:42035" ph=" Get back the given url ..." />
+            <marker date="1507385315000" expanded="false" signature="42573:42682" ph=" Returns the array of errors if occurred or empty array in case of no error ..." />
+            <marker date="1507385315000" expanded="false" signature="42767:42874" ph=" check whether str contains ..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="8" column="5" lean-forward="true" selection-start-line="8" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
