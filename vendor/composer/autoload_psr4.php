@@ -8,4 +8,5 @@ $baseDir = dirname($vendorDir);
 return array(
     'cURLRequester\\' => array($baseDir . '/Src'),
     'Useragent\\' => array($vendorDir . '/phoenix404/useragents/Src'),
+    'Proxy\\' => array($vendorDir . '/phoenix404/php-proxiest/Src'),
 );

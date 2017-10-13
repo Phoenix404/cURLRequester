@@ -9,7 +9,10 @@
       <w>followlocation</w>
       <w>maxredirs</w>
       <w>mitm</w>
+      <w>proxiest</w>
+      <w>proxyuserpwd</w>
       <w>returntransfer</w>
+      <w>useragents</w>
       <w>verifyhost</w>
       <w>verifypeer</w>
       <w>waha</w>

@@ -37,5 +37,40 @@
             }
         ],
         "description": "useragents Lib with huge collection of useragents(os, devices, spieders, console browsers..)"
+    },
+    {
+        "name": "phoenix404/php-proxiest",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Phoenix404/php_proxiest.git",
+            "reference": "caa18285a258caed83ba1113f007056585c0a52b"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Phoenix404/php_proxiest/zipball/caa18285a258caed83ba1113f007056585c0a52b",
+            "reference": "caa18285a258caed83ba1113f007056585c0a52b",
+            "shasum": ""
+        },
+        "time": "2017-10-13T19:10:37+00:00",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Proxy\\": "Src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Phoenix404",
+                "email": "manpreet2681995@gmail.com"
+            }
+        ],
+        "description": "get proxy"
     }
 ]

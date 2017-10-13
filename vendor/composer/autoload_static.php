@@ -15,6 +15,10 @@ class ComposerStaticInita9aebfece42c3dc696566b06cf00394b
         array (
             'Useragent\\' => 10,
         ),
+        'P' => 
+        array (
+            'Proxy\\' => 6,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
@@ -25,6 +29,10 @@ class ComposerStaticInita9aebfece42c3dc696566b06cf00394b
         'Useragent\\' => 
         array (
             0 => __DIR__ . '/..' . '/phoenix404/useragents/Src',
+        ),
+        'Proxy\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phoenix404/php-proxiest/Src',
         ),
     );
 

@@ -18,6 +18,23 @@ $URL            = [
 $totalRequest   = 3;
 
 $c = new cURLRequester();
+$data = $c  ->setRandomProxy("IT")
+         //->setRandomProxy("8.8.8.8")
+         //->setRandomProxy("8.8.8.8")
+         //->setProxy("62.75.241.208:80")
+         ->setCertificateFile()
+         ->setPort(80)
+         ->followLocation()
+         //->setAutoReferer()
+         //->setReferer()
+
+        //->basicRequest("http://dynupdate.no-ip.com/ip.php");
+        ->basicRequest("https://www.trovaprezzi.it/prezzo_binocoli-cannocchiali_olympus_10x21.aspx");
+        //->basicRequest("https://www.whatismyip.com/it/");
+
+echo "<textarea rows='5' cols='120'>".$data."</textarea>";
+
+if(1) exit();
 for($i = 0; $i < $totalRequest; $i++)
 {
 
