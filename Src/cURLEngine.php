@@ -16,6 +16,7 @@
 
 namespace cURLRequester;
 use Useragent\UserAgent;
+use Proxy\Proxy;
 
 class cURLEngine {
 
@@ -1164,7 +1165,62 @@ class cURLEngine {
      */
     public function setPort($port)
     {
-        $this->setOpt(CURLOPT_PORT, intval($port));
+        $this->setOpt("CURLOPT_PORT", $port);
+        return $this;
+    }
+
+    /**
+     * Set random Port number
+     * @param string $typeOf
+     * @return $this
+     */
+    public function setRandomPort($typeOf="")
+    {
+        if(class_exists("\\Proxy\Proxy")){
+            $proxy = new Proxy();
+            $port   = $proxy->getIP($typeOf);
+            $this->setPort($port["port"]);
+        }else{
+            $this->setPort(rand(1100,10000));
+        }
+
+        return $this;
+    }
+
+    /**
+     * Set proxy
+     * @param $proxy
+     * @return $this
+     */
+    public function setProxy($proxy, $port="")
+    {
+
+        $this->setOpt("CURLOPT_PROXY", $proxy);
+
+        if(strlen($port)>0)
+            $this->setPort($port);
+
+        return $this;
+    }
+
+    public function setRandomProxy($typeOf)
+    {
+        if(class_exists("\\Proxy\Proxy")){
+            $proxy = new Proxy();
+            $ip   = $proxy->getIP($typeOf);
+            $this->setProxy($ip["ip"].":".$ip["port"]);
+        }else{
+            $inHopeSomeDaySomeOneWillUpdateTheseProxyArray = ["136.55.8.193","35.185.63.122","45.77.143.196","45.77.143.125"];
+            // btw this else cond is not going be execute never but but but
+            $rand   = rand(0,3);
+            $this->setProxy($inHopeSomeDaySomeOneWillUpdateTheseProxyArray[$rand]);
+        }
+        return $this;
+    }
+
+    public function setProxyAuth($username, $password)
+    {
+        $this->setOpt("CURLOPT_PROXYUSERPWD", $username.":".$password);
         return $this;
     }
 

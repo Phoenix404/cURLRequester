@@ -4,8 +4,41 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "9bde23b4cee6fabc82828369297e0a34",
+    "content-hash": "ac265adf38328bc3b48aedcb8a0001a6",
     "packages": [
+        {
+            "name": "phoenix404/php-proxiest",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Phoenix404/php-proxiest.git",
+                "reference": "f056d47e237995ae1cdf2aedc6b7934f1109f3e9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Phoenix404/php-proxiest/zipball/f056d47e237995ae1cdf2aedc6b7934f1109f3e9",
+                "reference": "f056d47e237995ae1cdf2aedc6b7934f1109f3e9",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Proxy\\": "Src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Phoenix404",
+                    "email": "manpreet2681995@gmail.com"
+                }
+            ],
+            "description": "get proxy",
+            "time": "2017-10-13 19:36:25"
+        },
         {
             "name": "phoenix404/useragents",
             "version": "dev-master",
@@ -48,7 +81,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "phoenix404/useragents": 20
+        "phoenix404/useragents": 20,
+        "phoenix404/php-proxiest": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

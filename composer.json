@@ -3,7 +3,8 @@
     "description": "Curl Request ready to go...",
     "type": "library",
     "require": {
-        "phoenix404/useragents": "dev-master"
+        "phoenix404/useragents": "dev-master",
+        "phoenix404/php-proxiest": "dev-master"
     },
     "Licence":"MIT",
      "autoload": {
