@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../Proxies/.idea/Proxies.iml" filepath="$PROJECT_DIR$/../Proxies/.idea/Proxies.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/cURL.iml" filepath="$PROJECT_DIR$/.idea/cURL.iml" />
       <module fileurl="file://$PROJECT_DIR$/../Proxies/.idea/php-proxiest.iml" filepath="$PROJECT_DIR$/../Proxies/.idea/php-proxiest.iml" />
     </modules>

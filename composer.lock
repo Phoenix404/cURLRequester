@@ -11,13 +11,13 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Phoenix404/php_proxiest.git",
-                "reference": "caa18285a258caed83ba1113f007056585c0a52b"
+                "url": "https://github.com/Phoenix404/php-proxiest.git",
+                "reference": "f056d47e237995ae1cdf2aedc6b7934f1109f3e9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Phoenix404/php_proxiest/zipball/caa18285a258caed83ba1113f007056585c0a52b",
-                "reference": "caa18285a258caed83ba1113f007056585c0a52b",
+                "url": "https://api.github.com/repos/Phoenix404/php-proxiest/zipball/f056d47e237995ae1cdf2aedc6b7934f1109f3e9",
+                "reference": "f056d47e237995ae1cdf2aedc6b7934f1109f3e9",
                 "shasum": ""
             },
             "type": "library",
@@ -37,7 +37,7 @@
                 }
             ],
             "description": "get proxy",
-            "time": "2017-10-13T19:10:37+00:00"
+            "time": "2017-10-13 19:36:25"
         },
         {
             "name": "phoenix404/useragents",
@@ -74,7 +74,7 @@
                 }
             ],
             "description": "useragents Lib with huge collection of useragents(os, devices, spieders, console browsers..)",
-            "time": "2017-09-24T12:21:05+00:00"
+            "time": "2017-09-24 12:21:05"
         }
     ],
     "packages-dev": [],
