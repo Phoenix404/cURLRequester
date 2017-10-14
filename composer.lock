@@ -45,12 +45,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Phoenix404/useragents.git",
-                "reference": "8ab44d480935d1815967b7653d09848678bd00d2"
+                "reference": "b19792c06c67f679a8b8c71a1e8c4f0cb45b7d8d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Phoenix404/useragents/zipball/8ab44d480935d1815967b7653d09848678bd00d2",
-                "reference": "8ab44d480935d1815967b7653d09848678bd00d2",
+                "url": "https://api.github.com/repos/Phoenix404/useragents/zipball/b19792c06c67f679a8b8c71a1e8c4f0cb45b7d8d",
+                "reference": "b19792c06c67f679a8b8c71a1e8c4f0cb45b7d8d",
                 "shasum": ""
             },
             "require": {
@@ -74,7 +74,7 @@
                 }
             ],
             "description": "useragents Lib with huge collection of useragents(os, devices, spieders, console browsers..)",
-            "time": "2017-09-24 12:21:05"
+            "time": "2017-10-14 10:14:03"
         }
     ],
     "packages-dev": [],

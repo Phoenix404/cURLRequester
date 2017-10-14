@@ -30,38 +30,83 @@ class cURLRequester extends cURLEngine
     public function basicRequest($url = "", $useCache =false)
     {
         if(strlen($url)>0) {
-            echo "\nUrl is $url\n";
             $this->setUrl($url);
         }
         elseif($this->isSetUrl()){}
         else throw new \Exception("ERROR: URL is required");
-
         $this->initCurl(true);
 
-        // Set default useCache to false
-        // So every time it will send fresh request to server
-        //$this->enableCache($useCache);
+        if($useCache) $this->enableCache($useCache);
+        $this->invoke();
+        return $this;
+    }
+
+    /**
+     * Perform get request
+     * @param $url
+     * @param $params
+     * @param bool $useSSL
+     * @param bool $secure
+     * @return string
+     */
+    public function get($url, $params="", $useSSL=true, $secure=true)
+    {
+        //Try to avoid MITM Attack
+        if($secure){
+            $this->verifyPeer();
+            $this->verifyHost();
+        }
+
+        if($useSSL) $this->setCertificateFile();
+
+        if(!$this->isCacheEnable()) $this->initCurl(true);
+
+        $url    = $this->makeUrl($url, $params);
+        $this->setUrl($url);
+        $this->setOpt("CURLOPT_HTTPGET", true);
+        $this->invoke();
+        return $this;
+    }
+
+    /**
+     * Perform Post Request.
+     * @param $url
+     * @param string $params
+     * @param bool $useSSL
+     * @param bool $secure
+     * @return $this
+     */
+    public function post($url, $params="", $useSSL=true, $secure=true)
+    {
+        if($secure){
+            $this->verifyPeer();
+            $this->verifyHost();
+        }
+
+        if($useSSL) $this->setCertificateFile();
+
+        if(!$this->isCacheEnable()) $this->initCurl(true);
+
+        $url    = $this->makeUrl($url, $params);
+        $this->setUrl($url);
+
+        $this->setOpt("CURLOPT_POST", true);
+
+        if(!empty($params)) $this->setOpt("CURLOPT_POSTFIELDS", http_build_query($params));
 
         $this->invoke();
-        //$this->_close();
-        return $this->result;
-    }
-
-    public function get()
-    {
-        // if set to false MITM attack can be activate
-        //http://ademar.name/blog/2006/04/curl-ssl-certificate-problem-v.html
-        //verifyHos                 t()
-        //verifypeer()
-
-    }
-
-    public function post()
-    {
-
+        return $this;
     }
 
     public function login()
-    {}
+    {
+        // try to find the actual login form
+        /*if (!preg_match('/<form .*?<\/form>/is', $page, $form)) {
+            die('Failed to find log in form!');
+        }*/
+        //https://github.com/mindevolution/amazonSellerCentralLogin
+        //https://github.com/mindevolution/amazonSellerCentralLogin/blob/master/src/Login.php
+
+    }
 
 }

@@ -32,7 +32,7 @@ class cURLEngine {
     protected $headers                  = array();
     protected $functionHeaders          = array();
     protected $invokable 	            = array();
-    protected $errors                   = array();
+    protected $ERRORS                   = array();
 
     // App/Lib Identity
     public $appName                     = "cURLRequester";
@@ -49,11 +49,8 @@ class cURLEngine {
     protected $isCacheEnable            = false;
     protected $isCookiesNewWrite        = false;
 
-	// need to set proxy also
 	// need to add time loaded requested
-    // authentication
     // download file
-    // upload file
     // ftp
     // need to delete @see comments ..
 
@@ -112,11 +109,6 @@ class cURLEngine {
         }
     }
 
-    protected function initSettings()
-    {
-        //$this->readCookiesFile =
-    }
-
     /**
      * @param $options
      */
@@ -136,7 +128,6 @@ class cURLEngine {
      */
     public function initCurl($fresh_no_cache=false)
     {
-
         if(!is_resource($this->cURL))
             $this->cURL = curl_init();
 
@@ -146,6 +137,11 @@ class cURLEngine {
         return $this;
     }
 
+    /**
+     * Recreate new curl instance
+     * @param bool $fresh_no_cache
+     * @return $this
+     */
     public function newCurl($fresh_no_cache=false)
     {
         $this->cURL = curl_init();
@@ -310,7 +306,7 @@ class cURLEngine {
         $this->functionHeaders = array();
 
         if(!$this->isSetUrl()){
-            $this->errors[] = "Url no found";
+            $this->ERRORS[] = "Url no found";
             return false;
         }
 
@@ -323,14 +319,11 @@ class cURLEngine {
         }
         if(!$this->hasFalseValue($this->invokable))
         {
-            echo "\nPlease remove me from line ".__LINE__." I am from invoke method.\n";
-
             //avoid print the result and force it to return the result in a variable
             curl_setopt($this->cURL, CURLOPT_RETURNTRANSFER, true);
             //Get Curl Header response
             curl_setopt($this->cURL, CURLOPT_HEADERFUNCTION, array($this, "cURLHeadersFunction"));
             $this->prepareCurlOption();
-            //print_r($this->options["curl_opt"]);
             $this->result = curl_exec($this->cURL);
             $this->writeFunctionHeaders();
         }
@@ -376,7 +369,10 @@ class cURLEngine {
         if (!array_key_exists($name, $this->functionHeaders))
             $this->functionHeaders[$name] = [trim($header[1])];
         else
-            $this->functionHeaders[$name][] = trim($header[1]);
+            if(is_array($this->functionHeaders[$name]))
+                $this->functionHeaders[$name][] = trim($header[1]);
+            else
+                $this->functionHeaders[$name] = [trim($header[1])];
 
         return $len;
 
@@ -406,11 +402,13 @@ class cURLEngine {
         $errno  = curl_errno($this->cURL);
         if($errno>0) {
             $errorMessage = curl_strerror($errno);
-            return $this->error = "cURL error (" . $errno . "): " . $errorMessage;
+            $this->error = "cURL error (" . $errno . "): " . $errorMessage;
+            $this->ERRORS["CurlError"][]  = $this->error;
+            return $this->error;
         }
 
-        // return false if request proceed successfully
-        return $this->result;
+        // return null if request proceed successfully
+        return null;
     }
 
     /**
@@ -455,6 +453,19 @@ class cURLEngine {
     }
 
     /**
+     * Make Url
+     * @param $url
+     * @param $params
+     * @return string
+     */
+    public function makeUrl($url, $params="")
+    {
+        $url .= $this->str_contains($url, "?") ? "?" : "&";
+        $url .= @http_build_query($params);
+        return $url;
+    }
+
+    /**
      * Determine whether url is set.
      * @return bool
      */
@@ -463,6 +474,31 @@ class cURLEngine {
         return $this->isSetCurlOpt("CURLOPT_URL");
     }
 
+    /**
+     * Upload the file
+     * @param $file
+     * @return $this|bool
+     */
+    public function uploadFile($file)
+    {
+        if(!file_exists($file) || !is_resource($file)){
+            $this->ERRORS["UploadFile"][] = "File for uploading doesn't exists!";
+            return false;
+        }
+
+        $this->setOpt("CURLOPT_INFILE", $file);
+        return $this;
+    }
+
+    /**
+     * Set the File Size.
+     * @param $size
+     */
+    public function setFileSize($size)
+    {
+        $this->setOpt("CURLOPT_INFILESIZE_LARGE", $size);
+    }
+    
     /**
      * Determine If file exists on web
      * @param $path
@@ -492,20 +528,17 @@ class cURLEngine {
 
 		if(@file_exists($path))
 		{
-		    $this->verifyPeer(true);
             $this->setOpt("CURLOPT_CAINFO", realpath($path));
-            return $this;
-        }
-
-        if($this->uriFileExists($path))
+        }elseif($this->uriFileExists($path))
         {
             $this->setOpt("CURLOPT_CAINFO", $path);
-            $this->verifyPeer(true);
-            return $this;
+        }else{
+            $this->ERRORS["Error"]["SSL"]   = "Cacert path doesn't exists! Library default SSL directory has been set!";
+            $this->setOpt("CURLOPT_CAINFO", __DIR__.DIRECTORY_SEPARATOR."SSL".DIRECTORY_SEPARATOR);
         }
 
-        throw new \Exception("Cacert path doesn't exists!");
-
+        $this->verifyPeer(true);
+        return $this;
 	}
 
     /**
@@ -516,25 +549,25 @@ class cURLEngine {
      */
     public function setCertificatePath($path="")
     {
-        if(strlen($path)<=0) {
+        if(strlen($path)<=0)
+        {
             $path = $this->certPath;
         }
 
         if(@is_dir($path))
         {
-            $this->verifyPeer(true);
             $this->setOpt("CURLOPT_CAPATH", realpath($path));
-            return $this;
-        }
-
-        if($this->uriFileExists($path))
+        }elseif($this->uriFileExists($path))
         {
-            $this->verifyPeer(true);
             $this->setOpt("CURLOPT_CAPATH", $path);
-            return $this;
+        }else
+        {
+            $this->ERRORS["Error"]["SSL"]   = "Certificate directory doesn't exists! Library default SSL directory has been set!";
+            $this->setOpt("CURLOPT_CAPATH", __DIR__.DIRECTORY_SEPARATOR."SSL".DIRECTORY_SEPARATOR);
         }
 
-        throw new \Exception("Certificate directory doesn't exists!");
+        $this->verifyPeer(true);
+        return $this;
     }
 
     /**
@@ -800,7 +833,9 @@ class cURLEngine {
                 $useragent = new UserAgent();
                 if($randomUserAgent)
                 {
-                    $this->userAgent = $useragent->getRandomUserAgent(strtolower($str));
+                    $this->userAgent =  $useragent->searchInFiles("useragent", strtolower($str));
+                    $this->userAgent =  (array) $this->userAgent[rand(0, count($this->userAgent)-1)];
+                    $this->userAgent = $this->userAgent["useragent"];
                 }elseif(strtolower($str)=="random")
                 {
                     $this->userAgent = $useragent->getRandomUserAgent();
@@ -812,7 +847,6 @@ class cURLEngine {
                     }
                 }
             }else{
-                echo "\nclass doesn't exists\n";
                 //create custom useragent
                 $this->makeCustomUserAgent();
             }
@@ -1152,7 +1186,7 @@ class cURLEngine {
     /**
      * @return string
      */
-    public function getResult ()
+    public function getResult()
     {
         return $this->result;
     }
@@ -1203,6 +1237,11 @@ class cURLEngine {
         return $this;
     }
 
+    /**
+     * Set random Proxy. It will use Php-proxies lib to get random proxy.
+     * @param $typeOf
+     * @return $this
+     */
     public function setRandomProxy($typeOf)
     {
         if(class_exists("\\Proxy\Proxy")){
@@ -1218,9 +1257,32 @@ class cURLEngine {
         return $this;
     }
 
+    /**
+     * Set proxy Authentication by providing username and password
+     * @param $username
+     * @param $password
+     * @return $this
+     */
     public function setProxyAuth($username, $password)
     {
         $this->setOpt("CURLOPT_PROXYUSERPWD", $username.":".$password);
+        return $this;
+    }
+
+    /**
+     * Set Authentication
+     * @param $username
+     * @param $passe
+     * @return $this
+     */
+    public function setAuth($username, $password, $authType="")
+    {
+        $this->setOpt("CURLOPT_USERPWD", $username.":".$password);
+        if(strlen($authType)>=0) {
+            $this->setOpt("CURLOPT_HTTPAUTH", $authType);
+        }else{
+            $this->setOpt("CURLOPT_HTTPAUTH", CURLAUTH_ANY);
+        }
         return $this;
     }
 
@@ -1251,6 +1313,8 @@ class cURLEngine {
      */
     public function verifyHost($val=false)
     {
+        if($val == true || $val == 1)
+            $val = 2;
         $this->setOpt("CURLOPT_SSL_VERIFYHOST", $val);
         return $this;
     }
@@ -1264,6 +1328,11 @@ class cURLEngine {
         return $this;
     }
 
+    /**
+     * Returns the filename of headersFilename
+     * @param string $ext
+     * @return bool|string
+     */
     public function getFunctionHeadersFilename($ext=".heads")
     {
         if(!$this->isSetUrl())
@@ -1513,9 +1582,9 @@ class cURLEngine {
      * Returns the array of errors if occurred or empty array in case of no error
      * @return array
      */
-    public function getErrors()
+    public function getERRORS()
     {
-        return $this->errors;
+        return $this->ERRORS;
     }
 
     /**
@@ -1533,6 +1602,5 @@ class cURLEngine {
         }
         return false;
     }
-
 
 }

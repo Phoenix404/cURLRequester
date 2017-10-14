@@ -15,26 +15,12 @@ $URL            = [
                     "https://www.google.it/?gfe_rd=cr&dcr=0&ei=SEfFWcTsKrLBXoHSnagK&gws_rd=cr",
                     "http://www.lina24.com/go/"
                     ];
-$totalRequest   = count($URL)-1;
+$totalRequest   = count($URL)-0;
+
 
 $c = new cURLRequester();
-$data = $c  ->setRandomProxy("IT")
-         //->setRandomProxy("8.8.8.8")
-         //->setRandomProxy("8.8.8.8")
-         //->setProxy("62.75.241.208:80")
-         ->setCertificateFile()
-         ->setPort(80)
-         ->followLocation()
-         //->setAutoReferer()
-         //->setReferer()
-
-        //->basicRequest("http://dynupdate.no-ip.com/ip.php");
-        ->basicRequest("https://www.trovaprezzi.it/prezzo_binocoli-cannocchiali_olympus_10x21.aspx");
-        //->basicRequest("https://www.whatismyip.com/it/");
-
-echo "<textarea rows='5' cols='120'>".$data."</textarea>";
-
-if(1) exit();
+//file_put_contents("../../html.html", $data);
+//echo '<iframe src="../../html.html" width="100%" height="50%"></iframe>';
 for($i = 0; $i < $totalRequest; $i++)
 {
 
@@ -46,17 +32,18 @@ for($i = 0; $i < $totalRequest; $i++)
         //->noBody()
         //->setHeaders("Connection", "Keep-Alive")
         //->setOpt("CURLOPT_COOKIELIST", 1)
-        ->basicRequest($URL[$i]);
+        ->basicRequest($URL[$i])
+        ->getResult();
 
     echo "<textarea rows='5' cols='120'>".$data."</textarea>";
-    echo "\nServer is ";print_r($c->getServerType());
-    echo "\nCookies are ";print_r($c->getCookies());
+    //echo "\nServer is ";print_r($c->getServerType());
+    //echo "\nCookies are ";print_r($c->getCookies());
     //echo "\nCURLINFO_COOKIELIST are ";print_r($c->getCurlInfo(CURLINFO_COOKIELIST));
     //echo "\nHeaderStatus : ";print_r($c->functionHeaders);
-    echo "\nHeaderStatus: ";print_r($c->getHeaderStatus());
-    echo "\nget HTTP Code: ";print_r($c->getHTTPCode());
-    echo "\nget Real Url: ";print_r($c->getRealUrl());
-    echo "\nRedirected Url: ";print_r($c->getRedirectedUrl());
+    ///echo "\nHeaderStatus: ";print_r($c->getHeaderStatus());
+    //echo "\nget HTTP Code: ";print_r($c->getHTTPCode());
+   // echo "\nget Real Url: ";print_r($c->getRealUrl());
+    //echo "\nRedirected Url: ";print_r($c->getRedirectedUrl());
     //$c->initCurl();
     //$c->resetCurl();
     echo "<hr/><br/><br/>";
