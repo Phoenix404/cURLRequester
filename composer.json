@@ -1,15 +1,22 @@
 {
-    "name": "phoenix404/curl-requester",
-    "description": "Curl Request ready to go...",
-    "type": "library",
-    "require": {
-        "phoenix404/useragents": "dev-master",
-        "phoenix404/php-proxiest": "dev-master"
-    },
-    "licence":"mit",
-     "autoload": {
-        "psr-4": {
-            "cURLRequester\\": "Src/"
-        }
+  "name": "phoenix404/curl-requester",
+  "description": "Curl Request ready to go...",
+  "type": "library",
+  "require": {
+    "phoenix404/useragents": "dev-master",
+    "phoenix404/php-proxiest": "dev-master"
+  },
+  "licence": "MIT",
+  "authors": [
+    {
+      "name": "Phoenix404",
+      "email": "manpreet2681995@gmail.com"
     }
+  ],
+  "autoload": {
+    "psr-4": {
+      "cURLRequester\\": "Src/"
+    }
+  },
+  "minimum-stability": "stable"
 }
