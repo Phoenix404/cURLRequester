@@ -1,6 +1,6 @@
-# cURLRequester
+# curl-requester
 
-cURLRequester let you make http request easy
+curl-requester let you make http request easy
 
 ### Installation
 

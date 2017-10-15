@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "ac265adf38328bc3b48aedcb8a0001a6",
+    "content-hash": "cc7dfe1d5ce01b94c44a2b709d6f2937",
     "packages": [
         {
             "name": "phoenix404/php-proxiest",
@@ -37,7 +37,7 @@
                 }
             ],
             "description": "get proxy",
-            "time": "2017-10-13 19:36:25"
+            "time": "2017-10-13T19:36:25+00:00"
         },
         {
             "name": "phoenix404/useragents",
@@ -74,7 +74,7 @@
                 }
             ],
             "description": "useragents Lib with huge collection of useragents(os, devices, spieders, console browsers..)",
-            "time": "2017-10-14 10:14:03"
+            "time": "2017-10-14T10:14:03+00:00"
         }
     ],
     "packages-dev": [],

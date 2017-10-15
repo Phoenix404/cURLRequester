@@ -1,5 +1,5 @@
 {
-    "name": "phoenix404/cURLRequester",
+    "name": "phoenix404/curl-requester",
     "description": "Curl Request ready to go...",
     "type": "library",
     "require": {
