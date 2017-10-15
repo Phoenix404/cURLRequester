@@ -4,11 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "cc7dfe1d5ce01b94c44a2b709d6f2937",
+    "content-hash": "0f3290e269c04a16d9fe94e86e488c27",
     "packages": [
         {
             "name": "phoenix404/php-proxiest",
-            "version": "dev-master",
+            "version": "v1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Phoenix404/php-proxiest.git",
@@ -41,22 +41,19 @@
         },
         {
             "name": "phoenix404/useragents",
-            "version": "dev-master",
+            "version": "v1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Phoenix404/useragents.git",
-                "reference": "b19792c06c67f679a8b8c71a1e8c4f0cb45b7d8d"
+                "reference": "5e403b0bcd792d79b2871bf0945730a8e846f564"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Phoenix404/useragents/zipball/b19792c06c67f679a8b8c71a1e8c4f0cb45b7d8d",
-                "reference": "b19792c06c67f679a8b8c71a1e8c4f0cb45b7d8d",
+                "url": "https://api.github.com/repos/Phoenix404/useragents/zipball/5e403b0bcd792d79b2871bf0945730a8e846f564",
+                "reference": "5e403b0bcd792d79b2871bf0945730a8e846f564",
                 "shasum": ""
             },
-            "require": {
-                "php": ">=5.6.0"
-            },
-            "type": "package",
+            "type": "library",
             "autoload": {
                 "psr-4": {
                     "Useragent\\": "Src/"
@@ -69,21 +66,17 @@
             "authors": [
                 {
                     "name": "phoenix404",
-                    "email": "manpreet2681995@gmail.com",
-                    "role": "Developer"
+                    "email": "manpreet2681995@gmail.com"
                 }
             ],
             "description": "useragents Lib with huge collection of useragents(os, devices, spieders, console browsers..)",
-            "time": "2017-10-14T10:14:03+00:00"
+            "time": "2017-10-15T17:39:55+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
-    "minimum-stability": "stable",
-    "stability-flags": {
-        "phoenix404/useragents": 20,
-        "phoenix404/php-proxiest": 20
-    },
+    "minimum-stability": "dev",
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
