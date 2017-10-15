@@ -12,6 +12,7 @@
  * In next version
  * Will try to add stream_context_create support if curl is not installed.
  * FTP for checking file on the other servers..
+ *
  */
 
 namespace cURLRequester;
@@ -39,20 +40,16 @@ class cURLEngine {
     public $appVersion                  = "1.0.0";
 
     // Default Directories where data can be write
-    protected $functionHeadersDir       = "./Other/Headers/";
-    public $certPath                    = './SSL/cacert.pem';
-    public $cacheDir                    = './Cache/';
-    public $cookiesDir                  = "Cookies/";
+    protected $functionHeadersDir       = __DIR__."/Other/Headers/";
+    public $certPath                    = __DIR__.'/SSL/cacert.pem';
+    public $cacheDir                    = __DIR__.'/Cache/';
+    public $cookiesDir                  = __DIR__."/Cookies/";
 
 	// Flags
     protected $isCookiesEnable          = false;
     protected $isCacheEnable            = false;
     protected $isCookiesNewWrite        = false;
 
-	// need to add time loaded requested
-    // download file
-    // ftp
-    // need to delete @see comments ..
 
     /**
 	 * cURLRequest constructor
@@ -100,7 +97,7 @@ class cURLEngine {
 
         foreach ($dirs as $key=> $dir) {
             //check if $dir is array
-            // then key will be a folder that will hold subfolders are in $dir
+            // then key will be a folder that will hold sub folders are in $dir
             if(is_array($dir)){
                 if(!is_dir($path.$key)) mkdir($path.$key, $permission, $recursive);
                 $this->setLibDirectories($dir, $path.$key.DIRECTORY_SEPARATOR, $permission, $recursive);
@@ -317,6 +314,7 @@ class cURLEngine {
         if($this->isCookiesEnable()) {
             $this->_enableCookies(true);
         }
+
         if(!$this->hasFalseValue($this->invokable))
         {
             //avoid print the result and force it to return the result in a variable
@@ -460,7 +458,9 @@ class cURLEngine {
      */
     public function makeUrl($url, $params="")
     {
-        $url .= $this->str_contains($url, "?") ? "?" : "&";
+        if(empty($params)) return $url;
+
+        $url .= $this->str_contains($url, "?") ? "&":"?";
         $url .= @http_build_query($params);
         return $url;
     }
@@ -523,18 +523,18 @@ class cURLEngine {
      */
     public function setCertificateFile($path="")
 	{
-		if(strlen($path)<=0)
-			$path = $this->certPath;
+		if(empty($path))
+            $path = $this->certPath;
 
-		if(@file_exists($path))
+
+		if(file_exists($path))
 		{
             $this->setOpt("CURLOPT_CAINFO", realpath($path));
-        }elseif($this->uriFileExists($path))
+        }
+        else
         {
-            $this->setOpt("CURLOPT_CAINFO", $path);
-        }else{
             $this->ERRORS["Error"]["SSL"]   = "Cacert path doesn't exists! Library default SSL directory has been set!";
-            $this->setOpt("CURLOPT_CAINFO", __DIR__.DIRECTORY_SEPARATOR."SSL".DIRECTORY_SEPARATOR);
+            $this->setOpt("CURLOPT_CAINFO", __DIR__.DIRECTORY_SEPARATOR."SSL".DIRECTORY_SEPARATOR."cacert.pem");
         }
 
         $this->verifyPeer(true);
@@ -557,9 +557,6 @@ class cURLEngine {
         if(@is_dir($path))
         {
             $this->setOpt("CURLOPT_CAPATH", realpath($path));
-        }elseif($this->uriFileExists($path))
-        {
-            $this->setOpt("CURLOPT_CAPATH", $path);
         }else
         {
             $this->ERRORS["Error"]["SSL"]   = "Certificate directory doesn't exists! Library default SSL directory has been set!";
@@ -705,20 +702,30 @@ class cURLEngine {
             return false;
 
         $url        = $this->getOpt("CURLOPT_URL");
-        $urlParts   = parse_url($url);
-
-        // php 5.* -> WHERE * € [1-9]
+        $urlParts   = $this->parseURL($url);
+        // php 5.* -> WHERE * = [1-9]
         $urlParts["host"]    = str_replace("http", "", $urlParts["host"]);
         $urlParts["host"]    = str_replace("https", "", $urlParts["host"]);
         $urlParts["host"]    = str_replace("www", "", $urlParts["host"]);
         $urlParts["host"]    = str_replace(".", "_", $urlParts["host"]);
-        //php 7
-        //$urlParts["host"]    = str_replace(["www", "https", "http", "."], "", $urlParts["host"]);
-        //$urlParts["host"]    = str_replace(["."], "_", $urlParts["host"]);
         $fileName   = substr(md5($url),0,10)."_".$urlParts["host"].$ext;
         $fileName   = realpath($this->cookiesDir).DIRECTORY_SEPARATOR.$fileName;
 
         return $fileName;
+    }
+
+    public function parseURL($url)
+    {
+        $parsedUrl    = parse_url($url);
+        if(!isset($parsedUrl["host"])){
+            if(isset($parsedUrl["path"])) {
+                $parsedUrl["host"] = str_replace("www.", "", $parsedUrl["path"]);
+                $parsedUrl["host"] = str_replace(".", "", $parsedUrl["host"]);
+                $parsedUrl["host"] = str_replace("/", "", $parsedUrl["host"]);
+            }
+        }
+
+        return $parsedUrl;
     }
 
     /**
@@ -764,6 +771,7 @@ class cURLEngine {
 
         $this->setOpt(CURLOPT_HEADER, $headerVal);
         $this->setOpt(CURLOPT_HTTPHEADER, $headers);
+        return $this;
     }
 
     /**
@@ -1136,18 +1144,16 @@ class cURLEngine {
             return false;
 
         $url    = $this->getOpt("CURLOPT_URL");
-        $urlParts = parse_url($url);
+        $urlParts = $this->parseURL($url);
 
         // php 5.*
         $urlParts["host"]    = str_replace("http", "", $urlParts["host"]);
         $urlParts["host"]    = str_replace("https", "", $urlParts["host"]);
         $urlParts["host"]    = str_replace("www", "", $urlParts["host"]);
         $urlParts["host"]    = str_replace(".", "_", $urlParts["host"]);
-        //php 7
-        //$urlParts["host"]    = str_replace(["www", "https", "http", "."], "", $urlParts["host"]);
-        //$urlParts["host"]    = str_replace(["."], "_", $urlParts["host"]);
 
-        $fileName   = $this->cacheDir."/".substr(md5($url),0,10)."_".$urlParts["host"].".cache";
+        $fileName   = substr(md5($url),0,10)."_".$urlParts["host"].".cache";
+        $fileName   = realpath($this->cacheDir).DIRECTORY_SEPARATOR.$fileName;
         return $fileName;
     }
 
@@ -1339,7 +1345,7 @@ class cURLEngine {
             return false;
 
         $url    = $this->getOpt("CURLOPT_URL");
-        $urlParts = parse_url($url);
+        $urlParts = $this->parseURL($url);
 
         // php 5.*
         $urlParts["host"]    = str_replace("http", "", $urlParts["host"]);

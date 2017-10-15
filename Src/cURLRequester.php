@@ -51,13 +51,15 @@ class cURLRequester extends cURLEngine
      */
     public function get($url, $params="", $useSSL=true, $secure=true)
     {
+
+        if($useSSL) $this->setCertificateFile();
+
         //Try to avoid MITM Attack
         if($secure){
             $this->verifyPeer();
             $this->verifyHost();
         }
 
-        if($useSSL) $this->setCertificateFile();
 
         if(!$this->isCacheEnable()) $this->initCurl(true);
 
@@ -100,6 +102,7 @@ class cURLRequester extends cURLEngine
 
     public function login()
     {
+        // print_R($this->options["curl_opt"]);
         // try to find the actual login form
         /*if (!preg_match('/<form .*?<\/form>/is', $page, $form)) {
             die('Failed to find log in form!');

@@ -2,4 +2,5 @@
 Src/Cache/
 Src/Cookies/
 Src/Other/
-vendor/bin/
+vendor/
+Tests/HTML/
