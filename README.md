@@ -6,7 +6,7 @@ curl-requester let you make http request easy
 
 #### Composer 
     
-    composer require phoenix404/cURLRequester dev-master
+    composer require phoenix404/curl-requester
     
 #### Github
 
