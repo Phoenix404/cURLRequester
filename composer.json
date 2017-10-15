@@ -18,5 +18,5 @@
       "cURLRequester\\": "Src/"
     }
   },
-  "minimum-stability": "dev"
+  "minimum-stability": "stable"
 }
