@@ -18,5 +18,5 @@
       "cURLRequester\\": "Src/"
     }
   },
-  "minimum-stability": "stable"
+  "minimum-stability": "dev-master"
 }
