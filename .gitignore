@@ -1,6 +1,6 @@
-.idea/
-Src/Cache/
-Src/Cookies/
-Src/Other/
-vendor/
-Tests/HTML/
+.idea
+Src/Cache
+Src/Cookies
+Src/Other
+vendor
+Tests/HTML
