@@ -85,11 +85,12 @@ class cURLRequester extends cURLEngine
             $this->verifyHost();
         }
 
-        if($useSSL) $this->setCertificateFile();
+        //if($useSSL) $this->setCertificateFile();
 
-        if(!$this->isCacheEnable()) $this->initCurl(true);
+        if(!$this->isCacheEnable())
+            $this->initCurl(true);
 
-        $url    = $this->makeUrl($url, $params);
+        $url    = $this->makeUrl($url);
         $this->setUrl($url);
 
         $this->setOpt("CURLOPT_POST", true);

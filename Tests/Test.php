@@ -11,7 +11,7 @@ $option1    = array("CURLOPT_RETURNTRANSFER"=>1);
 $option2    = array(CURLOPT_RETURNTRANSFER =>1);
 
 $c 	= new cURLRequester("http://www.lina24.com/go/", true);
-
+/*
 //$c->noBody();
 echo "\nCalling what are cookies\n";
 $data1 = $c
@@ -67,3 +67,4 @@ echo "\nRedirected Url: ";print_r($c->getRedirectedUrl());
 
 //echo $c->getResult();
 
+*/
