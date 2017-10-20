@@ -85,7 +85,7 @@ class cURLRequester extends cURLEngine
             $this->verifyHost();
         }
 
-        //if($useSSL) $this->setCertificateFile();
+        if($useSSL) $this->setCertificateFile();
 
         if(!$this->isCacheEnable())
             $this->initCurl(true);
