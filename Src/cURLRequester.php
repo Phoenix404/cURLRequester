@@ -94,7 +94,12 @@ class cURLRequester extends cURLEngine
 
         $this->setOpt("CURLOPT_POST", true);
 
-        if(!empty($params)) $this->setOpt("CURLOPT_POSTFIELDS", http_build_query($params));
+        if(is_string($params)) {
+            $query = $params;
+        }else{
+            $query = http_build_query($params);
+        }
+        if(!empty($query)) $this->setOpt("CURLOPT_POSTFIELDS", $query);
 
         $this->invoke();
         return $this;

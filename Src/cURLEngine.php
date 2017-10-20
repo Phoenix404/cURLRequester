@@ -461,7 +461,10 @@ class cURLEngine {
         if(empty($params)) return $url;
 
         $url .= $this->str_contains($url, "?") ? "&":"?";
-        $url .= @http_build_query($params);
+
+        if(is_string($params)) $url .= $params;
+        else $url .= @http_build_query($params);
+
         return $url;
     }
 
