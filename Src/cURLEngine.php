@@ -482,7 +482,7 @@ class cURLEngine {
      * @param $file
      * @return $this|bool
      */
-    public function uploadFile($file)
+    public function uploadFile($file, $upload=true)
     {
         if(!file_exists($file) || !is_resource($file)){
             $this->ERRORS["UploadFile"][] = "File for uploading doesn't exists!";
@@ -490,6 +490,7 @@ class cURLEngine {
         }
 
         $this->setOpt("CURLOPT_INFILE", $file);
+        $this->setOpt("CURLOPT_UPLOAD", $upload);
         return $this;
     }
 
