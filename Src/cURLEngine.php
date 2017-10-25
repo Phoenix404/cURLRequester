@@ -324,6 +324,7 @@ class cURLEngine {
             $this->prepareCurlOption();
             $this->result = curl_exec($this->cURL);
             $this->writeFunctionHeaders();
+
         }
 
         // if cache is enabled
@@ -341,6 +342,9 @@ class cURLEngine {
         if($this->result == false)
             $this->result = $this->getCurlErrors();
 
+
+        if(isset($this->options["fileHandler"]))
+            fclose($this->options["fileHandler"]);
         return $this->result;
     }
 
@@ -484,12 +488,26 @@ class cURLEngine {
      */
     public function uploadFile($file, $upload=true)
     {
-        if(!file_exists($file)){
+
+        if(is_resource($file)){
+            $this->setOpt("CURLOPT_INFILE", $file);
+        }elseif(!file_exists($file)){
             $this->ERRORS["UploadFile"][] = "File for uploading doesn't exists!";
             return false;
+        }else{
+            // if we are in this condition that means we have file..
+            $this->options["fileHandler"] = fopen($file, "r");
+            $this->setOpt("CURLOPT_INFILE", $this->options["fileHandler"]);
         }
 
-        $this->setOpt("CURLOPT_INFILE", $file);
+        /*if (!function_exists('curl_file_create')) {
+            function curl_file_create($filename, $mimetype = '', $postname = '') {
+                return "@$filename;filename="
+                    . ($postname ?: basename($filename))
+                    . ($mimetype ? ";type=$mimetype" : '');
+            }
+        }*/
+
         $this->setOpt("CURLOPT_UPLOAD", $upload);
         return $this;
     }
