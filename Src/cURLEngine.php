@@ -484,7 +484,7 @@ class cURLEngine {
      */
     public function uploadFile($file, $upload=true)
     {
-        if(!file_exists($file) || !is_resource($file)){
+        if(!file_exists($file)){
             $this->ERRORS["UploadFile"][] = "File for uploading doesn't exists!";
             return false;
         }
@@ -773,8 +773,8 @@ class cURLEngine {
             $headers[] = $key . ': ' . $value;
         }
 
-        $this->setOpt(CURLOPT_HEADER, $headerVal);
-        $this->setOpt(CURLOPT_HTTPHEADER, $headers);
+        $this->setOpt("CURLOPT_HEADER", $headerVal);
+        $this->setOpt("CURLOPT_HTTPHEADER", $headers);
         return $this;
     }
 
@@ -806,7 +806,7 @@ class cURLEngine {
      */
     public function setTimeout($seconds=0)
     {
-        $this->setOpt(CURLOPT_TIMEOUT, $seconds);
+        $this->setOpt("CURLOPT_TIMEOUT", $seconds);
     }
 
     /**
@@ -1303,7 +1303,7 @@ class cURLEngine {
      */
     public function setConnectTimeout($seconds)
     {
-        $this->setOpt(CURLOPT_CONNECTTIMEOUT, $seconds);
+        $this->setOpt("CURLOPT_CONNECTTIMEOUT", $seconds);
         return $this;
     }
 
@@ -1611,6 +1611,11 @@ class cURLEngine {
             }
         }
         return false;
+    }
+
+    public function getCurlSetOptions()
+    {
+        return $this->options["curl_opt"];
     }
 
 }
