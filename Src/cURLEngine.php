@@ -488,7 +488,7 @@ class cURLEngine {
      */
     public function uploadFile($file, $upload=true)
     {
-
+        //in next version need to add curl file support
         if(is_resource($file)){
             $this->setOpt("CURLOPT_INFILE", $file);
         }elseif(!file_exists($file)){
@@ -499,14 +499,6 @@ class cURLEngine {
             $this->options["fileHandler"] = fopen($file, "r");
             $this->setOpt("CURLOPT_INFILE", $this->options["fileHandler"]);
         }
-
-        /*if (!function_exists('curl_file_create')) {
-            function curl_file_create($filename, $mimetype = '', $postname = '') {
-                return "@$filename;filename="
-                    . ($postname ?: basename($filename))
-                    . ($mimetype ? ";type=$mimetype" : '');
-            }
-        }*/
 
         $this->setOpt("CURLOPT_UPLOAD", $upload);
         return $this;
@@ -773,28 +765,60 @@ class cURLEngine {
 	}
 
     /**
-     * set headers
+     * set headers values
      * @param array|string $key
      * @param string $value
      * @param bool $headerVal
+     * @return $this
      */
-    public function setHeaders($key, $value="", $headerVal=true)
+    public function setHeaders($key, $value="")
     {
         if(is_array($key)){
-            $this->headers     = array_merge($this->headers, $key);
+            $this->headers = array_merge($this->headers, $key);
+
+            $headers = array();
+            foreach ($this->headers as $key => $value) {
+                if(is_int($key) || empty($key)){
+
+                    if(strpos($value,":")>=0){
+
+                        $exp = explode(":",$value);
+                        if(count($exp) == 2)
+                            $this->setHeaders($exp[0],$exp[1]);
+
+                    }
+
+                }elseif(is_string($key)) {
+                    $headers[] = $key . ': ' . $value;
+                }
+            }
         }else {
             $this->headers[$key] = $value;
         }
 
-        $headers = array();
-        foreach ($this->headers as $key => $value) {
-            $headers[] = $key . ': ' . $value;
-        }
-
-        $this->setOpt("CURLOPT_HEADER", $headerVal);
-        $this->setOpt("CURLOPT_HTTPHEADER", $headers);
+        $this->_setHeaders();
         return $this;
     }
+
+
+    private function _setHeaders(){
+
+        $headers = array();
+
+        foreach ($this->headers as $key => $value)
+            $headers[] = $key.": ".$value;
+
+        $this->setOpt("CURLOPT_HEADER", $headers);
+        return $this;
+    }
+
+    public function enableHeaders($val)
+    {
+        $this->setOpt("CURLOPT_HTTPHEADER", $val);
+        return true;
+    }
+
+
 
     /**
      * Set maximum redirect allow
