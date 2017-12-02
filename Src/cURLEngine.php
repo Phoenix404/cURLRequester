@@ -808,13 +808,13 @@ class cURLEngine {
         foreach ($this->headers as $key => $value)
             $headers[] = $key.": ".$value;
 
-        $this->setOpt("CURLOPT_HEADER", $headers);
+        $this->setOpt("CURLOPT_HTTPHEADER", $headers);
         return $this;
     }
 
     public function enableHeaders($val)
     {
-        $this->setOpt("CURLOPT_HTTPHEADER", $val);
+        $this->setOpt("CURLOPT_HEADER", $val);
         return true;
     }
 
