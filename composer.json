@@ -4,7 +4,7 @@
   "type": "library",
   "require": {
     "phoenix404/useragents": "v1.1",
-    "phoenix404/php-proxiest": "v1.0"
+    "phoenix404/php-proxiest": "dev-master"
   },
   "license": "MIT",
   "authors": [
