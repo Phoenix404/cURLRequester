@@ -1,40 +1,5 @@
 [
     {
-        "name": "phoenix404/php-proxiest",
-        "version": "v1.0",
-        "version_normalized": "1.0.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/Phoenix404/php-proxiest.git",
-            "reference": "f056d47e237995ae1cdf2aedc6b7934f1109f3e9"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/Phoenix404/php-proxiest/zipball/f056d47e237995ae1cdf2aedc6b7934f1109f3e9",
-            "reference": "f056d47e237995ae1cdf2aedc6b7934f1109f3e9",
-            "shasum": ""
-        },
-        "time": "2017-10-13T19:36:25+00:00",
-        "type": "library",
-        "installation-source": "source",
-        "autoload": {
-            "psr-4": {
-                "Proxy\\": "Src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Phoenix404",
-                "email": "manpreet2681995@gmail.com"
-            }
-        ],
-        "description": "get proxy"
-    },
-    {
         "name": "phoenix404/useragents",
         "version": "v1.1",
         "version_normalized": "1.1.0.0",
@@ -68,5 +33,44 @@
             }
         ],
         "description": "useragents Lib with huge collection of useragents(os, devices, spieders, console browsers..)"
+    },
+    {
+        "name": "phoenix404/php-proxiest",
+        "version": "v2.0",
+        "version_normalized": "2.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Phoenix404/php-proxiest.git",
+            "reference": "dcc549ec333da9405aa00accc698cb24ded414b9"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Phoenix404/php-proxiest/zipball/dcc549ec333da9405aa00accc698cb24ded414b9",
+            "reference": "dcc549ec333da9405aa00accc698cb24ded414b9",
+            "shasum": ""
+        },
+        "require": {
+            "phoenix404/useragents": "v1.1",
+            "php": ">=7"
+        },
+        "time": "2018-02-03T14:44:36+00:00",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Proxy\\": "Src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Phoenix404",
+                "email": "manpreet2681995@gmail.com"
+            }
+        ],
+        "description": "get proxy"
     }
 ]

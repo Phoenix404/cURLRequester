@@ -4,21 +4,25 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "0f3290e269c04a16d9fe94e86e488c27",
+    "content-hash": "273861d91c42ef253c5887d2cf0a5d27",
     "packages": [
         {
             "name": "phoenix404/php-proxiest",
-            "version": "v1.0",
+            "version": "v2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Phoenix404/php-proxiest.git",
-                "reference": "f056d47e237995ae1cdf2aedc6b7934f1109f3e9"
+                "reference": "dcc549ec333da9405aa00accc698cb24ded414b9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Phoenix404/php-proxiest/zipball/f056d47e237995ae1cdf2aedc6b7934f1109f3e9",
-                "reference": "f056d47e237995ae1cdf2aedc6b7934f1109f3e9",
+                "url": "https://api.github.com/repos/Phoenix404/php-proxiest/zipball/dcc549ec333da9405aa00accc698cb24ded414b9",
+                "reference": "dcc549ec333da9405aa00accc698cb24ded414b9",
                 "shasum": ""
+            },
+            "require": {
+                "phoenix404/useragents": "v1.1",
+                "php": ">=7"
             },
             "type": "library",
             "autoload": {
@@ -37,7 +41,7 @@
                 }
             ],
             "description": "get proxy",
-            "time": "2017-10-13T19:36:25+00:00"
+            "time": "2018-02-03T14:44:36+00:00"
         },
         {
             "name": "phoenix404/useragents",
